@@ -2,12 +2,14 @@ import {Fragment, ReactElement} from 'react';
 import {FilmPromo} from '../../components/filmPromo/filmPromo';
 import {Catalog} from '../../components/catalog/catalog';
 import {Footer} from '../../components/footer/footer';
-import {CATALOG_FILMS, FILM_PROMO_PROPS} from '../../mocks/mocks';
+import {FilmPromoProps} from '../../propsTypes/propsTypes';
 
-export function MainPage() : ReactElement {
+import {CATALOG_FILMS} from '../../mocks/mocks';
+
+export function MainPage({name, genre, releaseDate, imgSrc, bgImgSrc}: FilmPromoProps) : ReactElement {
   return (
     <Fragment>
-      <FilmPromo name={FILM_PROMO_PROPS.name} genre={FILM_PROMO_PROPS.genre} releaseDate={FILM_PROMO_PROPS.releaseDate} imgSrc={FILM_PROMO_PROPS.imgSrc} bgImgSrc={FILM_PROMO_PROPS.bgImgSrc} />
+      <FilmPromo name={name} genre={genre} releaseDate={releaseDate} imgSrc={imgSrc} bgImgSrc={bgImgSrc} />
       <div className="page-content">
         <Catalog needRenderGenres needRenderShowMoreButton filmsCardsList={CATALOG_FILMS}/>,
         <Footer />
