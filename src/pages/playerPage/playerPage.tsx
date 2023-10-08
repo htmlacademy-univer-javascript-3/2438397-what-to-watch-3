@@ -1,6 +1,6 @@
 import {ReactElement} from 'react';
 
-export function playerPage(): ReactElement {
+export function PlayerPage(): ReactElement {
   return (
     <div className="player">
       <video

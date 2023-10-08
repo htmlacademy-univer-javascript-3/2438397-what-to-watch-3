@@ -1,23 +1,15 @@
 import {Fragment, ReactElement} from 'react';
-import {FilmCard} from '../../components/filmCard/filmCard';
+import {FilmPromo} from '../../components/filmPromo/filmPromo';
 import {Catalog} from '../../components/catalog/catalog';
 import {Footer} from '../../components/footer/footer';
-import {FilmCardProps} from '../../propsTypes/propsTypes';
-
-const FILM_CARD_PROPS: FilmCardProps = {
-  name: 'The Grand Budapest Hotel',
-  genre: 'Drama',
-  releaseDate: 2014,
-  imgSrc: 'img/the-grand-budapest-hotel-poster.jpg',
-  bgImgSrc: 'img/bg-the-grand-budapest-hotel.jpg'
-};
+import {CATALOG_FILMS, FILM_PROMO_PROPS} from '../../mocks/mocks';
 
 export function MainPage() : ReactElement {
   return (
     <Fragment>
-      <FilmCard name={FILM_CARD_PROPS.name} genre={FILM_CARD_PROPS.genre} releaseDate={FILM_CARD_PROPS.releaseDate} imgSrc={FILM_CARD_PROPS.imgSrc} bgImgSrc={FILM_CARD_PROPS.bgImgSrc} />
+      <FilmPromo name={FILM_PROMO_PROPS.name} genre={FILM_PROMO_PROPS.genre} releaseDate={FILM_PROMO_PROPS.releaseDate} imgSrc={FILM_PROMO_PROPS.imgSrc} bgImgSrc={FILM_PROMO_PROPS.bgImgSrc} />
       <div className="page-content">
-        <Catalog />,
+        <Catalog needRenderGenres needRenderShowMoreButton filmsCardsList={CATALOG_FILMS}/>,
         <Footer />
       </div>
     </Fragment>
