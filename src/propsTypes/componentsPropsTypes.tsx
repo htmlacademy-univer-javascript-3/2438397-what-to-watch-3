@@ -33,3 +33,15 @@ export type PlayerProps = {
   videoSrc: string;
   posterSrc: string;
 }
+
+export type AddReviewProps = {
+  id: number;
+  name: string;
+  imgSrc: string;
+  bgImgSrc: string;
+}
+
+export type StarProps = {
+  value: number;
+  onClick: () => void;
+}

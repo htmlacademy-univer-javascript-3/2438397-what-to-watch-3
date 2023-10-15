@@ -1,9 +1,10 @@
-import {FilmCardProps, FilmPromoProps, PlayerProps} from './componentsPropsTypes';
+import {AddReviewProps, FilmCardProps, FilmPromoProps, PlayerProps} from './componentsPropsTypes';
 
 export type AppProps = {
   mainPageProps: MainPageProps;
   myFilmsPageProps: MyFilmsPageProps;
   playerPageProps: PlayerProps;
+  addReviewPageProps: AddReviewProps;
 }
 
 export type MainPageProps = {
@@ -14,4 +15,3 @@ export type MainPageProps = {
 export type MyFilmsPageProps = {
   filmsCardList: Array<FilmCardProps>;
 }
-

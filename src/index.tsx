@@ -4,6 +4,7 @@ import {App} from './app/app';
 import {AppProps} from './propsTypes/pagesProsTypes';
 import {CATALOG_FILMS, FILM_PROMO, MY_FILMS} from './mocks/films';
 import {PLAYER} from './mocks/player';
+import {REVIEW} from './mocks/review';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,10 +19,11 @@ const APP_PROPS: AppProps = {
     filmsCardList: MY_FILMS,
   },
   playerPageProps: PLAYER,
+  addReviewPageProps: REVIEW,
 };
 
 root.render(
   <React.StrictMode>
-    <App mainPageProps={APP_PROPS.mainPageProps} myFilmsPageProps={APP_PROPS.myFilmsPageProps} playerPageProps={APP_PROPS.playerPageProps}/>
+    <App mainPageProps={APP_PROPS.mainPageProps} myFilmsPageProps={APP_PROPS.myFilmsPageProps} playerPageProps={APP_PROPS.playerPageProps} addReviewPageProps={APP_PROPS.addReviewPageProps}/>
   </React.StrictMode>
 );

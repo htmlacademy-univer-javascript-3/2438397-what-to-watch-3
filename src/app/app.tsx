@@ -16,7 +16,7 @@ import {SignInPage} from '../pages/signInPage/signInPage';
 
 import {AppProps} from '../propsTypes/pagesProsTypes';
 
-export function App({mainPageProps, myFilmsPageProps, playerPageProps}: AppProps): ReactElement {
+export function App({mainPageProps, myFilmsPageProps, playerPageProps, addReviewPageProps}: AppProps): ReactElement {
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -31,7 +31,10 @@ export function App({mainPageProps, myFilmsPageProps, playerPageProps}: AppProps
             element={<MainPage filmsCardList={mainPageProps.filmsCardList} filmPromo={mainPageProps.filmPromo}/>}
           />
           <Route path={AppRoute.Film} element={<MoviePage />} />
-          <Route path={AppRoute.AddReview} element={<AddReviewPage />} />
+          <Route
+            path={AppRoute.AddReview}
+            element={<AddReviewPage id={addReviewPageProps.id} name={addReviewPageProps.name} imgSrc={addReviewPageProps.imgSrc} bgImgSrc={addReviewPageProps.bgImgSrc}/>}
+          />
           <Route path={AppRoute.Player} element={<PlayerPage videoSrc={playerPageProps.videoSrc} posterSrc={playerPageProps.posterSrc}/>} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
