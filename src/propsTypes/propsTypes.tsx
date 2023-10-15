@@ -1,3 +1,11 @@
+import {ReactElement} from 'react';
+import {AuthorizationStatus} from '../app/appTypes';
+
+export type AuthorizationProps = {
+  authorizationStatus: AuthorizationStatus;
+  child: ReactElement;
+}
+
 export type FilmCardProps = {
   name: string;
   filmLink: string;
