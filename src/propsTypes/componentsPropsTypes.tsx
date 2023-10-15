@@ -7,9 +7,12 @@ export type AuthorizationProps = {
 }
 
 export type FilmCardProps = {
+  id: number;
   name: string;
   filmLink: string;
   imgSrc: string;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 export type FilmPromoProps = {
@@ -24,4 +27,9 @@ export type CatalogProps = {
   needRenderGenres: boolean;
   needRenderShowMoreButton: boolean;
   filmsCardsList: Array<FilmCardProps>;
+}
+
+export type PlayerProps = {
+  videoSrc: string;
+  posterSrc: string;
 }

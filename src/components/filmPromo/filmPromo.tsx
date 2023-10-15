@@ -1,5 +1,5 @@
 import {ReactElement} from 'react';
-import {FilmPromoProps} from '../../propsTypes/propsTypes';
+import {FilmPromoProps} from '../../propsTypes/componentsPropsTypes';
 import {Logo} from '../logo/logo';
 import {UserBlock} from '../userBlock/userBlock';
 

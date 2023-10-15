@@ -1,9 +1,9 @@
 import {ReactElement} from 'react';
-import {FilmCardProps} from '../../propsTypes/propsTypes.tsx';
+import {FilmCardProps} from '../../propsTypes/componentsPropsTypes.tsx';
 
-export function FilmCard({name, filmLink, imgSrc}: FilmCardProps) : ReactElement {
+export function FilmCard({name, filmLink, imgSrc, onMouseEnter, onMouseLeave}: FilmCardProps) : ReactElement {
   return (
-    <article className="small-film-card catalog__films-card">
+    <article className="small-film-card catalog__films-card" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <div className="small-film-card__image">
         <img src={imgSrc} alt={name} width="280" height="175"/>
       </div>
