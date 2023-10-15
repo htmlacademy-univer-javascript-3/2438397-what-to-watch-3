@@ -23,7 +23,7 @@ export function Catalog({needRenderGenres, filmsCardsList, needRenderShowMoreBut
 
       <div className="catalog__films-list">
         <div className="catalog__films-list">
-          {filmsCardsList.map((film) => (<FilmCard id={film.id} key={film.name} name={film.name} filmLink={film.filmLink} imgSrc={film.imgSrc} onMouseEnter={() => setActiveFilm(film.id)} onMouseLeave={() => setActiveFilm(null)}/>))}
+          {filmsCardsList.map((film) => (<FilmCard id={film.id} key={film.name} name={film.name} imgSrc={film.imgSrc} onMouseEnter={() => setActiveFilm(film.id)} onMouseLeave={() => setActiveFilm(null)}/>))}
         </div>
       </div>
 

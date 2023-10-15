@@ -22,7 +22,7 @@ export function PlayerPage({videoSrc, posterSrc}: PlayerProps): ReactElement {
               value="30"
               max="100"
             />
-            <div className="player__toggler" style={{ left: "30%" }}>
+            <div className="player__toggler" style={{ left: '30%' }}>
               Toggler
             </div>
           </div>
