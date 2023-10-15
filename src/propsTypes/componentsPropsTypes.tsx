@@ -9,7 +9,6 @@ export type AuthorizationProps = {
 export type FilmCardProps = {
   id: number;
   name: string;
-  filmLink: string;
   imgSrc: string;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;

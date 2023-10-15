@@ -30,12 +30,12 @@ export function App({mainPageProps, myFilmsPageProps, playerPageProps, addReview
             path={AppRoute.Root}
             element={<MainPage filmsCardList={mainPageProps.filmsCardList} filmPromo={mainPageProps.filmPromo}/>}
           />
-          <Route path={AppRoute.Film} element={<MoviePage />} />
+          <Route path={AppRoute.Film(1)} element={<MoviePage />} />
           <Route
-            path={AppRoute.AddReview}
+            path={AppRoute.AddReview(1)}
             element={<AddReviewPage id={addReviewPageProps.id} name={addReviewPageProps.name} imgSrc={addReviewPageProps.imgSrc} bgImgSrc={addReviewPageProps.bgImgSrc}/>}
           />
-          <Route path={AppRoute.Player} element={<PlayerPage videoSrc={playerPageProps.videoSrc} posterSrc={playerPageProps.posterSrc}/>} />
+          <Route path={AppRoute.Player(1)} element={<PlayerPage videoSrc={playerPageProps.videoSrc} posterSrc={playerPageProps.posterSrc}/>} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
