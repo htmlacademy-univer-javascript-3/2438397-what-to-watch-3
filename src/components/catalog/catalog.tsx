@@ -1,9 +1,16 @@
 import {ReactElement} from 'react';
-import {FilmCard} from '../filmCard/filmCard';
-import {CatalogProps} from '../../propsTypes/propsTypes';
+import {FilmCard, FilmCardProps} from '../filmCard/filmCard';
 import {GenresList} from '../genresList/genresList';
+import { useState } from 'react';
 
+export type CatalogProps = {
+  needRenderGenres: boolean;
+  needRenderShowMoreButton: boolean;
+  filmsCardsList: Array<FilmCardProps>;
+};
 export function Catalog({needRenderGenres, filmsCardsList, needRenderShowMoreButton}: CatalogProps): ReactElement {
+  const [, setActiveFilm] = useState<number | null>();
+
   const genresList = needRenderGenres ? <GenresList /> : '';
   const showMoreButton = needRenderShowMoreButton ?
     (
@@ -20,7 +27,7 @@ export function Catalog({needRenderGenres, filmsCardsList, needRenderShowMoreBut
 
       <div className="catalog__films-list">
         <div className="catalog__films-list">
-          {filmsCardsList.map((film) => (<FilmCard key={film.name} name={film.name} filmLink={film.filmLink} imgSrc={film.imgSrc} />))}
+          {filmsCardsList.map((film) => (<FilmCard id={film.id} key={film.name} name={film.name} imgSrc={film.imgSrc} onMouseEnter={() => setActiveFilm(film.id)} onMouseLeave={() => setActiveFilm(null)}/>))}
         </div>
       </div>
 

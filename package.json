@@ -7,7 +7,8 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx",
     "preview": "vite preview",
-    "test": "vitest --passWithNoTests"
+    "test": "vitest --passWithNoTests",
+    "prettier": "prettier  --write ./src/**/*.tsx"
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.5",
@@ -41,6 +42,7 @@
     "eslint-plugin-react-refresh": "0.4.1",
     "faker": "5.5.3",
     "jsdom": "22.1.0",
+    "prettier": "^3.0.3",
     "typescript": "5.0.4",
     "vite": "4.3.9",
     "vitest": "0.32.2"

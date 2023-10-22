@@ -1,12 +1,16 @@
 import {ReactElement} from 'react';
 
-export function PlayerPage(): ReactElement {
+export type PlayerProps = {
+  videoSrc: string;
+  posterSrc: string;
+};
+export function PlayerPage({videoSrc, posterSrc}: PlayerProps): ReactElement {
   return (
     <div className="player">
       <video
-        src="#"
+        src={videoSrc}
         className="player__video"
-        poster="img/player-poster.jpg"
+        poster={posterSrc}
       />
 
       <button type="button" className="player__exit">
