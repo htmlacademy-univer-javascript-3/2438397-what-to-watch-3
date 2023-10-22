@@ -1,9 +1,12 @@
 import { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { AuthorizationProps } from '../propsTypes/componentsPropsTypes';
 import { AuthorizationStatus, AppRoute } from './appTypes';
 
+export type AuthorizationProps = {
+  authorizationStatus: AuthorizationStatus;
+  child: ReactElement;
+};
 export function PrivateRoute({
   authorizationStatus,
   child,

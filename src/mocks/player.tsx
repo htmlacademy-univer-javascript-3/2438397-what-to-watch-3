@@ -1,4 +1,4 @@
-import { PlayerProps } from '../propsTypes/componentsPropsTypes';
+import { PlayerProps } from '../pages/playerPage/playerPage';
 
 export const PLAYER: PlayerProps = {
   videoSrc:

@@ -1,8 +1,7 @@
 import {ReactElement} from 'react';
 import {Logo} from '../../components/logo/logo';
 import {UserBlock} from '../../components/userBlock/userBlock';
-import {AddReviewProps} from '../../propsTypes/componentsPropsTypes';
-import {AddReviewForm} from '../../components/addReviewForm/addReviewForm';
+import {AddReviewForm, AddReviewProps} from '../../components/addReviewForm/addReviewForm';
 
 export function AddReviewPage({name, imgSrc, bgImgSrc}: AddReviewProps): ReactElement {
   return (

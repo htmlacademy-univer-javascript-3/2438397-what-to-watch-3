@@ -1,6 +1,13 @@
 import {ReactElement, useState} from 'react';
 import {Star} from './star';
 
+export type AddReviewProps = {
+  id: number;
+  name: string;
+  imgSrc: string;
+  bgImgSrc: string;
+};
+
 export type ReviewForm = {
   rating: number;
   comment: string;

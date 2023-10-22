@@ -1,6 +1,10 @@
 import {Fragment, ReactElement} from 'react';
 
-import {StarProps} from '../../propsTypes/componentsPropsTypes';
+
+export type StarProps = {
+  value: number;
+  onClick: () => void;
+};
 
 export function Star({value, onClick}: StarProps): ReactElement {
   return (

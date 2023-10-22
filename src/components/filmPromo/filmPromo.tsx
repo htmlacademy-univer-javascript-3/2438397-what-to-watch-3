@@ -1,7 +1,14 @@
 import {ReactElement} from 'react';
-import {FilmPromoProps} from '../../propsTypes/componentsPropsTypes';
 import {Logo} from '../logo/logo';
 import {UserBlock} from '../userBlock/userBlock';
+
+export type FilmPromoProps = {
+  name: string;
+  genre: string;
+  releaseDate: number;
+  imgSrc: string;
+  bgImgSrc: string;
+};
 
 export function FilmPromo({name, genre, releaseDate, imgSrc, bgImgSrc}: FilmPromoProps): ReactElement {
   return (

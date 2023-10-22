@@ -1,4 +1,4 @@
-import { AddReviewProps } from '../propsTypes/componentsPropsTypes';
+import { AddReviewProps } from '../components/addReviewForm/addReviewForm';
 
 export const REVIEW: AddReviewProps = {
   id: 1,

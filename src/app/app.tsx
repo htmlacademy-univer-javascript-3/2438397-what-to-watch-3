@@ -6,15 +6,21 @@ import { AppRoute } from './appTypes';
 import { PrivateRoute } from './privateRoute';
 import { AuthorizationStatus } from './appTypes';
 
-import { MyListPage } from '../pages/myListPage/myListPage';
-import { MainPage } from '../pages/mainPage/mainPage';
+import { MyFilmsPageProps, MyListPage } from '../pages/myListPage/myListPage';
+import { MainPage, MainPageProps } from '../pages/mainPage/mainPage';
 import { MoviePage } from '../pages/moviePage/moviePage';
 import { AddReviewPage } from '../pages/addReviewPage/addReviewPage';
 import { NotFoundPage } from '../pages/notFoundPage/notFoundPage';
-import { PlayerPage } from '../pages/playerPage/playerPage';
+import { PlayerPage, PlayerProps } from '../pages/playerPage/playerPage';
 import { SignInPage } from '../pages/signInPage/signInPage';
+import { AddReviewProps } from '../components/addReviewForm/addReviewForm';
 
-import { AppProps } from '../propsTypes/pagesProsTypes';
+export type AppProps = {
+  mainPageProps: MainPageProps;
+  myFilmsPageProps: MyFilmsPageProps;
+  playerPageProps: PlayerProps;
+  addReviewPageProps: AddReviewProps;
+};
 
 export function App({
   mainPageProps,

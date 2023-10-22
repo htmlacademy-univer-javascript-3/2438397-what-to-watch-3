@@ -1,6 +1,9 @@
 import {ReactElement} from 'react';
-import {PlayerProps} from '../../propsTypes/componentsPropsTypes';
 
+export type PlayerProps = {
+  videoSrc: string;
+  posterSrc: string;
+};
 export function PlayerPage({videoSrc, posterSrc}: PlayerProps): ReactElement {
   return (
     <div className="player">

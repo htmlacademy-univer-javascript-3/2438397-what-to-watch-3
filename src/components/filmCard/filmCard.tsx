@@ -1,8 +1,15 @@
 import {ReactElement} from 'react';
 import { Link } from 'react-router-dom';
 
-import {FilmCardProps} from '../../propsTypes/componentsPropsTypes.tsx';
 import {AppRoute} from '../../app/appTypes';
+
+export type FilmCardProps = {
+  id: number;
+  name: string;
+  imgSrc: string;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+};
 
 export function FilmCard({id, name, imgSrc, onMouseEnter, onMouseLeave}: FilmCardProps) : ReactElement {
   return (

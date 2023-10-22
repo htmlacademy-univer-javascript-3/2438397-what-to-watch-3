@@ -1,7 +1,5 @@
-import {
-  FilmPromoProps,
-  FilmCardProps,
-} from '../propsTypes/componentsPropsTypes';
+import { FilmPromoProps } from '../components/filmPromo/filmPromo';
+import { FilmCardProps } from '../components/filmCard/filmCard';
 
 export const FILM_PROMO: FilmPromoProps = {
   name: 'The Grand Budapest Hotel',

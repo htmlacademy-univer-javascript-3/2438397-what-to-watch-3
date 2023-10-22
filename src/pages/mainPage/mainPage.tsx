@@ -1,9 +1,13 @@
 import {Fragment, ReactElement} from 'react';
-import {FilmPromo} from '../../components/filmPromo/filmPromo';
+import {FilmPromo, FilmPromoProps} from '../../components/filmPromo/filmPromo';
 import {Catalog} from '../../components/catalog/catalog';
 import {Footer} from '../../components/footer/footer';
+import {FilmCardProps} from '../../components/filmCard/filmCard';
 
-import {MainPageProps} from '../../propsTypes/pagesProsTypes';
+export type MainPageProps = {
+  filmPromo: FilmPromoProps;
+  filmsCardList: Array<FilmCardProps>;
+};
 
 export function MainPage({filmPromo, filmsCardList}: MainPageProps) : ReactElement {
   return (

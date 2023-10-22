@@ -3,8 +3,11 @@ import {Footer} from '../../components/footer/footer';
 import {Catalog} from '../../components/catalog/catalog';
 import {Logo} from '../../components/logo/logo';
 import {UserBlock} from '../../components/userBlock/userBlock';
+import {FilmCardProps} from '../../components/filmCard/filmCard';
 
-import {MyFilmsPageProps} from '../../propsTypes/pagesProsTypes';
+export type MyFilmsPageProps = {
+  filmsCardList: Array<FilmCardProps>;
+};
 
 export function MyListPage({filmsCardList}: MyFilmsPageProps): ReactElement {
   return (

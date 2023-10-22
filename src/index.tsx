@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {App} from './app/app';
-import {AppProps} from './propsTypes/pagesProsTypes';
+import {App, AppProps} from './app/app';
 import {CATALOG_FILMS, FILM_PROMO, MY_FILMS} from './mocks/films';
 import {PLAYER} from './mocks/player';
 import {REVIEW} from './mocks/review';

@@ -1,9 +1,13 @@
 import {ReactElement} from 'react';
-import {FilmCard} from '../filmCard/filmCard';
-import {CatalogProps} from '../../propsTypes/componentsPropsTypes';
+import {FilmCard, FilmCardProps} from '../filmCard/filmCard';
 import {GenresList} from '../genresList/genresList';
 import { useState } from 'react';
 
+export type CatalogProps = {
+  needRenderGenres: boolean;
+  needRenderShowMoreButton: boolean;
+  filmsCardsList: Array<FilmCardProps>;
+};
 export function Catalog({needRenderGenres, filmsCardsList, needRenderShowMoreButton}: CatalogProps): ReactElement {
   const [, setActiveFilm] = useState<number | null>();
 
