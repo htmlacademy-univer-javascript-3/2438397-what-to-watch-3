@@ -7,6 +7,7 @@ export type AuthorizationProps = {
   authorizationStatus: AuthorizationStatus;
   child: ReactElement;
 };
+
 export function PrivateRoute({
   authorizationStatus,
   child,

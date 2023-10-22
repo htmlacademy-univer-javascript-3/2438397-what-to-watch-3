@@ -3,10 +3,10 @@ import {Footer} from '../../components/footer/footer';
 import {Catalog} from '../../components/catalog/catalog';
 import {Logo} from '../../components/logo/logo';
 import {UserBlock} from '../../components/userBlock/userBlock';
-import {FilmCardProps} from '../../components/filmCard/filmCard';
+import {Film} from '../../types/film';
 
 export type MyFilmsPageProps = {
-  filmsCardList: Array<FilmCardProps>;
+  filmsCardList: Array<Film>;
 };
 
 export function MyListPage({filmsCardList}: MyFilmsPageProps): ReactElement {
@@ -18,7 +18,7 @@ export function MyListPage({filmsCardList}: MyFilmsPageProps): ReactElement {
         <UserBlock />
       </header>
 
-      <Catalog needRenderGenres={false} needRenderShowMoreButton={false} filmsCardsList={filmsCardList} />
+      <Catalog needRenderGenres={false} needRenderShowMoreButton={false} filmsList={filmsCardList} />
       <Footer/>
     </div>
   );
