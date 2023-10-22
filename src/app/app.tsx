@@ -47,9 +47,9 @@ export function App({
               />
             }
           />
-          <Route path={AppRoute.Film(1)} element={<MoviePage />} />
+          <Route path={AppRoute.Film()} element={<MoviePage />} />
           <Route
-            path={AppRoute.AddReview(1)}
+            path={AppRoute.AddReview()}
             element={
               <AddReviewPage
                 id={addReviewPageProps.id}
@@ -60,7 +60,7 @@ export function App({
             }
           />
           <Route
-            path={AppRoute.Player(1)}
+            path={AppRoute.Player()}
             element={
               <PlayerPage
                 videoSrc={playerPageProps.videoSrc}

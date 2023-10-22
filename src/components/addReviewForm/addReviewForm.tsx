@@ -6,6 +6,8 @@ export type ReviewForm = {
   comment: string;
 };
 
+const STARS_NUMBER = 10;
+
 export function AddReviewForm(): ReactElement {
   const [reviewForm, setReviewForm] = useState<ReviewForm>({
     rating: 0,
@@ -17,8 +19,8 @@ export function AddReviewForm(): ReactElement {
       <form action="addReviewPage#" className="add-review__form">
         <div className="rating">
           <div className="rating__stars">
-            {Array.from(Array(10).keys()).map((i) => (
-              <Star key={10 - i} value={10 - i} onClick={() => setReviewForm({...reviewForm, rating: 10 - i})} />
+            {Array.from(Array(STARS_NUMBER).keys()).map((i) => (
+              <Star key={STARS_NUMBER - i} value={STARS_NUMBER - i} onClick={() => setReviewForm({...reviewForm, rating: STARS_NUMBER - i})} />
             ))}
           </div>
         </div>
