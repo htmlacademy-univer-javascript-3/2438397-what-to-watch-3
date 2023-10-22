@@ -1,10 +1,10 @@
-import {ReactElement} from 'react';
-import {AuthorizationStatus} from '../app/appTypes';
+import { ReactElement } from 'react';
+import { AuthorizationStatus } from '../app/appTypes';
 
 export type AuthorizationProps = {
   authorizationStatus: AuthorizationStatus;
   child: ReactElement;
-}
+};
 
 export type FilmCardProps = {
   id: number;
@@ -12,7 +12,7 @@ export type FilmCardProps = {
   imgSrc: string;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
-}
+};
 
 export type FilmPromoProps = {
   name: string;
@@ -20,27 +20,27 @@ export type FilmPromoProps = {
   releaseDate: number;
   imgSrc: string;
   bgImgSrc: string;
-}
+};
 
 export type CatalogProps = {
   needRenderGenres: boolean;
   needRenderShowMoreButton: boolean;
   filmsCardsList: Array<FilmCardProps>;
-}
+};
 
 export type PlayerProps = {
   videoSrc: string;
   posterSrc: string;
-}
+};
 
 export type AddReviewProps = {
   id: number;
   name: string;
   imgSrc: string;
   bgImgSrc: string;
-}
+};
 
 export type StarProps = {
   value: number;
   onClick: () => void;
-}
+};

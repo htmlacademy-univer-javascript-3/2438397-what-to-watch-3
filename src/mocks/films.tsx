@@ -1,160 +1,163 @@
-import {FilmPromoProps, FilmCardProps} from '../propsTypes/componentsPropsTypes';
+import {
+  FilmPromoProps,
+  FilmCardProps,
+} from '../propsTypes/componentsPropsTypes';
 
 export const FILM_PROMO: FilmPromoProps = {
   name: 'The Grand Budapest Hotel',
   genre: 'Drama',
   releaseDate: 2014,
   imgSrc: 'img/the-grand-budapest-hotel-poster.jpg',
-  bgImgSrc: 'img/bg-the-grand-budapest-hotel.jpg'
+  bgImgSrc: 'img/bg-the-grand-budapest-hotel.jpg',
 };
 
 export const CATALOG_FILMS: FilmCardProps[] = [
   {
     id: 1,
-    name:'Fantastic Beasts: The Crimes of Grindelwald',
-    imgSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg'
+    name: 'Fantastic Beasts: The Crimes of Grindelwald',
+    imgSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
   },
   {
     id: 2,
-    name:'Bohemian Rhapsody',
-    imgSrc: 'img/bohemian-rhapsody.jpg'
+    name: 'Bohemian Rhapsody',
+    imgSrc: 'img/bohemian-rhapsody.jpg',
   },
   {
     id: 3,
-    name:'Macbeth',
-    imgSrc: 'img/macbeth.jpg'
+    name: 'Macbeth',
+    imgSrc: 'img/macbeth.jpg',
   },
   {
     id: 4,
-    name:'Aviator',
-    imgSrc: 'img/aviator.jpg'
+    name: 'Aviator',
+    imgSrc: 'img/aviator.jpg',
   },
   {
     id: 5,
-    name:'We need to talk about Kevin',
-    imgSrc: 'img/we-need-to-talk-about-kevin.jpg'
+    name: 'We need to talk about Kevin',
+    imgSrc: 'img/we-need-to-talk-about-kevin.jpg',
   },
   {
     id: 6,
-    name:'What We Do in the Shadows',
-    imgSrc: 'img/what-we-do-in-the-shadows.jpg'
+    name: 'What We Do in the Shadows',
+    imgSrc: 'img/what-we-do-in-the-shadows.jpg',
   },
   {
     id: 7,
-    name:'Revenant',
-    imgSrc: 'img/revenant.jpg'
+    name: 'Revenant',
+    imgSrc: 'img/revenant.jpg',
   },
   {
     id: 8,
-    name:'Johnny English',
-    imgSrc: 'img/johnny-english.jpg'
+    name: 'Johnny English',
+    imgSrc: 'img/johnny-english.jpg',
   },
   {
     id: 9,
-    name:'Shutter Island',
-    imgSrc: 'img/shutter-island.jpg'
+    name: 'Shutter Island',
+    imgSrc: 'img/shutter-island.jpg',
   },
   {
     id: 10,
-    name:'Pulp Fiction',
-    imgSrc: 'img/pulp-fiction.jpg'
+    name: 'Pulp Fiction',
+    imgSrc: 'img/pulp-fiction.jpg',
   },
   {
     id: 11,
-    name:'No Country for Old Men',
-    imgSrc: 'img/no-country-for-old-men.jpg'
+    name: 'No Country for Old Men',
+    imgSrc: 'img/no-country-for-old-men.jpg',
   },
   {
     id: 12,
-    name:'Snatch',
-    imgSrc: 'img/snatch.jpg'
+    name: 'Snatch',
+    imgSrc: 'img/snatch.jpg',
   },
   {
     id: 13,
-    name:'Moonrise Kingdom',
-    imgSrc: 'img/moonrise-kingdom.jpg'
+    name: 'Moonrise Kingdom',
+    imgSrc: 'img/moonrise-kingdom.jpg',
   },
   {
     id: 14,
-    name:'Seven Years in Tibet',
-    imgSrc: 'img/seven-years-in-tibet.jpg'
+    name: 'Seven Years in Tibet',
+    imgSrc: 'img/seven-years-in-tibet.jpg',
   },
   {
     id: 15,
-    name:'Midnight Special',
-    imgSrc: 'img/midnight-special.jpg'
+    name: 'Midnight Special',
+    imgSrc: 'img/midnight-special.jpg',
   },
   {
     id: 16,
-    name:'War of the Worlds',
-    imgSrc: 'img/war-of-the-worlds.jpg'
+    name: 'War of the Worlds',
+    imgSrc: 'img/war-of-the-worlds.jpg',
   },
   {
     id: 18,
-    name:'Dardjeeling Limited',
-    imgSrc: 'img/dardjeeling-limited.jpg'
+    name: 'Dardjeeling Limited',
+    imgSrc: 'img/dardjeeling-limited.jpg',
   },
   {
     id: 19,
-    name:'Orlando',
-    imgSrc: 'img/orlando.jpg'
+    name: 'Orlando',
+    imgSrc: 'img/orlando.jpg',
   },
   {
     id: 20,
-    name:'Mindhunter',
-    imgSrc: 'img/mindhunter.jpg'
+    name: 'Mindhunter',
+    imgSrc: 'img/mindhunter.jpg',
   },
   {
     id: 21,
-    name:'Midnight Special',
-    imgSrc: 'img/midnight-special.jpg'
+    name: 'Midnight Special',
+    imgSrc: 'img/midnight-special.jpg',
   },
 ];
 
 export const MY_FILMS: FilmCardProps[] = [
   {
     id: 1,
-    name:'Fantastic Beasts: The Crimes of Grindelwald',
-    imgSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg'
+    name: 'Fantastic Beasts: The Crimes of Grindelwald',
+    imgSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
   },
   {
     id: 2,
-    name:'Bohemian Rhapsody',
-    imgSrc: 'img/bohemian-rhapsody.jpg'
+    name: 'Bohemian Rhapsody',
+    imgSrc: 'img/bohemian-rhapsody.jpg',
   },
   {
     id: 3,
-    name:'Macbeth',
-    imgSrc: 'img/macbeth.jpg'
+    name: 'Macbeth',
+    imgSrc: 'img/macbeth.jpg',
   },
   {
     id: 4,
-    name:'Aviator',
-    imgSrc: 'img/aviator.jpg'
+    name: 'Aviator',
+    imgSrc: 'img/aviator.jpg',
   },
   {
     id: 5,
-    name:'We need to talk about Kevin',
-    imgSrc: 'img/we-need-to-talk-about-kevin.jpg'
+    name: 'We need to talk about Kevin',
+    imgSrc: 'img/we-need-to-talk-about-kevin.jpg',
   },
   {
     id: 6,
-    name:'What We Do in the Shadows',
-    imgSrc: 'img/what-we-do-in-the-shadows.jpg'
+    name: 'What We Do in the Shadows',
+    imgSrc: 'img/what-we-do-in-the-shadows.jpg',
   },
   {
     id: 7,
-    name:'Revenant',
-    imgSrc: 'img/revenant.jpg'
+    name: 'Revenant',
+    imgSrc: 'img/revenant.jpg',
   },
   {
     id: 8,
-    name:'Johnny English',
-    imgSrc: 'img/johnny-english.jpg'
+    name: 'Johnny English',
+    imgSrc: 'img/johnny-english.jpg',
   },
   {
     id: 9,
-    name:'Shutter Island',
-    imgSrc: 'img/shutter-island.jpg'
+    name: 'Shutter Island',
+    imgSrc: 'img/shutter-island.jpg',
   },
 ];
