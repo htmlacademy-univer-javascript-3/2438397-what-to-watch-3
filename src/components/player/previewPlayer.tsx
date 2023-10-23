@@ -1,16 +1,16 @@
 import {ReactElement, useEffect, useRef} from 'react';
-import {Film} from '../../types/film';
+import {Video} from '../../types/video';
 
 export type PlayerProps = {
-  film: Film;
+  video: Video;
   isPlaying: boolean;
 }
 
-export function Player({film, isPlaying}: PlayerProps): ReactElement {
+export function PreviewPlayer({video, isPlaying}: PlayerProps): ReactElement {
   const playerRef = useRef<HTMLVideoElement | null>(null);
   useEffect(
     () => {
-      if (playerRef !== null) {
+      if (playerRef.current) {
         if (isPlaying) {
           playerRef.current?.play();
         } else {
@@ -21,6 +21,6 @@ export function Player({film, isPlaying}: PlayerProps): ReactElement {
     [isPlaying]
   );
   return (
-    <video ref={playerRef} width="280" height="175" src={film.videoSrc} poster={film.imgSrc} muted />
+    <video ref={playerRef} width="280" height="175" src={video.videoSrc} poster={video.imgSrc} muted />
   );
 }

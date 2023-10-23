@@ -2,11 +2,11 @@ import {Fragment, ReactElement} from 'react';
 import {FilmPromo, FilmPromoProps} from '../../components/filmPromo/filmPromo';
 import {Catalog} from '../../components/catalog/catalog';
 import {Footer} from '../../components/footer/footer';
-import {Film} from '../../types/film';
+import {Video} from '../../types/video';
 
 export type MainPageProps = {
   filmPromo: FilmPromoProps;
-  filmsCardList: Array<Film>;
+  filmsCardList: Video[];
 };
 
 export function MainPage({filmPromo, filmsCardList}: MainPageProps) : ReactElement {

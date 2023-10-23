@@ -37,9 +37,7 @@ export function App({
             element={
               <PrivateRoute
                 authorizationStatus={AuthorizationStatus.NoAuth}
-                child={
-                  <MyListPage filmsCardList={myFilmsPageProps.filmsCardList} />
-                }
+                child={<MyListPage filmsList={myFilmsPageProps.filmsList} />}
               />
             }
           />

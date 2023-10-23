@@ -1,5 +1,5 @@
 import { FilmPromoProps } from '../components/filmPromo/filmPromo';
-import { Film } from '../types/film';
+import { Video } from '../types/video';
 
 export const FILM_PROMO: FilmPromoProps = {
   name: 'The Grand Budapest Hotel',
@@ -9,7 +9,7 @@ export const FILM_PROMO: FilmPromoProps = {
   bgImgSrc: 'img/bg-the-grand-budapest-hotel.jpg',
 };
 
-export const CATALOG_FILMS: Film[] = [
+export const CATALOG_FILMS: Video[] = [
   {
     id: 1,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -152,7 +152,7 @@ export const CATALOG_FILMS: Film[] = [
   },
 ];
 
-export const MY_FILMS: Film[] = [
+export const MY_FILMS: Video[] = [
   {
     id: 1,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',

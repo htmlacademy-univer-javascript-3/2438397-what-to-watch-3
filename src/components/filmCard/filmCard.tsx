@@ -2,11 +2,11 @@ import {ReactElement, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
 import {AppRoute} from '../../app/appTypes';
-import {Film} from '../../types/film';
-import {Player} from '../player/player';
+import {Video} from '../../types/video';
+import {PreviewPlayer} from '../player/previewPlayer';
 
 export type FilmCardProps = {
-  film: Film;
+  film: Video;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 };
@@ -41,7 +41,7 @@ export function FilmCard({film, onMouseEnter, onMouseLeave}: FilmCardProps) : Re
       }}
     >
       <div className="small-film-card__image">
-        <Player film={film} isPlaying={isPlayingNow} />
+        <PreviewPlayer video={film} isPlaying={isPlayingNow} />
       </div>
       <h3 className="small-film-card__title">
         <Link className="small-film-card__link" to={AppRoute.Film(film.id)}>{film.name}</Link>

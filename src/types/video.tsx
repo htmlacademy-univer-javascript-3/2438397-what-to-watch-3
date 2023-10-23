@@ -1,4 +1,4 @@
-export type Film = {
+export type Video = {
   id: number;
   name: string;
   imgSrc: string;
