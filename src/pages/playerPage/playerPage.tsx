@@ -4,6 +4,7 @@ export type PlayerProps = {
   videoSrc: string;
   posterSrc: string;
 };
+
 export function PlayerPage({videoSrc, posterSrc}: PlayerProps): ReactElement {
   return (
     <div className="player">

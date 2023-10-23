@@ -15,7 +15,7 @@ const APP_PROPS: AppProps = {
     filmsCardList: CATALOG_FILMS,
   },
   myFilmsPageProps: {
-    filmsCardList: MY_FILMS,
+    filmsList: MY_FILMS,
   },
   playerPageProps: PLAYER,
   addReviewPageProps: REVIEW,
