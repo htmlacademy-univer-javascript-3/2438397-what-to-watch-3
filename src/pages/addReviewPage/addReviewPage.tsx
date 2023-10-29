@@ -1,9 +1,16 @@
-import {ReactElement} from 'react';
-import {Logo} from '../../components/logo/logo';
-import {UserBlock} from '../../components/userBlock/userBlock';
-import {AddReviewForm, AddReviewProps} from '../../components/addReviewForm/addReviewForm';
+import { ReactElement } from 'react';
+import { Logo } from '../../components/logo/logo';
+import { UserBlock } from '../../components/userBlock/userBlock';
+import {
+  AddReviewForm,
+  AddReviewProps,
+} from '../../components/addReviewForm/addReviewForm';
 
-export function AddReviewPage({name, imgSrc, bgImgSrc}: AddReviewProps): ReactElement {
+export function AddReviewPage({
+  name,
+  imgSrc,
+  bgImgSrc,
+}: AddReviewProps): ReactElement {
   return (
     <section className="film-card film-card--full">
       <div className="film-card__header">
@@ -19,7 +26,9 @@ export function AddReviewPage({name, imgSrc, bgImgSrc}: AddReviewProps): ReactEl
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">{name}</a>
+                <a href="film-page.html" className="breadcrumbs__link">
+                  {name}
+                </a>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>

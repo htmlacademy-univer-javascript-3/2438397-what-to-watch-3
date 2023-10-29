@@ -1,6 +1,9 @@
-import {ReactElement} from 'react';
-import {Logo} from '../logo/logo';
-import {UserBlock} from '../userBlock/userBlock';
+import { ReactElement } from 'react';
+import { Logo } from '../logo/logo';
+import { UserBlock } from '../userBlock/userBlock';
+import { PlayButton } from '../buttons/playButton';
+import { Video } from '../../types/video';
+import { MyListButton } from '../buttons/myListButton';
 
 export type FilmPromoProps = {
   name: string;
@@ -8,9 +11,17 @@ export type FilmPromoProps = {
   releaseDate: number;
   imgSrc: string;
   bgImgSrc: string;
+  video: Video;
 };
 
-export function FilmPromo({name, genre, releaseDate, imgSrc, bgImgSrc}: FilmPromoProps): ReactElement {
+export function FilmPromo({
+  video,
+  name,
+  genre,
+  releaseDate,
+  imgSrc,
+  bgImgSrc,
+}: FilmPromoProps): ReactElement {
   return (
     <section className="film-card">
       <div className="film-card__bg">
@@ -27,7 +38,7 @@ export function FilmPromo({name, genre, releaseDate, imgSrc, bgImgSrc}: FilmProm
       <div className="film-card__wrap">
         <div className="film-card__info">
           <div className="film-card__poster">
-            <img src={imgSrc} alt={name} width="218" height="327"/>
+            <img src={imgSrc} alt={name} width="218" height="327" />
           </div>
 
           <div className="film-card__desc">
@@ -38,19 +49,8 @@ export function FilmPromo({name, genre, releaseDate, imgSrc, bgImgSrc}: FilmProm
             </p>
 
             <div className="film-card__buttons">
-              <button className="btn btn--play film-card__button" type="button">
-                <svg viewBox="0 0 19 19" width="19" height="19">
-                  <use xlinkHref="#play-s"></use>
-                </svg>
-                <span>Play</span>
-              </button>
-              <button className="btn btn--list film-card__button" type="button">
-                <svg viewBox="0 0 19 20" width="19" height="20">
-                  <use xlinkHref="#add"></use>
-                </svg>
-                <span>My list</span>
-                <span className="film-card__count">9</span>
-              </button>
+              <PlayButton videoId={video.id} />
+              <MyListButton />
             </div>
           </div>
         </div>

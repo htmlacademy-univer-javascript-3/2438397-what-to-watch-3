@@ -1,9 +1,9 @@
-import {ReactElement, useState, useEffect} from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import {AppRoute} from '../../app/appTypes';
-import {Video} from '../../types/video';
-import {PreviewPlayer} from '../player/previewPlayer';
+import { AppRoute } from '../../app/appTypes';
+import { Video } from '../../types/video';
+import { PreviewPlayer } from '../player/previewPlayer';
 
 export type FilmCardProps = {
   film: Video;
@@ -13,18 +13,25 @@ export type FilmCardProps = {
 
 const START_PLAYING_DELAY_MS = 1000;
 
-export function FilmCard({film, onMouseEnter, onMouseLeave}: FilmCardProps) : ReactElement {
+export function FilmCard({
+  film,
+  onMouseEnter,
+  onMouseLeave,
+}: FilmCardProps): ReactElement {
   const [needToPlay, setNeedToPlay] = useState<boolean>(false);
   const [isPlayingNow, setIsPlayingNow] = useState<boolean>(false);
 
   useEffect(() => {
     let stillHovered = true;
     if (needToPlay) {
-      setTimeout(() => stillHovered && setIsPlayingNow(true), START_PLAYING_DELAY_MS);
+      setTimeout(
+        () => stillHovered && setIsPlayingNow(true),
+        START_PLAYING_DELAY_MS,
+      );
     }
-    return(() => {
+    return () => {
       stillHovered = false;
-    });
+    };
   }, [needToPlay]);
 
   return (
@@ -44,7 +51,9 @@ export function FilmCard({film, onMouseEnter, onMouseLeave}: FilmCardProps) : Re
         <PreviewPlayer video={film} isPlaying={isPlayingNow} />
       </div>
       <h3 className="small-film-card__title">
-        <Link className="small-film-card__link" to={AppRoute.Film(film.id)}>{film.name}</Link>
+        <Link className="small-film-card__link" to={AppRoute.Film(film.id)}>
+          {film.name}
+        </Link>
       </h3>
     </article>
   );

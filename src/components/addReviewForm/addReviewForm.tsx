@@ -1,5 +1,5 @@
-import {ReactElement, useState} from 'react';
-import {Star} from './star';
+import { ReactElement, useState } from 'react';
+import { Star } from './star';
 
 export type AddReviewProps = {
   id: number;
@@ -27,17 +27,31 @@ export function AddReviewForm(): ReactElement {
         <div className="rating">
           <div className="rating__stars">
             {Array.from(Array(STARS_NUMBER).keys()).map((i) => (
-              <Star key={STARS_NUMBER - i} value={STARS_NUMBER - i} onClick={() => setReviewForm({...reviewForm, rating: STARS_NUMBER - i})} />
+              <Star
+                key={STARS_NUMBER - i}
+                value={STARS_NUMBER - i}
+                onClick={() =>
+                  setReviewForm({ ...reviewForm, rating: STARS_NUMBER - i })}
+              />
             ))}
           </div>
         </div>
 
         <div className="add-review__text">
-          <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" onChange={(e) => setReviewForm({...reviewForm, comment: e.target.value})}></textarea>
+          <textarea
+            className="add-review__textarea"
+            name="review-text"
+            id="review-text"
+            placeholder="Review text"
+            onChange={(e) =>
+              setReviewForm({ ...reviewForm, comment: e.target.value })}
+          >
+          </textarea>
           <div className="add-review__submit">
-            <button className="add-review__btn" type="submit">Post</button>
+            <button className="add-review__btn" type="submit">
+              Post
+            </button>
           </div>
-
         </div>
       </form>
     </div>
