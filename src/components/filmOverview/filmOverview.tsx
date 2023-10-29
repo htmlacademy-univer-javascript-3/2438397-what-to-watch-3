@@ -24,7 +24,11 @@ function GetActors(actors: string[]) {
 }
 
 function ConvertDescriptionText(description: string): ReactElement {
-  return <p>{description}</p>;
+  return (
+    <Fragment>
+      {description.split('\n').map((paragraph) => (<p key={paragraph}>{paragraph}</p>))}
+    </Fragment>
+  );
 }
 
 export type FilmOverviewProps = {
