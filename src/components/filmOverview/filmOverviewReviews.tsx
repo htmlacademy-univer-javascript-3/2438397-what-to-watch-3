@@ -17,9 +17,11 @@ export function FilmOverviewReviews({
         ))}
       </div>
       <div className="film-card__reviews-col">
-        {reviews.slice(Math.ceil(reviews.length / 2), reviews.length).map((review) => (
-          <ReviewCard key={review.id} review={review} />
-        ))}
+        {reviews
+          .slice(Math.ceil(reviews.length / 2), reviews.length)
+          .map((review) => (
+            <ReviewCard key={review.id} review={review} />
+          ))}
       </div>
     </div>
   );

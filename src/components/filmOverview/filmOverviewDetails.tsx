@@ -1,27 +1,10 @@
-import { Fragment, ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { Film } from '../../types/film';
+import { FullActorsList } from './fullActorsList';
 
 export type FilmOverviewDetailsProps = {
   film: Film;
 };
-
-type ActorsListComponent = {
-  actors: string[];
-};
-
-export function GetActorsListComponent({
-  actors,
-}: ActorsListComponent): ReactElement {
-  return (
-    <Fragment>
-      {actors.map((actor) => (
-        <Fragment key={actor}>
-          {actor}, <br />
-        </Fragment>
-      ))}
-    </Fragment>
-  );
-}
 
 export function FilmOverviewDetails({
   film,
@@ -36,7 +19,7 @@ export function FilmOverviewDetails({
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Starring</strong>
           <span className="film-card__details-value">
-            <GetActorsListComponent actors={film.actors} />
+            <FullActorsList actors={film.actors} />
           </span>
         </p>
       </div>

@@ -48,7 +48,9 @@ export function FilmOverviewPage({
                 <ul className="film-nav__list">
                   <li
                     className={`film-nav__item ${
-                      activeTab === TabsType.Overview ? 'film-nav__item--active' : ''
+                      activeTab === TabsType.Overview
+                        ? 'film-nav__item--active'
+                        : ''
                     }`}
                   >
                     <a
@@ -64,7 +66,9 @@ export function FilmOverviewPage({
                   </li>
                   <li
                     className={`film-nav__item ${
-                      activeTab === TabsType.Details ? 'film-nav__item--active' : ''
+                      activeTab === TabsType.Details
+                        ? 'film-nav__item--active'
+                        : ''
                     }`}
                   >
                     <a
@@ -80,7 +84,9 @@ export function FilmOverviewPage({
                   </li>
                   <li
                     className={`film-nav__item ${
-                      activeTab === TabsType.Reviews ? 'film-nav__item--active' : ''
+                      activeTab === TabsType.Reviews
+                        ? 'film-nav__item--active'
+                        : ''
                     }`}
                   >
                     <a
