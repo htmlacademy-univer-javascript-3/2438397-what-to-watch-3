@@ -1,18 +1,14 @@
-import {ReactElement} from 'react';
+import { ReactElement } from 'react';
 
 export type PlayerProps = {
   videoSrc: string;
   posterSrc: string;
 };
 
-export function PlayerPage({videoSrc, posterSrc}: PlayerProps): ReactElement {
+export function PlayerPage({ videoSrc, posterSrc }: PlayerProps): ReactElement {
   return (
     <div className="player">
-      <video
-        src={videoSrc}
-        className="player__video"
-        poster={posterSrc}
-      />
+      <video src={videoSrc} className="player__video" poster={posterSrc} />
 
       <button type="button" className="player__exit">
         Exit
@@ -21,11 +17,7 @@ export function PlayerPage({videoSrc, posterSrc}: PlayerProps): ReactElement {
       <div className="player__controls">
         <div className="player__controls-row">
           <div className="player__time">
-            <progress
-              className="player__progress"
-              value="30"
-              max="100"
-            />
+            <progress className="player__progress" value="30" max="100" />
             <div className="player__toggler" style={{ left: '30%' }}>
               Toggler
             </div>

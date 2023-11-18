@@ -1,6 +1,6 @@
-import {ReactElement} from 'react';
-import {Logo} from '../../components/logo/logo';
-import {Footer} from '../../components/footer/footer';
+import { ReactElement } from 'react';
+import { Logo } from '../../components/logo/logo';
+import { Footer } from '../../components/footer/footer';
 
 export function NotFoundPage(): ReactElement {
   return (

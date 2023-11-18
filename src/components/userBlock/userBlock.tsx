@@ -1,4 +1,4 @@
-import {ReactElement} from 'react';
+import { ReactElement } from 'react';
 
 const AVATAR_IMG_SRC = 'img/avatar.jpg';
 
@@ -7,7 +7,7 @@ export function UserBlock(): ReactElement {
     <ul className="user-block">
       <li className="user-block__item">
         <div className="user-block__avatar">
-          <img src={AVATAR_IMG_SRC} alt="User avatar" width="63" height="63"/>
+          <img src={AVATAR_IMG_SRC} alt="User avatar" width="63" height="63" />
         </div>
       </li>
       <li className="user-block__item">

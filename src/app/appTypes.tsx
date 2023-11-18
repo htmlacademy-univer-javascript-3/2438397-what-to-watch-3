@@ -2,9 +2,9 @@ export const AppRoute = {
   Root: '/',
   SingIn: '/login',
   MyList: '/mylist',
-  Film: (id?: number) => `/films/${id || ':id'}`,
-  Player: (id?: number) => `/player/${id || ':id'}`,
-  AddReview: (id?: number) => `/films/${id || ':id'}/review`,
+  Film: (filmId?: number) => `/films/${filmId || ':id'}`,
+  Player: (videoId?: number) => `/player/${videoId || ':id'}`,
+  AddReview: (filmId?: number) => `/films/${filmId || ':id'}/review`,
 };
 
 export enum AuthorizationStatus {

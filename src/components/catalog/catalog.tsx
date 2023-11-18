@@ -1,8 +1,8 @@
-import {ReactElement} from 'react';
-import {FilmCard} from '../filmCard/filmCard';
-import {GenresList} from '../genresList/genresList';
+import { ReactElement } from 'react';
+import { FilmCard } from '../filmCard/filmCard';
+import { GenresList } from '../genresList/genresList';
 import { useState } from 'react';
-import {Video} from '../../types/video';
+import { Video } from '../../types/video';
 
 export type CatalogProps = {
   needRenderGenres: boolean;
@@ -10,7 +10,11 @@ export type CatalogProps = {
   filmsList: Video[];
 };
 
-export function Catalog({needRenderGenres, filmsList, needRenderShowMoreButton}: CatalogProps): ReactElement {
+export function Catalog({
+  needRenderGenres,
+  filmsList,
+  needRenderShowMoreButton,
+}: CatalogProps): ReactElement {
   const [, setActiveFilm] = useState<number | null>();
 
   return (
@@ -21,16 +25,24 @@ export function Catalog({needRenderGenres, filmsList, needRenderShowMoreButton}:
 
       <div className="catalog__films-list">
         <div className="catalog__films-list">
-          {filmsList.map((film) => (<FilmCard film={film} key={film.name} onMouseEnter={() => setActiveFilm(film.id)} onMouseLeave={() => setActiveFilm(null)}/>))}
+          {filmsList.map((film) => (
+            <FilmCard
+              film={film}
+              key={film.name}
+              onMouseEnter={() => setActiveFilm(film.id)}
+              onMouseLeave={() => setActiveFilm(null)}
+            />
+          ))}
         </div>
       </div>
 
-      { needRenderShowMoreButton &&
-        (
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
-        )}
+      {needRenderShowMoreButton && (
+        <div className="catalog__more">
+          <button className="catalog__button" type="button">
+            Show more
+          </button>
+        </div>
+      )}
     </section>
   );
 }

@@ -8,18 +8,22 @@ import { AuthorizationStatus } from './appTypes';
 
 import { MyFilmsPageProps, MyListPage } from '../pages/myListPage/myListPage';
 import { MainPage, MainPageProps } from '../pages/mainPage/mainPage';
-import { MoviePage } from '../pages/moviePage/moviePage';
 import { AddReviewPage } from '../pages/addReviewPage/addReviewPage';
 import { NotFoundPage } from '../pages/notFoundPage/notFoundPage';
 import { PlayerPage, PlayerProps } from '../pages/playerPage/playerPage';
 import { SignInPage } from '../pages/signInPage/signInPage';
 import { AddReviewProps } from '../components/addReviewForm/addReviewForm';
+import {
+  FilmOverviewPage,
+  FilmOverviewPageProps,
+} from '../pages/filmOverviewPage/filmOverviewPage';
 
 export type AppProps = {
   mainPageProps: MainPageProps;
   myFilmsPageProps: MyFilmsPageProps;
   playerPageProps: PlayerProps;
   addReviewPageProps: AddReviewProps;
+  filmOverviewPageProps: FilmOverviewPageProps;
 };
 
 export function App({
@@ -27,6 +31,7 @@ export function App({
   myFilmsPageProps,
   playerPageProps,
   addReviewPageProps,
+  filmOverviewPageProps,
 }: AppProps): ReactElement {
   return (
     <HelmetProvider>
@@ -51,7 +56,16 @@ export function App({
               />
             }
           />
-          <Route path={AppRoute.Film()} element={<MoviePage />} />
+          <Route
+            path={AppRoute.Film()}
+            element={
+              <FilmOverviewPage
+                film={filmOverviewPageProps.film}
+                similarFilmsCards={filmOverviewPageProps.similarFilmsCards}
+                reviews={filmOverviewPageProps.reviews}
+              />
+            }
+          />
           <Route
             path={AppRoute.AddReview()}
             element={
