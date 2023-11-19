@@ -5,11 +5,11 @@ import {
 } from '../../components/filmPromo/filmPromo';
 import { Catalog } from '../../components/catalog/catalog';
 import { Footer } from '../../components/footer/footer';
-import { Video } from '../../types/video';
+import {ShortFilmInfo} from '../../types/film';
 
 export type MainPageProps = {
   filmPromo: FilmPromoProps;
-  filmsCardList: Video[];
+  filmsCardList: ShortFilmInfo[];
 };
 
 export function MainPage({
@@ -19,12 +19,12 @@ export function MainPage({
   return (
     <Fragment>
       <FilmPromo
+        id={filmPromo.id}
         name={filmPromo.name}
         genre={filmPromo.genre}
         releaseDate={filmPromo.releaseDate}
         imgSrc={filmPromo.imgSrc}
         bgImgSrc={filmPromo.bgImgSrc}
-        video={filmPromo.video}
       />
       <div className="page-content">
         <Catalog

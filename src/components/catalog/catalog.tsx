@@ -2,12 +2,12 @@ import { ReactElement } from 'react';
 import { FilmCard } from '../filmCard/filmCard';
 import { GenresList } from '../genresList/genresList';
 import { useState } from 'react';
-import { Video } from '../../types/video';
+import {ShortFilmInfo} from '../../types/film';
 
 export type CatalogProps = {
   needRenderGenres: boolean;
   needRenderShowMoreButton: boolean;
-  filmsList: Video[];
+  filmsList: ShortFilmInfo[];
 };
 
 export function Catalog({

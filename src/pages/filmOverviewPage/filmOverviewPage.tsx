@@ -1,8 +1,7 @@
 import { Fragment, ReactElement, useState } from 'react';
 import { Footer } from '../../components/footer/footer';
-import { Film } from '../../types/film';
+import {FilmInfo, ShortFilmInfo} from '../../types/film';
 import { Catalog } from '../../components/catalog/catalog';
-import { Video } from '../../types/video';
 import { FilmOverviewHeader } from '../../components/filmOverview/filmOverviewHeader';
 import { FilmOverview } from '../../components/filmOverview/filmOverview';
 import { FilmOverviewDetails } from '../../components/filmOverview/filmOverviewDetails';
@@ -16,9 +15,9 @@ export enum TabsType {
 }
 
 export type FilmOverviewPageProps = {
-  film: Film;
+  film: FilmInfo;
   reviews: Review[];
-  similarFilmsCards: Video[];
+  similarFilmsCards: ShortFilmInfo[];
 };
 
 export function FilmOverviewPage({

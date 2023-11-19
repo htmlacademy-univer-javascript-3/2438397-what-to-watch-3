@@ -3,10 +3,10 @@ import { Footer } from '../../components/footer/footer';
 import { Catalog } from '../../components/catalog/catalog';
 import { Logo } from '../../components/logo/logo';
 import { UserBlock } from '../../components/userBlock/userBlock';
-import { Video } from '../../types/video';
+import {ShortFilmInfo} from '../../types/film';
 
 export type MyFilmsPageProps = {
-  filmsList: Video[];
+  filmsList: ShortFilmInfo[];
 };
 
 export function MyListPage({ filmsList }: MyFilmsPageProps): ReactElement {

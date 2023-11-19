@@ -3,7 +3,7 @@ export const AppRoute = {
   SingIn: '/login',
   MyList: '/mylist',
   Film: (filmId?: number) => `/films/${filmId || ':id'}`,
-  Player: (videoId?: number) => `/player/${videoId || ':id'}`,
+  Player: (filmId?: number) => `/player/${filmId || ':id'}`,
   AddReview: (filmId?: number) => `/films/${filmId || ':id'}/review`,
 };
 

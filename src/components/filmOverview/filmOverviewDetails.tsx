@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
-import { Film } from '../../types/film';
+import { FilmInfo } from '../../types/film';
 import { FullActorsList } from './fullActorsList';
 
 export type FilmOverviewDetailsProps = {
-  film: Film;
+  film: FilmInfo;
 };
 
 export function FilmOverviewDetails({

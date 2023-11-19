@@ -2,20 +2,19 @@ import { ReactElement } from 'react';
 import { Logo } from '../logo/logo';
 import { UserBlock } from '../userBlock/userBlock';
 import { PlayButton } from '../buttons/playButton';
-import { Video } from '../../types/video';
 import { MyListButton } from '../buttons/myListButton';
 
 export type FilmPromoProps = {
+  id: number;
   name: string;
   genre: string;
   releaseDate: number;
   imgSrc: string;
   bgImgSrc: string;
-  video: Video;
 };
 
 export function FilmPromo({
-  video,
+  id,
   name,
   genre,
   releaseDate,
@@ -49,7 +48,7 @@ export function FilmPromo({
             </p>
 
             <div className="film-card__buttons">
-              <PlayButton videoId={video.id} />
+              <PlayButton filmId={id} />
               <MyListButton />
             </div>
           </div>

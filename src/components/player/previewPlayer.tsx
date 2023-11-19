@@ -1,12 +1,12 @@
 import { ReactElement, useEffect, useRef } from 'react';
-import { Video } from '../../types/video';
 
 export type PlayerProps = {
-  video: Video;
+  videoSrc: string;
+  posterSrc: string;
   isPlaying: boolean;
 };
 
-export function PreviewPlayer({ video, isPlaying }: PlayerProps): ReactElement {
+export function PreviewPlayer({ videoSrc, posterSrc, isPlaying }: PlayerProps): ReactElement {
   const playerRef = useRef<HTMLVideoElement | null>(null);
   useEffect(() => {
     if (playerRef.current) {
@@ -22,8 +22,8 @@ export function PreviewPlayer({ video, isPlaying }: PlayerProps): ReactElement {
       ref={playerRef}
       width="280"
       height="175"
-      src={video.videoSrc}
-      poster={video.imgSrc}
+      src={videoSrc}
+      poster={posterSrc}
       muted
     />
   );

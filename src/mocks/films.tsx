@@ -1,10 +1,9 @@
 import { FilmPromoProps } from '../components/filmPromo/filmPromo';
-import { Video } from '../types/video';
-import { Film } from '../types/film';
+import {FilmInfo, ShortFilmInfo} from '../types/film';
 import { Review } from '../types/review';
 import { FilmOverviewPageProps } from '../pages/filmOverviewPage/filmOverviewPage';
 
-export const CATALOG_FILMS: Video[] = [
+export const CATALOG_FILMS: ShortFilmInfo[] = [
   {
     id: 1,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -147,7 +146,7 @@ export const CATALOG_FILMS: Video[] = [
   },
 ];
 
-export const MY_FILMS: Video[] = [
+export const MY_FILMS: ShortFilmInfo[] = [
   {
     id: 1,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -213,7 +212,7 @@ export const MY_FILMS: Video[] = [
   },
 ];
 
-export const SIMILAR_FILMS: Video[] = [
+export const SIMILAR_FILMS: ShortFilmInfo[] = [
   {
     id: 1,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -282,7 +281,7 @@ export const REVIEWS: Review[] = [
   },
 ];
 
-export const FILM: Film = {
+export const FILM: FilmInfo = {
   id: 100500,
   name: 'The Grand Budapest Hotel',
   genre: 'Drama',
@@ -309,21 +308,19 @@ export const FILM: Film = {
     painting and the chief suspect in her murder.',
   durationMinutes: 94,
   filmVideo: {
-    id: 100500,
-    name: 'The Grand Budapest Hotel',
-    imgSrc: 'img/bg-the-grand-budapest-hotel.jpg',
+    posterSrc: 'img/bg-the-grand-budapest-hotel.jpg',
     videoSrc:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
 };
 
 export const FILM_PROMO: FilmPromoProps = {
+  id: FILM.id,
   name: FILM.name,
   genre: FILM.genre,
   releaseDate: FILM.releaseDate,
   imgSrc: FILM.posterImgSrc,
   bgImgSrc: FILM.bgImgSrc,
-  video: FILM.filmVideo,
 };
 
 export const FILM_OVERVIEW: FilmOverviewPageProps = {
