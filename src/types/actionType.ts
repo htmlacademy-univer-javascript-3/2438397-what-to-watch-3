@@ -3,7 +3,7 @@ import {store} from '../store';
 
 export enum ActionType {
   SetGenre = 'films/setGenre',
-  setFilms = 'film/setFilmsList',
+  setFilms = 'films/setFilmsList',
 }
 
 export type State = ReturnType<typeof store.getState>;
