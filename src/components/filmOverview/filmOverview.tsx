@@ -1,10 +1,11 @@
 import { Fragment, ReactElement } from 'react';
-import { Film } from '../../types/film';
+import { FilmInfo } from '../../types/film';
 import { FilmDescription } from './filmDescription';
-import { GetRatingLevel, GetShortActorsList } from './helpers';
+import { GetShortActorsList } from '../../helpers/getShortActorsList';
+import { GetRatingLevel } from '../../helpers/getRatingLevel';
 
 export type FilmOverviewProps = {
-  film: Film;
+  film: FilmInfo;
 };
 
 export function FilmOverview({ film }: FilmOverviewProps): ReactElement {

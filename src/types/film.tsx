@@ -1,6 +1,6 @@
 import { Video } from './video';
 
-export type Film = {
+export type FilmInfo = {
   id: number;
   name: string;
   genre: string;
@@ -15,3 +15,11 @@ export type Film = {
   durationMinutes: number;
   filmVideo: Video;
 };
+
+export type ShortFilmInfo = {
+  id: number;
+  name: string;
+  genre: string;
+  videoSrc: string;
+  imgSrc: string;
+}

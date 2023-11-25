@@ -8,7 +8,7 @@
     "lint": "eslint src --ext ts,tsx",
     "preview": "vite preview",
     "test": "vitest --passWithNoTests",
-    "prettier": "prettier --write ./src/**/*.tsx && prettier --write ./src/**/**/*.tsx"
+    "prettier": "prettier --write ./src/*.tsx && prettier ./src/**/*.tsx && prettier --write ./src/**/**/*.tsx"
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.5",

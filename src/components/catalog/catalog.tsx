@@ -2,18 +2,20 @@ import { ReactElement } from 'react';
 import { FilmCard } from '../filmCard/filmCard';
 import { GenresList } from '../genresList/genresList';
 import { useState } from 'react';
-import { Video } from '../../types/video';
+import { ShortFilmInfo } from '../../types/film';
 
 export type CatalogProps = {
-  needRenderGenres: boolean;
   needRenderShowMoreButton: boolean;
-  filmsList: Video[];
+  filmsList: ShortFilmInfo[];
+  genres?: string[];
+  activeGenre?: string;
 };
 
 export function Catalog({
-  needRenderGenres,
   filmsList,
   needRenderShowMoreButton,
+  genres,
+  activeGenre,
 }: CatalogProps): ReactElement {
   const [, setActiveFilm] = useState<number | null>();
 
@@ -21,19 +23,19 @@ export function Catalog({
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-      {needRenderGenres && <GenresList />}
+      {genres !== undefined && (
+        <GenresList genres={genres} activeGenre={activeGenre} />
+      )}
 
       <div className="catalog__films-list">
-        <div className="catalog__films-list">
-          {filmsList.map((film) => (
-            <FilmCard
-              film={film}
-              key={film.name}
-              onMouseEnter={() => setActiveFilm(film.id)}
-              onMouseLeave={() => setActiveFilm(null)}
-            />
-          ))}
-        </div>
+        {filmsList.map((film) => (
+          <FilmCard
+            film={film}
+            key={film.id}
+            onMouseEnter={() => setActiveFilm(film.id)}
+            onMouseLeave={() => setActiveFilm(null)}
+          />
+        ))}
       </div>
 
       {needRenderShowMoreButton && (

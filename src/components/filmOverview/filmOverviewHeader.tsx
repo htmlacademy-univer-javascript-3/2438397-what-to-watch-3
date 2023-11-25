@@ -4,10 +4,10 @@ import { UserBlock } from '../userBlock/userBlock';
 import { PlayButton } from '../buttons/playButton';
 import { MyListButton } from '../buttons/myListButton';
 import { AddReviewButton } from '../buttons/addReviewButton';
-import { Film } from '../../types/film';
+import { FilmInfo } from '../../types/film';
 
 export type FilmOverviewHeaderProps = {
-  film: Film;
+  film: FilmInfo;
 };
 
 export function FilmOverviewHeader({
@@ -35,7 +35,7 @@ export function FilmOverviewHeader({
           </p>
 
           <div className="film-card__buttons">
-            <PlayButton videoId={film.filmVideo.id} />
+            <PlayButton filmId={film.id} />
             <MyListButton />
             <AddReviewButton filmId={film.id} />
           </div>
