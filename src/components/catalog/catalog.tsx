@@ -20,7 +20,7 @@ export function Catalog({
 }: CatalogProps): ReactElement {
   const [, setActiveFilm] = useState<string | null>();
   const [visibleFilmsCount, setVisibleFilmsCount] =
-    useState<number>(Math.min(filmsList.length, FILMS_PER_PAGE));
+    useState<number>(FILMS_PER_PAGE);
 
   return (
     <section className="catalog">
@@ -44,9 +44,7 @@ export function Catalog({
       {visibleFilmsCount < filmsList.length && (
         <ShowMoreButton
           onClick={() =>
-            setVisibleFilmsCount(
-              Math.min(filmsList.length, visibleFilmsCount + FILMS_PER_PAGE),
-            )}
+            setVisibleFilmsCount(visibleFilmsCount + FILMS_PER_PAGE)}
         />
       )}
     </section>

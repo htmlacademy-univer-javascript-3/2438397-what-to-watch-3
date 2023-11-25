@@ -49,8 +49,8 @@ export function FilmCard({
     >
       <div className="small-film-card__image">
         <PreviewPlayer
-          videoSrc={film.videoSrc}
-          posterSrc={film.imgSrc}
+          videoSrc={film.previewVideoLink}
+          posterSrc={film.previewImage}
           isPlaying={isPlayingNow}
         />
       </div>
