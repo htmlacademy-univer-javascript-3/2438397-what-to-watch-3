@@ -3,6 +3,7 @@ import {StatusCodes} from 'http-status-codes';
 
 import {GetToken} from './tokenActions';
 import {HandleError} from './errorActions';
+import {ErrorType} from '../types/error';
 
 const BACKEND_URL = 'https://10.react.pages.academy/wtw';
 const REQUEST_TIMEOUT = 5000;
@@ -31,9 +32,9 @@ export function CreateApiClient(): AxiosInstance {
 
   api.interceptors.response.use(
     (response) => response,
-    (error: AxiosError) => {
+    (error: AxiosError<ErrorType>) => {
       if (error.response && NeedRenderError(error.response)) {
-        HandleError(error.response.data.error);
+        HandleError(error.response.data.message);
       }
       throw error;
     });

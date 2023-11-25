@@ -49,7 +49,7 @@ export function AddReviewPage({
         </div>
       </div>
 
-      <AddReviewForm id={id}/>
+      <AddReviewForm id={id} />
     </section>
   );
 }

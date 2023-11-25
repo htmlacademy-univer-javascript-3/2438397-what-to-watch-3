@@ -59,6 +59,7 @@ export const ClearError = createAsyncThunk<void, undefined, {
   extra: AxiosInstance;
 }>(
   'ClearError',
+  // eslint-disable-next-line @typescript-eslint/require-await
   async (_arg, { dispatch }) => {
     setTimeout(() => {
       dispatch(SetError(null));

@@ -11,9 +11,9 @@ const STARS_NUMBER = 10;
 
 export type AddReviewFormProps = {
   id: string;
-}
+};
 
-export function AddReviewForm({id}: AddReviewFormProps): ReactElement {
+export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
   const [reviewForm, setReviewForm] = useState<ReviewForm>({
     id: id,
     rating: 0,
