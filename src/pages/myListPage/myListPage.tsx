@@ -21,7 +21,7 @@ export function MyListPage({ filmsList }: MyFilmsPageProps): ReactElement {
         <UserBlock />
       </header>
 
-      <Catalog needRenderShowMoreButton={false} filmsList={filmsList} />
+      <Catalog filmsList={filmsList} />
       <Footer />
     </div>
   );

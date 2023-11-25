@@ -1,23 +1,26 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
+
+import { ShowMoreButton } from './showMoreButton';
 import { FilmCard } from '../filmCard/filmCard';
 import { GenresList } from '../genresList/genresList';
-import { useState } from 'react';
 import { ShortFilmInfo } from '../../types/film';
 
 export type CatalogProps = {
-  needRenderShowMoreButton: boolean;
   filmsList: ShortFilmInfo[];
   genres?: string[];
   activeGenre?: string;
 };
 
+const FILMS_PER_PAGE = 8;
+
 export function Catalog({
   filmsList,
-  needRenderShowMoreButton,
   genres,
   activeGenre,
 }: CatalogProps): ReactElement {
   const [, setActiveFilm] = useState<number | null>();
+  const [visibleFilmsCount, setVisibleFilmsCount] =
+    useState<number>(Math.min(filmsList.length, FILMS_PER_PAGE));
 
   return (
     <section className="catalog">
@@ -28,7 +31,7 @@ export function Catalog({
       )}
 
       <div className="catalog__films-list">
-        {filmsList.map((film) => (
+        {filmsList.slice(0, visibleFilmsCount).map((film) => (
           <FilmCard
             film={film}
             key={film.id}
@@ -38,12 +41,13 @@ export function Catalog({
         ))}
       </div>
 
-      {needRenderShowMoreButton && (
-        <div className="catalog__more">
-          <button className="catalog__button" type="button">
-            Show more
-          </button>
-        </div>
+      {visibleFilmsCount < filmsList.length && (
+        <ShowMoreButton
+          onClick={() =>
+            setVisibleFilmsCount(
+              Math.min(filmsList.length, visibleFilmsCount + FILMS_PER_PAGE),
+            )}
+        />
       )}
     </section>
   );
