@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AppRoute } from '../../app/appTypes';
 
 export type AddReviewButtonProps = {
-  filmId: number;
+  filmId: string;
 };
 
 export function AddReviewButton({

@@ -4,7 +4,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 import { AppRoute } from './appTypes';
 import { PrivateRoute } from './privateRoute';
-import { AuthorizationStatus } from './appTypes';
+import { AuthorizationStatus } from '../types/authorizationStatus';
 
 import { MyFilmsPageProps, MyListPage } from '../pages/myListPage/myListPage';
 import { MainPage, MainPageProps } from '../pages/mainPage/mainPage';
@@ -12,7 +12,7 @@ import { AddReviewPage } from '../pages/addReviewPage/addReviewPage';
 import { NotFoundPage } from '../pages/notFoundPage/notFoundPage';
 import { PlayerPage, PlayerProps } from '../pages/playerPage/playerPage';
 import { SignInPage } from '../pages/signInPage/signInPage';
-import { AddReviewProps } from '../components/addReviewForm/addReviewForm';
+import { AddReviewPageProps } from '../pages/addReviewPage/addReviewPage';
 import {
   FilmOverviewPage,
   FilmOverviewPageProps,
@@ -22,7 +22,7 @@ export type AppProps = {
   mainPageProps: MainPageProps;
   myFilmsPageProps: MyFilmsPageProps;
   playerPageProps: PlayerProps;
-  addReviewPageProps: AddReviewProps;
+  addReviewPageProps: AddReviewPageProps;
   filmOverviewPageProps: FilmOverviewPageProps;
 };
 

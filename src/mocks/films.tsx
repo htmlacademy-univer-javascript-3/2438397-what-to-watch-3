@@ -3,275 +3,112 @@ import {FilmInfo, ShortFilmInfo} from '../types/film';
 import { Review } from '../types/review';
 import { FilmOverviewPageProps } from '../pages/filmOverviewPage/filmOverviewPage';
 
-export const CATALOG_FILMS: ShortFilmInfo[] = [
-  {
-    id: 1,
-    name: 'Fantastic Beasts: The Crimes of Grindelwald',
-    genre: 'Comedies',
-    imgSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 2,
-    name: 'Bohemian Rhapsody',
-    imgSrc: 'img/bohemian-rhapsody.jpg',
-    genre: 'Crime',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 3,
-    name: 'Macbeth',
-    imgSrc: 'img/macbeth.jpg',
-    genre: 'Documentary',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 4,
-    name: 'Aviator',
-    genre: 'Drama',
-    imgSrc: 'img/aviator.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 5,
-    name: 'We need to talk about Kevin',
-    genre: 'Horror',
-    imgSrc: 'img/we-need-to-talk-about-kevin.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 6,
-    name: 'What We Do in the Shadows',
-    genre: 'Romance',
-    imgSrc: 'img/what-we-do-in-the-shadows.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 7,
-    name: 'Revenant',
-    genre: 'Sci-Fi',
-    imgSrc: 'img/revenant.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 8,
-    name: 'Johnny English',
-    genre: 'Thrillers',
-    imgSrc: 'img/johnny-english.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 9,
-    name: 'Shutter Island',
-    genre: 'Kids & Family',
-    imgSrc: 'img/shutter-island.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 10,
-    name: 'Pulp Fiction',
-    genre: 'Comedies',
-    imgSrc: 'img/pulp-fiction.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 11,
-    name: 'No Country for Old Men',
-    genre: 'Comedies',
-    imgSrc: 'img/no-country-for-old-men.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 12,
-    name: 'Snatch',
-    genre: 'Comedies',
-    imgSrc: 'img/snatch.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 13,
-    name: 'Moonrise Kingdom',
-    genre: 'Comedies',
-    imgSrc: 'img/moonrise-kingdom.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 14,
-    name: 'Seven Years in Tibet',
-    genre: 'Comedies',
-    imgSrc: 'img/seven-years-in-tibet.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 15,
-    name: 'Midnight Special',
-    genre: 'Comedies',
-    imgSrc: 'img/midnight-special.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 16,
-    name: 'War of the Worlds',
-    genre: 'Comedies',
-    imgSrc: 'img/war-of-the-worlds.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 18,
-    name: 'Dardjeeling Limited',
-    genre: 'Drama',
-    imgSrc: 'img/dardjeeling-limited.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 19,
-    name: 'Orlando',
-    genre: 'Comedies',
-    imgSrc: 'img/orlando.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 20,
-    name: 'Mindhunter',
-    genre: 'Comedies',
-    imgSrc: 'img/mindhunter.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-  {
-    id: 21,
-    name: 'Midnight Special',
-    genre: 'Comedies',
-    imgSrc: 'img/midnight-special.jpg',
-    videoSrc:
-      'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
-  },
-];
-
 export const MY_FILMS: ShortFilmInfo[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     genre: 'Comedies',
-    imgSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
-    videoSrc:
+    previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Bohemian Rhapsody',
     genre: 'Comedies',
-    imgSrc: 'img/bohemian-rhapsody.jpg',
-    videoSrc:
+    previewImage: 'img/bohemian-rhapsody.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 3,
+    id: '3',
     name: 'Macbeth',
     genre: 'Comedies',
-    imgSrc: 'img/macbeth.jpg',
-    videoSrc:
+    previewImage: 'img/macbeth.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 4,
+    id: '4',
     name: 'Aviator',
     genre: 'Comedies',
-    imgSrc: 'img/aviator.jpg',
-    videoSrc:
+    previewImage: 'img/aviator.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 5,
+    id: '5',
     name: 'We need to talk about Kevin',
     genre: 'Comedies',
-    imgSrc: 'img/we-need-to-talk-about-kevin.jpg',
-    videoSrc:
+    previewImage: 'img/we-need-to-talk-about-kevin.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 6,
+    id: '6',
     name: 'What We Do in the Shadows',
     genre: 'Comedies',
-    imgSrc: 'img/what-we-do-in-the-shadows.jpg',
-    videoSrc:
+    previewImage: 'img/what-we-do-in-the-shadows.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 7,
+    id: '7',
     name: 'Revenant',
     genre: 'Comedies',
-    imgSrc: 'img/revenant.jpg',
-    videoSrc:
+    previewImage: 'img/revenant.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 8,
+    id: '8',
     name: 'Johnny English',
     genre: 'Comedies',
-    imgSrc: 'img/johnny-english.jpg',
-    videoSrc:
+    previewImage: 'img/johnny-english.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 9,
+    id: '9',
     name: 'Shutter Island',
     genre: 'Comedies',
-    imgSrc: 'img/shutter-island.jpg',
-    videoSrc:
+    previewImage: 'img/shutter-island.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
 ];
 
 export const SIMILAR_FILMS: ShortFilmInfo[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     genre: 'Comedies',
-    imgSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
-    videoSrc:
+    previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Bohemian Rhapsody',
     genre: 'Comedies',
-    imgSrc: 'img/bohemian-rhapsody.jpg',
-    videoSrc:
+    previewImage: 'img/bohemian-rhapsody.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 3,
+    id: '3',
     name: 'Macbeth',
     genre: 'Comedies',
-    imgSrc: 'img/macbeth.jpg',
-    videoSrc:
+    previewImage: 'img/macbeth.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
   {
-    id: 4,
+    id: '4',
     name: 'Aviator',
     genre: 'Comedies',
-    imgSrc: 'img/aviator.jpg',
-    videoSrc:
+    previewImage: 'img/aviator.jpg',
+    previewVideoLink:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
 ];
@@ -315,7 +152,7 @@ export const REVIEWS: Review[] = [
 ];
 
 export const FILM: FilmInfo = {
-  id: 100500,
+  id: '100500',
   name: 'The Grand Budapest Hotel',
   genre: 'Drama',
   releaseDate: 2014,

@@ -1,13 +1,13 @@
 export function GetRatingLevel(rating: number): string {
   if (rating <= 2) {
-    return 'Cringe';
+    return 'Bad';
   } else if (rating <= 4) {
-    return 'Nu takoe';
-  } else if (rating <= 6) {
-    return 'Soydet';
-  } else if (rating <= 8) {
+    return 'Normal';
+  } else if (rating <= 7) {
     return 'Good';
-  } else {
+  } else if (rating <= 9) {
     return 'Very good';
+  } else {
+    return 'Awesome';
   }
 }

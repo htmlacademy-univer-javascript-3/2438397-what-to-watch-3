@@ -5,7 +5,7 @@ import { PlayButton } from '../buttons/playButton';
 import { MyListButton } from '../buttons/myListButton';
 
 export type FilmPromoProps = {
-  id: number;
+  id: string;
   name: string;
   genre: string;
   releaseDate: number;

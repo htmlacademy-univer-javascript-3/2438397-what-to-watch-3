@@ -1,7 +1,7 @@
 import { Video } from './video';
 
 export type FilmInfo = {
-  id: number;
+  id: string;
   name: string;
   genre: string;
   releaseDate: number;
@@ -17,9 +17,9 @@ export type FilmInfo = {
 };
 
 export type ShortFilmInfo = {
-  id: number;
+  id: string;
   name: string;
   genre: string;
-  videoSrc: string;
-  imgSrc: string;
+  previewVideoLink: string;
+  previewImage: string;
 }
