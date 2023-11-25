@@ -5,17 +5,21 @@ import {
 } from '../../components/filmPromo/filmPromo';
 import { Catalog } from '../../components/catalog/catalog';
 import { Footer } from '../../components/footer/footer';
-import {ShortFilmInfo} from '../../types/film';
+import {useAppSelector} from '../../hooks';
+import {filterFilms} from '../../helpers/filterFilms';
+import {extractAllGenres} from '../../helpers/extractDistinctGenres';
 
 export type MainPageProps = {
   filmPromo: FilmPromoProps;
-  filmsCardList: ShortFilmInfo[];
 };
 
 export function MainPage({
   filmPromo,
-  filmsCardList,
 }: MainPageProps): ReactElement {
+  const { films, currentGenre } = useAppSelector((state) => state);
+  const filmsWithRelevantGenre = filterFilms(films, currentGenre);
+  const genres = extractAllGenres(films);
+
   return (
     <Fragment>
       <FilmPromo
@@ -28,11 +32,11 @@ export function MainPage({
       />
       <div className="page-content">
         <Catalog
-          needRenderGenres
           needRenderShowMoreButton
-          filmsList={filmsCardList}
+          filmsList={filmsWithRelevantGenre}
+          genres={genres}
+          activeGenre={currentGenre}
         />
-        ,
         <Footer />
       </div>
     </Fragment>

@@ -51,7 +51,6 @@ export function App({
             path={AppRoute.Root}
             element={
               <MainPage
-                filmsCardList={mainPageProps.filmsCardList}
                 filmPromo={mainPageProps.filmPromo}
               />
             }

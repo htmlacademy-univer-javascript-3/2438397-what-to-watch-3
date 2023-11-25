@@ -22,7 +22,6 @@ export function MyListPage({ filmsList }: MyFilmsPageProps): ReactElement {
       </header>
 
       <Catalog
-        needRenderGenres={false}
         needRenderShowMoreButton={false}
         filmsList={filmsList}
       />

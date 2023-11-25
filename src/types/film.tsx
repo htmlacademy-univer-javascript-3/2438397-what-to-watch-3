@@ -19,6 +19,7 @@ export type FilmInfo = {
 export type ShortFilmInfo = {
   id: number;
   name: string;
+  genre: string;
   videoSrc: string;
   imgSrc: string;
 }

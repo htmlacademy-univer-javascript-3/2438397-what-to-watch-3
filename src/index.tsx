@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {Provider} from 'react-redux';
+
 import {App, AppProps} from './app/app';
-import {CATALOG_FILMS, FILM_OVERVIEW, FILM_PROMO, MY_FILMS} from './mocks/films';
+import {store} from './store';
+
+import {FILM_OVERVIEW, FILM_PROMO, MY_FILMS} from './mocks/films';
 import {PLAYER} from './mocks/player';
 import {REVIEW} from './mocks/review';
 
@@ -12,7 +16,6 @@ const root = ReactDOM.createRoot(
 const APP_PROPS: AppProps = {
   mainPageProps: {
     filmPromo: FILM_PROMO,
-    filmsCardList: CATALOG_FILMS,
   },
   myFilmsPageProps: {
     filmsList: MY_FILMS,
@@ -24,6 +27,14 @@ const APP_PROPS: AppProps = {
 
 root.render(
   <React.StrictMode>
-    <App mainPageProps={APP_PROPS.mainPageProps} myFilmsPageProps={APP_PROPS.myFilmsPageProps} playerPageProps={APP_PROPS.playerPageProps} addReviewPageProps={APP_PROPS.addReviewPageProps} filmOverviewPageProps={APP_PROPS.filmOverviewPageProps}/>
+    <Provider store={store}>
+      <App
+        mainPageProps={APP_PROPS.mainPageProps}
+        myFilmsPageProps={APP_PROPS.myFilmsPageProps}
+        playerPageProps={APP_PROPS.playerPageProps}
+        addReviewPageProps={APP_PROPS.addReviewPageProps}
+        filmOverviewPageProps={APP_PROPS.filmOverviewPageProps}
+      />
+    </Provider>
   </React.StrictMode>
 );

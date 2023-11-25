@@ -118,7 +118,6 @@ export function FilmOverviewPage({
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
           <Catalog
-            needRenderGenres={false}
             needRenderShowMoreButton={false}
             filmsList={similarFilmsCards}
           />
