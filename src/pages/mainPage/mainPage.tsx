@@ -30,7 +30,6 @@ export function MainPage({ filmPromo }: MainPageProps): ReactElement {
       />
       <div className="page-content">
         <Catalog
-          needRenderShowMoreButton
           filmsList={filmsWithRelevantGenre}
           genres={genres}
           activeGenre={currentGenre}

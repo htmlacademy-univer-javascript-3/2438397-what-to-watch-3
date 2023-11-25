@@ -135,7 +135,7 @@ export const CATALOG_FILMS: ShortFilmInfo[] = [
   {
     id: 18,
     name: 'Dardjeeling Limited',
-    genre: 'Comedies',
+    genre: 'Drama',
     imgSrc: 'img/dardjeeling-limited.jpg',
     videoSrc:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
