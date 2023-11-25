@@ -4,7 +4,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 import { AppRoute } from './appTypes';
 import { PrivateRoute } from './privateRoute';
-import { AuthorizationStatus } from './appTypes';
+import { AuthorizationStatus } from '../types/authorizationStatus';
 
 import { MyFilmsPageProps, MyListPage } from '../pages/myListPage/myListPage';
 import { MainPage, MainPageProps } from '../pages/mainPage/mainPage';

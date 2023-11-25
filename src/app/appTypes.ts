@@ -6,9 +6,3 @@ export const AppRoute = {
   Player: (filmId?: string) => `/player/${filmId || ':id'}`,
   AddReview: (filmId?: string) => `/films/${filmId || ':id'}/review`,
 };
-
-export enum AuthorizationStatus {
-  Auth = 'AUTH',
-  NoAuth = 'NO_AUTH',
-  Unknown = 'UNKNOWN',
-}

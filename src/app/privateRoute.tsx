@@ -1,7 +1,8 @@
 import { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { AuthorizationStatus, AppRoute } from './appTypes';
+import { AppRoute } from './appTypes';
+import { AuthorizationStatus } from '../types/authorizationStatus';
 
 export type AuthorizationProps = {
   authorizationStatus: AuthorizationStatus;
