@@ -1,6 +1,6 @@
 import { Fragment, ReactElement, useState } from 'react';
 import { Footer } from '../../components/footer/footer';
-import {FilmInfo, ShortFilmInfo} from '../../types/film';
+import { FilmInfo, ShortFilmInfo } from '../../types/film';
 import { Catalog } from '../../components/catalog/catalog';
 import { FilmOverviewHeader } from '../../components/filmOverview/filmOverviewHeader';
 import { FilmOverview } from '../../components/filmOverview/filmOverview';

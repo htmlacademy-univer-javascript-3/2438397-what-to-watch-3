@@ -5,17 +5,15 @@ import {
 } from '../../components/filmPromo/filmPromo';
 import { Catalog } from '../../components/catalog/catalog';
 import { Footer } from '../../components/footer/footer';
-import {useAppSelector} from '../../hooks';
-import {filterFilms} from '../../helpers/filterFilms';
-import {extractAllGenres} from '../../helpers/extractDistinctGenres';
+import { useAppSelector } from '../../hooks';
+import { filterFilms } from '../../helpers/filterFilms';
+import { extractAllGenres } from '../../helpers/extractDistinctGenres';
 
 export type MainPageProps = {
   filmPromo: FilmPromoProps;
 };
 
-export function MainPage({
-  filmPromo,
-}: MainPageProps): ReactElement {
+export function MainPage({ filmPromo }: MainPageProps): ReactElement {
   const { films, currentGenre } = useAppSelector((state) => state);
   const filmsWithRelevantGenre = filterFilms(films, currentGenre);
   const genres = extractAllGenres(films);

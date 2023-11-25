@@ -6,7 +6,11 @@ export type PlayerProps = {
   isPlaying: boolean;
 };
 
-export function PreviewPlayer({ videoSrc, posterSrc, isPlaying }: PlayerProps): ReactElement {
+export function PreviewPlayer({
+  videoSrc,
+  posterSrc,
+  isPlaying,
+}: PlayerProps): ReactElement {
   const playerRef = useRef<HTMLVideoElement | null>(null);
   useEffect(() => {
     if (playerRef.current) {

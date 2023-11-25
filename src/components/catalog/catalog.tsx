@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import { FilmCard } from '../filmCard/filmCard';
 import { GenresList } from '../genresList/genresList';
 import { useState } from 'react';
-import {ShortFilmInfo} from '../../types/film';
+import { ShortFilmInfo } from '../../types/film';
 
 export type CatalogProps = {
   needRenderShowMoreButton: boolean;
@@ -23,7 +23,9 @@ export function Catalog({
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-      {genres !== undefined && <GenresList genres={genres} activeGenre={activeGenre}/>}
+      {genres !== undefined && (
+        <GenresList genres={genres} activeGenre={activeGenre} />
+      )}
 
       <div className="catalog__films-list">
         {filmsList.map((film) => (

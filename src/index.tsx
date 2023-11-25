@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
-import {App, AppProps} from './app/app';
-import {store} from './store';
+import { App, AppProps } from './app/app';
+import { store } from './store';
 
-import {FILM_OVERVIEW, FILM_PROMO, MY_FILMS} from './mocks/films';
-import {PLAYER} from './mocks/player';
-import {REVIEW} from './mocks/review';
+import { FILM_OVERVIEW, FILM_PROMO, MY_FILMS } from './mocks/films';
+import { PLAYER } from './mocks/player';
+import { REVIEW } from './mocks/review';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 
 const APP_PROPS: AppProps = {
@@ -36,5 +36,5 @@ root.render(
         filmOverviewPageProps={APP_PROPS.filmOverviewPageProps}
       />
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

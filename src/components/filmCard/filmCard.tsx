@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { AppRoute } from '../../app/appTypes';
 import { PreviewPlayer } from '../player/previewPlayer';
-import {ShortFilmInfo} from '../../types/film';
+import { ShortFilmInfo } from '../../types/film';
 
 export type FilmCardProps = {
   film: ShortFilmInfo;
@@ -48,7 +48,11 @@ export function FilmCard({
       }}
     >
       <div className="small-film-card__image">
-        <PreviewPlayer videoSrc={film.videoSrc} posterSrc={film.imgSrc} isPlaying={isPlayingNow} />
+        <PreviewPlayer
+          videoSrc={film.videoSrc}
+          posterSrc={film.imgSrc}
+          isPlaying={isPlayingNow}
+        />
       </div>
       <h3 className="small-film-card__title">
         <Link className="small-film-card__link" to={AppRoute.Film(film.id)}>

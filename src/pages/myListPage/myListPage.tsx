@@ -3,7 +3,7 @@ import { Footer } from '../../components/footer/footer';
 import { Catalog } from '../../components/catalog/catalog';
 import { Logo } from '../../components/logo/logo';
 import { UserBlock } from '../../components/userBlock/userBlock';
-import {ShortFilmInfo} from '../../types/film';
+import { ShortFilmInfo } from '../../types/film';
 
 export type MyFilmsPageProps = {
   filmsList: ShortFilmInfo[];
@@ -21,10 +21,7 @@ export function MyListPage({ filmsList }: MyFilmsPageProps): ReactElement {
         <UserBlock />
       </header>
 
-      <Catalog
-        needRenderShowMoreButton={false}
-        filmsList={filmsList}
-      />
+      <Catalog needRenderShowMoreButton={false} filmsList={filmsList} />
       <Footer />
     </div>
   );
