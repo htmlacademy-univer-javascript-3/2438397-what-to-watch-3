@@ -7,7 +7,7 @@ const initialState: State = {
   currentGenre: ALL_GENRES,
   films: [],
   error: null,
-  dataIsLoading: true,
+  filmsIsLoading: true,
   user: null,
   authorizationStatus: AuthorizationStatus.Unknown,
 };
@@ -24,7 +24,7 @@ export const Reducer = createReducer(initialState, (builder) => {
       state.error = value.payload;
     })
     .addCase(SetDataIsLoading, (state, value) => {
-      state.dataIsLoading = value.payload;
+      state.filmsIsLoading = value.payload;
     })
     .addCase(SetUser, (state, value) => {
       state.user = value.payload;
