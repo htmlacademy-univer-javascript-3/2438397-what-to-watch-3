@@ -1,22 +1,21 @@
 import { ReactElement, useState } from 'react';
 import { Star } from './star';
 
-export type AddReviewProps = {
-  id: number;
-  name: string;
-  imgSrc: string;
-  bgImgSrc: string;
-};
-
 export type ReviewForm = {
+  id: string;
   rating: number;
   comment: string;
 };
 
 const STARS_NUMBER = 10;
 
-export function AddReviewForm(): ReactElement {
+export type AddReviewFormProps = {
+  id: string;
+}
+
+export function AddReviewForm({id}: AddReviewFormProps): ReactElement {
   const [reviewForm, setReviewForm] = useState<ReviewForm>({
+    id: id,
     rating: 0,
     comment: '',
   });

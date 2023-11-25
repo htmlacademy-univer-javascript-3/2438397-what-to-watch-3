@@ -18,7 +18,7 @@ export function Catalog({
   genres,
   activeGenre,
 }: CatalogProps): ReactElement {
-  const [, setActiveFilm] = useState<number | null>();
+  const [, setActiveFilm] = useState<string | null>();
   const [visibleFilmsCount, setVisibleFilmsCount] =
     useState<number>(Math.min(filmsList.length, FILMS_PER_PAGE));
 

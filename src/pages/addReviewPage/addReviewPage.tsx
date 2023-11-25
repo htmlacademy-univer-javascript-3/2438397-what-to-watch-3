@@ -1,16 +1,21 @@
 import { ReactElement } from 'react';
 import { Logo } from '../../components/logo/logo';
 import { UserBlock } from '../../components/userBlock/userBlock';
-import {
-  AddReviewForm,
-  AddReviewProps,
-} from '../../components/addReviewForm/addReviewForm';
+import { AddReviewForm } from '../../components/addReviewForm/addReviewForm';
+
+export type AddReviewPageProps = {
+  id: string;
+  name: string;
+  imgSrc: string;
+  bgImgSrc: string;
+};
 
 export function AddReviewPage({
+  id,
   name,
   imgSrc,
   bgImgSrc,
-}: AddReviewProps): ReactElement {
+}: AddReviewPageProps): ReactElement {
   return (
     <section className="film-card film-card--full">
       <div className="film-card__header">
@@ -44,7 +49,7 @@ export function AddReviewPage({
         </div>
       </div>
 
-      <AddReviewForm />
+      <AddReviewForm id={id}/>
     </section>
   );
 }
