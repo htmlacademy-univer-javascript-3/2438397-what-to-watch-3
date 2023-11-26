@@ -43,7 +43,8 @@ export const CheckAuth = createAsyncThunk<void, undefined, {
   'CheckAuth',
   async (_arg, { dispatch, extra: api }) => {
     try {
-      await api.get(ApiPath.Login);
+      const { data } = await api.get<User>(ApiPath.Login);
+      dispatch(SetUser(data));
       dispatch(SetAuthStatus(AuthorizationStatus.Auth));
     } catch {
       dispatch(SetAuthStatus(AuthorizationStatus.NoAuth));
@@ -51,19 +52,17 @@ export const CheckAuth = createAsyncThunk<void, undefined, {
   }
 );
 
-const TIMEOUT_SHOW_ERROR = 2000;
-
-export const ClearError = createAsyncThunk<void, undefined, {
+export const ClearError = createAsyncThunk<void, number, {
   dispatch: AppDispatch;
   state: AppState;
   extra: AxiosInstance;
 }>(
   'ClearError',
   // eslint-disable-next-line @typescript-eslint/require-await
-  async (_arg, { dispatch }) => {
+  async (timeout, { dispatch }) => {
     setTimeout(() => {
       dispatch(SetError(null));
-    }, TIMEOUT_SHOW_ERROR);
+    }, timeout);
   }
 );
 

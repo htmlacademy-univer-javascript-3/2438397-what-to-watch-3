@@ -7,7 +7,7 @@ const initialState: State = {
   currentGenre: ALL_GENRES,
   films: [],
   error: null,
-  filmsIsLoading: true,
+  filmsIsLoading: false,
   user: null,
   authorizationStatus: AuthorizationStatus.Unknown,
 };

@@ -1440,3 +1440,14 @@ main {
   color: #fff;
   background: #fd612ead;
   border-radius: 15px; }
+
+.error-info {
+  position: fixed;
+  top: 51px;
+  right: 30px;
+  padding: 10px;
+  background-color: #d96666;
+  color: #fff;
+  border-radius: 15px;
+  z-index: 1000;
+}
