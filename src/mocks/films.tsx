@@ -1,5 +1,5 @@
 import { FilmPromoProps } from '../components/filmPromo/filmPromo';
-import {FilmInfo, ShortFilmInfo} from '../types/film';
+import { FilmInfo, ShortFilmInfo } from '../types/film';
 import { Review } from '../types/review';
 import { FilmOverviewPageProps } from '../pages/filmOverviewPage/filmOverviewPage';
 

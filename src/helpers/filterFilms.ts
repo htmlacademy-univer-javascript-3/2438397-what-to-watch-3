@@ -1,5 +1,5 @@
-import {ShortFilmInfo} from '../types/film';
-import {ALL_GENRES} from '../types/state';
+import { ShortFilmInfo } from '../types/film';
+import { ALL_GENRES } from '../types/state';
 
 export function filterFilms(
   films: ShortFilmInfo[],

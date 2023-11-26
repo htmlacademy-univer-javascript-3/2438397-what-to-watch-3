@@ -1,7 +1,7 @@
-import {SetError} from '../store/actions';
-import {ClearError} from '../store/actions';
-import {store} from "../store";
-import {CalculateErrorTimeout} from "../helpers/calculateErrorTimeout";
+import { SetError } from '../store/actions';
+import { ClearError } from '../store/actions';
+import { store } from '../store';
+import { CalculateErrorTimeout } from '../helpers/calculateErrorTimeout';
 
 export function HandleError(message: string | null): void {
   if (message === null) {

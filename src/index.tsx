@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 
 import { App, AppProps } from './app/app';
 import { store } from './store';
-import {Error} from "./components/error/error";
+import { Error } from './components/error/error';
 
 import { FILM_OVERVIEW, FILM_PROMO, MY_FILMS } from './mocks/films';
 import { PLAYER } from './mocks/player';
 import { REVIEW } from './mocks/review';
-import {CheckAuth} from "./store/actions";
+import { CheckAuth } from './store/actions';
 
 store.dispatch(CheckAuth());
 

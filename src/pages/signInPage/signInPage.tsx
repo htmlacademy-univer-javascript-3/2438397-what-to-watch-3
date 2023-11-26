@@ -1,13 +1,13 @@
-import {ReactElement, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import { ReactElement, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import {Footer} from '../../components/footer/footer';
-import {Logo} from '../../components/logo/logo';
-import {useAppDispatch, useAppSelector} from '../../hooks';
-import {AuthData} from '../../types/authData';
-import {LogIn} from '../../store/actions';
-import {AppRoute} from '../../app/appTypes';
-import {AuthorizationStatus} from "../../types/authorizationStatus";
+import { Footer } from '../../components/footer/footer';
+import { Logo } from '../../components/logo/logo';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { AuthData } from '../../types/authData';
+import { LogIn } from '../../store/actions';
+import { AppRoute } from '../../app/appTypes';
+import { AuthorizationStatus } from '../../types/authorizationStatus';
 
 export function SignInPage(): ReactElement {
   const { authorizationStatus } = useAppSelector((state) => state);
@@ -18,7 +18,7 @@ export function SignInPage(): ReactElement {
     password: '',
   });
 
-  if (authorizationStatus === AuthorizationStatus.Auth){
+  if (authorizationStatus === AuthorizationStatus.Auth) {
     navigate(AppRoute.Root);
   }
 
@@ -41,8 +41,7 @@ export function SignInPage(): ReactElement {
                 id="user-email"
                 value={authData.email}
                 onChange={(event) =>
-                  setAuthData({ ...authData, email: event.target.value })
-                }
+                  setAuthData({ ...authData, email: event.target.value })}
               />
               <label
                 className="sign-in__label visually-hidden"
@@ -60,8 +59,7 @@ export function SignInPage(): ReactElement {
                 id="user-password"
                 value={authData.password}
                 onChange={(event) =>
-                  setAuthData({ ...authData, password: event.target.value })
-                }
+                  setAuthData({ ...authData, password: event.target.value })}
               />
               <label
                 className="sign-in__label visually-hidden"

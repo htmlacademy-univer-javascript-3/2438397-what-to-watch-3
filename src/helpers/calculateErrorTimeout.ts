@@ -1,4 +1,4 @@
-export function CalculateErrorTimeout(message: string | null) : number {
+export function CalculateErrorTimeout(message: string | null): number {
   if (message === null) {
     return 0;
   }

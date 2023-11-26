@@ -44,8 +44,7 @@ export function Catalog({
       {visibleFilmsCount < filmsList.length && (
         <ShowMoreButton
           onClick={() =>
-            setVisibleFilmsCount(visibleFilmsCount + FILMS_PER_PAGE)
-          }
+            setVisibleFilmsCount(visibleFilmsCount + FILMS_PER_PAGE)}
         />
       )}
     </section>

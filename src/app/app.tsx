@@ -47,11 +47,7 @@ export function App({
           <Route path={AppRoute.SingIn} element={<SignInPage />} />
           <Route
             path={AppRoute.Root}
-            element={
-              <MainPage
-                filmPromo={mainPageProps.filmPromo}
-              />
-            }
+            element={<MainPage filmPromo={mainPageProps.filmPromo} />}
           />
           <Route
             path={AppRoute.Film()}
