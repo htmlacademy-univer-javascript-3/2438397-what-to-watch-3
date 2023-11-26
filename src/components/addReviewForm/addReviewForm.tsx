@@ -30,7 +30,8 @@ export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
                 key={STARS_NUMBER - i}
                 value={STARS_NUMBER - i}
                 onClick={() =>
-                  setReviewForm({ ...reviewForm, rating: STARS_NUMBER - i })}
+                  setReviewForm({ ...reviewForm, rating: STARS_NUMBER - i })
+                }
               />
             ))}
           </div>
@@ -43,9 +44,9 @@ export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
             id="review-text"
             placeholder="Review text"
             onChange={(e) =>
-              setReviewForm({ ...reviewForm, comment: e.target.value })}
-          >
-          </textarea>
+              setReviewForm({ ...reviewForm, comment: e.target.value })
+            }
+          ></textarea>
           <div className="add-review__submit">
             <button className="add-review__btn" type="submit">
               Post
