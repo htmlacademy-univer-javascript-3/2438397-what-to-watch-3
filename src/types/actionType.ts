@@ -1,5 +1,4 @@
-import {store} from '../store';
-
+import { store } from '../store';
 
 export enum ActionType {
   SetGenre = 'films/setGenre',

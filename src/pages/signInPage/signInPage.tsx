@@ -1,8 +1,27 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Footer } from '../../components/footer/footer';
 import { Logo } from '../../components/logo/logo';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { AuthData } from '../../types/authData';
+import { LogIn } from '../../store/actions';
+import { AppRoute } from '../../app/appTypes';
+import { AuthorizationStatus } from '../../types/authorizationStatus';
 
 export function SignInPage(): ReactElement {
+  const { authorizationStatus } = useAppSelector((state) => state);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [authData, setAuthData] = useState<AuthData>({
+    email: '',
+    password: '',
+  });
+
+  if (authorizationStatus === AuthorizationStatus.Auth) {
+    navigate(AppRoute.Root);
+  }
+
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -20,6 +39,9 @@ export function SignInPage(): ReactElement {
                 placeholder="Email address"
                 name="user-email"
                 id="user-email"
+                value={authData.email}
+                onChange={(event) =>
+                  setAuthData({ ...authData, email: event.target.value })}
               />
               <label
                 className="sign-in__label visually-hidden"
@@ -35,6 +57,9 @@ export function SignInPage(): ReactElement {
                 placeholder="Password"
                 name="user-password"
                 id="user-password"
+                value={authData.password}
+                onChange={(event) =>
+                  setAuthData({ ...authData, password: event.target.value })}
               />
               <label
                 className="sign-in__label visually-hidden"
@@ -45,7 +70,14 @@ export function SignInPage(): ReactElement {
             </div>
           </div>
           <div className="sign-in__submit">
-            <button className="sign-in__btn" type="submit">
+            <button
+              className="sign-in__btn"
+              type="submit"
+              onClick={(event) => {
+                event.preventDefault();
+                dispatch(LogIn(authData));
+              }}
+            >
               Sign in
             </button>
           </div>

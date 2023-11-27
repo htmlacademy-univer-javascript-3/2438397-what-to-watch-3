@@ -22,4 +22,4 @@ export type ShortFilmInfo = {
   genre: string;
   previewVideoLink: string;
   previewImage: string;
-}
+};

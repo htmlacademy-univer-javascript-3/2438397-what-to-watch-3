@@ -1,13 +1,20 @@
-import {createReducer} from '@reduxjs/toolkit';
-import {SetFilms, SetGenre, SetError, SetAuthStatus, SetUser, SetDataIsLoading} from './actions.ts';
-import {ALL_GENRES, State} from '../types/state';
-import {AuthorizationStatus} from '../types/authorizationStatus';
+import { createReducer } from '@reduxjs/toolkit';
+import {
+  SetFilms,
+  SetGenre,
+  SetError,
+  SetAuthStatus,
+  SetUser,
+  SetDataIsLoading,
+} from './actions.ts';
+import { ALL_GENRES, State } from '../types/state';
+import { AuthorizationStatus } from '../types/authorizationStatus';
 
 const initialState: State = {
   currentGenre: ALL_GENRES,
   films: [],
   error: null,
-  filmsIsLoading: true,
+  filmsIsLoading: false,
   user: null,
   authorizationStatus: AuthorizationStatus.Unknown,
 };

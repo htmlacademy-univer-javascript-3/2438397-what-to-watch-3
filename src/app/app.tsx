@@ -4,7 +4,6 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 import { AppRoute } from './appTypes';
 import { PrivateRoute } from './privateRoute';
-import { AuthorizationStatus } from '../types/authorizationStatus';
 
 import { MyFilmsPageProps, MyListPage } from '../pages/myListPage/myListPage';
 import { MainPage, MainPageProps } from '../pages/mainPage/mainPage';
@@ -41,7 +40,6 @@ export function App({
             path={AppRoute.MyList}
             element={
               <PrivateRoute
-                authorizationStatus={AuthorizationStatus.NoAuth}
                 child={<MyListPage filmsList={myFilmsPageProps.filmsList} />}
               />
             }
@@ -49,11 +47,7 @@ export function App({
           <Route path={AppRoute.SingIn} element={<SignInPage />} />
           <Route
             path={AppRoute.Root}
-            element={
-              <MainPage
-                filmPromo={mainPageProps.filmPromo}
-              />
-            }
+            element={<MainPage filmPromo={mainPageProps.filmPromo} />}
           />
           <Route
             path={AppRoute.Film()}
