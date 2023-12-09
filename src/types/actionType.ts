@@ -10,6 +10,8 @@ export enum ActionType {
   setPromoFilmIsLoading = 'promoFilm/setIsLoading',
   setSimilarFilms = 'similarFilms/set',
   setSimilarFilmsIsLoading = 'similarFilms/setIsLoading',
+  setComments = 'comments/set',
+  setCommentsIsLoading = 'comments/setIsLoading',
   setError = 'app/setError',
   setUser = 'user/set',
   setAuthStatus = 'auth/setStatus',

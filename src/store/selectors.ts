@@ -23,5 +23,9 @@ export function usePromoFilmSelector() {
 }
 
 export function useSimilarFilmsSelector() {
-  return useAppSelector((state) => state.similarFilms);
+  return useAppSelector((state) => state.currentFilm.similarFilms);
+}
+
+export function useCommentsSelector() {
+  return useAppSelector((state) => state.currentFilm.comments);
 }

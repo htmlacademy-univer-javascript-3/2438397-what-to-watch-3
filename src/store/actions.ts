@@ -5,6 +5,7 @@ import { FilmInfo, FilmPromoInfo, ShortFilmInfo } from '../types/film';
 import { AuthorizationStatus } from '../types/authorizationStatus';
 import { User } from '../types/user';
 import { AxiosInstance } from 'axios';
+import {FilmComment} from '../types/filmComment';
 
 //All films info setters
 export const SetAllFilmsGenre = createAction<string>(ActionType.SetGenre);
@@ -37,6 +38,15 @@ export const SetSimilarFilms = createAction<ShortFilmInfo[]>(
 
 export const SetSimilarFilmsIsLoading = createAction<boolean>(
   ActionType.setSimilarFilmsIsLoading,
+);
+
+//Comments setters
+export const SetComments = createAction<FilmComment[]>(
+  ActionType.setComments,
+);
+
+export const SetCommentsIsLoading = createAction<boolean>(
+  ActionType.setCommentsIsLoading,
 );
 
 //Error setter

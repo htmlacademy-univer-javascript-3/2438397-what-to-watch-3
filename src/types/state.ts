@@ -1,6 +1,7 @@
 import {FilmInfo, FilmPromoInfo, ShortFilmInfo} from './film';
 import { AuthorizationStatus } from './authorizationStatus';
 import { User } from './user';
+import {FilmComment} from './filmComment';
 
 export const ALL_GENRES = 'All genres';
 
@@ -16,13 +17,17 @@ export type State = {
   currentFilm: {
     isLoading: boolean;
     data: FilmInfo | null;
+    similarFilms: {
+      isLoading: boolean;
+      data: ShortFilmInfo[];
+    };
+    comments: {
+      isLoading: boolean;
+      data: FilmComment[];
+    };
   };
   promoFilm: {
     isLoading: boolean;
     data: FilmPromoInfo | null;
-  };
-  similarFilms: {
-    isLoading: boolean;
-    data: ShortFilmInfo[];
   };
 };

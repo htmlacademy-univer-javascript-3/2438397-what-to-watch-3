@@ -3,7 +3,7 @@ import { FilmInfo } from '../../types/film';
 import { FullActorsList } from './fullActorsList';
 
 export type FilmOverviewDetailsProps = {
-  film: FilmInfo;
+  film: FilmInfo | null;
 };
 
 export function FilmOverviewDetails({
@@ -14,12 +14,12 @@ export function FilmOverviewDetails({
       <div className="film-card__text-col">
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Director</strong>
-          <span className="film-card__details-value">{film.director}</span>
+          <span className="film-card__details-value">{film?.director}</span>
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Starring</strong>
           <span className="film-card__details-value">
-            <FullActorsList actors={film.starring} />
+            <FullActorsList actors={film?.starring || []} />
           </span>
         </p>
       </div>
@@ -28,16 +28,16 @@ export function FilmOverviewDetails({
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Run Time</strong>
           <span className="film-card__details-value">
-            {Math.floor(film.runTime / 60)}h {film.runTime % 60}m
+            {Math.floor((film?.runTime || 0) / 60)}h {(film?.runTime || 0) % 60}m
           </span>
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Genre</strong>
-          <span className="film-card__details-value">{film.genre}</span>
+          <span className="film-card__details-value">{film?.genre}</span>
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Released</strong>
-          <span className="film-card__details-value">{film.released}</span>
+          <span className="film-card__details-value">{film?.released}</span>
         </p>
       </div>
     </div>

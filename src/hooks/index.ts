@@ -1,8 +1,13 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, AppState } from '../types/actionType';
 import { useEffect } from 'react';
-import {FetchAllFilms, FetchPromoFilm} from '../store/apiActions';
-import {useAllFilmsSelector, usePromoFilmSelector} from '../store/selectors';
+import {FetchAllFilms, FetchComments, FetchCurrentFilm, FetchPromoFilm, FetchSimilarFilms} from '../store/apiActions';
+import {
+  useAllFilmsSelector, useCommentsSelector,
+  useCurrentFilmSelector,
+  usePromoFilmSelector,
+  useSimilarFilmsSelector
+} from '../store/selectors';
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 
@@ -28,5 +33,38 @@ export function usePromoFilm() {
   }, [dispatch]);
 
   const { data, isLoading } = usePromoFilmSelector();
-  return { data: data, isLoading };
+  return { data, isLoading };
+}
+
+export function useCurrentFilm(id: string) {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(FetchCurrentFilm(id));
+  }, [dispatch, id]);
+
+  const { data, isLoading } = useCurrentFilmSelector();
+  return { data, isLoading };
+}
+
+export function useSimilarFilms(id: string) {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(FetchSimilarFilms(id));
+  }, [dispatch, id]);
+
+  const { data, isLoading } = useSimilarFilmsSelector();
+  return { data, isLoading };
+}
+
+export function useComments(id: string) {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(FetchComments(id));
+  }, [dispatch, id]);
+
+  const {data, isLoading} = useCommentsSelector();
+  return { data, isLoading };
 }

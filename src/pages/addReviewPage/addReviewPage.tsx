@@ -2,54 +2,56 @@ import { ReactElement } from 'react';
 import { Logo } from '../../components/logo/logo';
 import { UserBlock } from '../../components/userBlock/userBlock';
 import { AddReviewForm } from '../../components/addReviewForm/addReviewForm';
+import { useCurrentFilm } from '../../hooks';
+import { useParams } from 'react-router-dom';
+import { Spinner } from '../../components/spinner/spinner';
 
-export type AddReviewPageProps = {
-  id: string;
-  name: string;
-  imgSrc: string;
-  bgImgSrc: string;
-};
+export function AddReviewPage(): ReactElement {
+  const id = (useParams() as { id: string }).id;
 
-export function AddReviewPage({
-  id,
-  name,
-  imgSrc,
-  bgImgSrc,
-}: AddReviewPageProps): ReactElement {
+  const { data: film, isLoading } = useCurrentFilm(id);
+
   return (
-    <section className="film-card film-card--full">
-      <div className="film-card__header">
-        <div className="film-card__bg">
-          <img src={bgImgSrc} alt={name} />
+    <Spinner isLoading={isLoading}>
+      <section className="film-card film-card--full">
+        <div className="film-card__header">
+          <div className="film-card__bg">
+            <img src={film?.backgroundImage} alt={film?.name} />
+          </div>
+
+          <h1 className="visually-hidden">WTW</h1>
+
+          <header className="page-header">
+            <Logo />
+
+            <nav className="breadcrumbs">
+              <ul className="breadcrumbs__list">
+                <li className="breadcrumbs__item">
+                  <a href="film-page.html" className="breadcrumbs__link">
+                    {film?.name}
+                  </a>
+                </li>
+                <li className="breadcrumbs__item">
+                  <a className="breadcrumbs__link">Add review</a>
+                </li>
+              </ul>
+            </nav>
+
+            <UserBlock />
+          </header>
+
+          <div className="film-card__poster film-card__poster--small">
+            <img
+              src={film?.posterImage}
+              alt={film?.name}
+              width="218"
+              height="327"
+            />
+          </div>
         </div>
 
-        <h1 className="visually-hidden">WTW</h1>
-
-        <header className="page-header">
-          <Logo />
-
-          <nav className="breadcrumbs">
-            <ul className="breadcrumbs__list">
-              <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">
-                  {name}
-                </a>
-              </li>
-              <li className="breadcrumbs__item">
-                <a className="breadcrumbs__link">Add review</a>
-              </li>
-            </ul>
-          </nav>
-
-          <UserBlock />
-        </header>
-
-        <div className="film-card__poster film-card__poster--small">
-          <img src={imgSrc} alt={name} width="218" height="327" />
-        </div>
-      </div>
-
-      <AddReviewForm id={id} />
-    </section>
+        <AddReviewForm id={id} />
+      </section>
+    </Spinner>
   );
 }

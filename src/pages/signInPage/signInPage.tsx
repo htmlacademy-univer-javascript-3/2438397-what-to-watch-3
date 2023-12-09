@@ -41,8 +41,7 @@ export function SignInPage(): ReactElement {
                 id="user-email"
                 value={authData.email}
                 onChange={(event) =>
-                  setAuthData({ ...authData, email: event.target.value })
-                }
+                  setAuthData({ ...authData, email: event.target.value })}
               />
               <label
                 className="sign-in__label visually-hidden"
@@ -60,8 +59,7 @@ export function SignInPage(): ReactElement {
                 id="user-password"
                 value={authData.password}
                 onChange={(event) =>
-                  setAuthData({ ...authData, password: event.target.value })
-                }
+                  setAuthData({ ...authData, password: event.target.value })}
               />
               <label
                 className="sign-in__label visually-hidden"

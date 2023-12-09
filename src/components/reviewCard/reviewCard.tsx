@@ -1,15 +1,15 @@
 import { ReactElement } from 'react';
-import { Review } from '../../types/review';
+import { FilmComment } from '../../types/filmComment';
 
 export type ReviewCardProps = {
-  review: Review;
+  review: FilmComment;
 };
 
 export function ReviewCard({ review }: ReviewCardProps): ReactElement {
   return (
     <div className="review">
       <blockquote className="review__quote">
-        <p className="review__text">{review.text}</p>
+        <p className="review__text">{review.comment}</p>
 
         <footer className="review__details">
           <cite className="review__author">Kate Muir</cite>

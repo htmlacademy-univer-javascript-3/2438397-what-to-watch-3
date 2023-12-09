@@ -5,32 +5,32 @@ import { GetShortActorsList } from '../../helpers/getShortActorsList';
 import { GetRatingLevel } from '../../helpers/getRatingLevel';
 
 export type FilmOverviewProps = {
-  film: FilmInfo;
+  film: FilmInfo | null;
 };
 
 export function FilmOverview({ film }: FilmOverviewProps): ReactElement {
   return (
     <Fragment>
       <div className="film-rating">
-        <div className="film-rating__score">{film.scoreCount}</div>
+        <div className="film-rating__score">{film?.scoreCount}</div>
         <p className="film-rating__meta">
           <span className="film-rating__level">
-            {GetRatingLevel(film.scoreCount)}
+            {GetRatingLevel(film?.scoreCount || 0)}
           </span>
           <span className="film-rating__count">
-            {film.reviewsNumber} ratings
+            {film?.reviewsNumber} ratings
           </span>
         </p>
       </div>
 
       <div className="film-card__text">
-        <FilmDescription description={film.description} />
+        <FilmDescription description={film?.description || ''} />
 
         <p className="film-card__director">
-          <strong>Director: {film.director}</strong>
+          <strong>Director: {film?.director}</strong>
         </p>
         <p className="film-card__starring">
-          <strong>Starring: {GetShortActorsList(film.starring)}</strong>
+          <strong>Starring: {GetShortActorsList(film?.starring || [])}</strong>
         </p>
       </div>
     </Fragment>

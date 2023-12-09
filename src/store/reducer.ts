@@ -9,6 +9,8 @@ import {
   SetSimilarFilmsIsLoading,
   SetCurrentFilm,
   SetCurrentFilmIsLoading,
+  SetComments,
+  SetCommentsIsLoading,
   SetError,
   SetAuthStatus,
   SetUser,
@@ -29,10 +31,14 @@ const initialState: State = {
   currentFilm: {
     data: null,
     isLoading: false,
-  },
-  similarFilms: {
-    data: [],
-    isLoading: false,
+    similarFilms: {
+      data: [],
+      isLoading: false,
+    },
+    comments: {
+      data: [],
+      isLoading: false,
+    }
   },
   error: null,
   user: null,
@@ -63,10 +69,16 @@ export const Reducer = createReducer(initialState, (builder) => {
       state.currentFilm.isLoading = value.payload;
     })
     .addCase(SetSimilarFilms, (state, value) => {
-      state.similarFilms.data = value.payload;
+      state.currentFilm.similarFilms.data = value.payload;
     })
     .addCase(SetSimilarFilmsIsLoading, (state, value) => {
-      state.similarFilms.isLoading = value.payload;
+      state.currentFilm.similarFilms.isLoading = value.payload;
+    })
+    .addCase(SetComments, (state, value) => {
+      state.currentFilm.comments.data = value.payload;
+    })
+    .addCase(SetCommentsIsLoading, (state, value) => {
+      state.currentFilm.comments.isLoading = value.payload;
     })
     .addCase(SetError, (state, value) => {
       state.error = value.payload;
