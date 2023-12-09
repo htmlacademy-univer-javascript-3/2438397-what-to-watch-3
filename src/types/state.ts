@@ -16,6 +16,7 @@ export type State = {
   };
   currentFilm: {
     isLoading: boolean;
+    isNotFound: boolean;
     data: FilmInfo | null;
     similarFilms: {
       isLoading: boolean;

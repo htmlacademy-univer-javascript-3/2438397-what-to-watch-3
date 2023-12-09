@@ -6,6 +6,7 @@ export enum ActionType {
   setAllFilmsIsLoading = 'films/setIsLoading',
   setCurrentFilm = 'currentFilm/set',
   setCurrentFilmIsLoading = 'currentFilm/setIsLoading',
+  setCurrentFilmNotFound = 'currentFilm/setNotFound',
   setPromoFilm = 'promoFilm/set',
   setPromoFilmIsLoading = 'promoFilm/setIsLoading',
   setSimilarFilms = 'similarFilms/set',

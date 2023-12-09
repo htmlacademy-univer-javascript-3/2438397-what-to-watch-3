@@ -43,8 +43,8 @@ export function useCurrentFilm(id: string) {
     dispatch(FetchCurrentFilm(id));
   }, [dispatch, id]);
 
-  const { data, isLoading } = useCurrentFilmSelector();
-  return { data, isLoading };
+  const { data, isLoading, isNotFound } = useCurrentFilmSelector();
+  return { data, isLoading, isNotFound };
 }
 
 export function useSimilarFilms(id: string) {

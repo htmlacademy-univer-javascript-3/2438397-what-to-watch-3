@@ -5,6 +5,8 @@ import { PlayButton } from '../buttons/playButton';
 import { MyListButton } from '../buttons/myListButton';
 import { AddReviewButton } from '../buttons/addReviewButton';
 import { FilmInfo } from '../../types/film';
+import {useAuthorizationStatusSelector} from '../../store/selectors';
+import {AuthorizationStatus} from '../../types/authorizationStatus';
 
 export type FilmOverviewHeaderProps = {
   film: FilmInfo | null;
@@ -13,6 +15,8 @@ export type FilmOverviewHeaderProps = {
 export function FilmOverviewHeader({
   film,
 }: FilmOverviewHeaderProps): ReactElement {
+  const authorizationStatus = useAuthorizationStatusSelector();
+
   return (
     <div className="film-card__hero">
       <div className="film-card__bg">
@@ -37,7 +41,7 @@ export function FilmOverviewHeader({
           <div className="film-card__buttons">
             <PlayButton filmId={film?.id || ':id'} />
             <MyListButton />
-            <AddReviewButton filmId={film?.id || ':id'} />
+            {authorizationStatus === AuthorizationStatus.Auth && <AddReviewButton filmId={film?.id || ':id'} />}
           </div>
         </div>
       </div>

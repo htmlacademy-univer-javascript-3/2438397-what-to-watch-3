@@ -13,7 +13,7 @@ import {
   SetCommentsIsLoading,
   SetError,
   SetAuthStatus,
-  SetUser,
+  SetUser, SetCurrentFilmNotFound,
 } from './actions.ts';
 import { ALL_GENRES, State } from '../types/state';
 import { AuthorizationStatus } from '../types/authorizationStatus';
@@ -31,6 +31,7 @@ const initialState: State = {
   currentFilm: {
     data: null,
     isLoading: false,
+    isNotFound: false,
     similarFilms: {
       data: [],
       isLoading: false,
@@ -67,6 +68,9 @@ export const Reducer = createReducer(initialState, (builder) => {
     })
     .addCase(SetCurrentFilmIsLoading, (state, value) => {
       state.currentFilm.isLoading = value.payload;
+    })
+    .addCase(SetCurrentFilmNotFound, (state, value) => {
+      state.currentFilm.isNotFound = value.payload;
     })
     .addCase(SetSimilarFilms, (state, value) => {
       state.currentFilm.similarFilms.data = value.payload;

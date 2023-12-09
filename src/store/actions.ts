@@ -24,6 +24,10 @@ export const SetCurrentFilmIsLoading = createAction<boolean>(
   ActionType.setCurrentFilmIsLoading,
 );
 
+export const SetCurrentFilmNotFound = createAction<boolean>(
+  ActionType.setCurrentFilmNotFound,
+);
+
 //Promo film setters
 export const SetPromoFilm = createAction<FilmPromoInfo>(ActionType.setPromoFilm);
 

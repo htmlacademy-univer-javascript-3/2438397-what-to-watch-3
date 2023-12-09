@@ -10,6 +10,10 @@ export function useUserSelector(): User | null {
   return useAppSelector((state) => state.user);
 }
 
+export function useErrorSelector(): string | null {
+  return useAppSelector((state) => state.error);
+}
+
 export function useAllFilmsSelector() {
   return useAppSelector((state) => state.allFilms);
 }

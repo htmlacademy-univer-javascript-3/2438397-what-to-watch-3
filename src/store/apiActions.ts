@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AppDispatch, AppState } from '../types/actionType';
-import {AxiosInstance} from 'axios';
+import {AxiosError, AxiosInstance} from 'axios';
 import {FilmInfo, FilmPromoInfo, ShortFilmInfo} from '../types/film';
 import { ApiPath } from '../types/apiPath';
 import { User } from '../types/user';
@@ -10,12 +10,13 @@ import { RemoveToken, SaveToken } from '../services/tokenActions';
 import {
   SetAllFilms,
   SetAllFilmsIsLoading,
-  SetAuthStatus, SetComments, SetCommentsIsLoading, SetCurrentFilm, SetCurrentFilmIsLoading,
+  SetAuthStatus, SetComments, SetCommentsIsLoading, SetCurrentFilm, SetCurrentFilmIsLoading, SetCurrentFilmNotFound,
   SetPromoFilm,
   SetPromoFilmIsLoading, SetSimilarFilms, SetSimilarFilmsIsLoading,
   SetUser,
 } from './actions';
 import {FilmComment} from '../types/filmComment';
+import {ErrorType} from '../types/error';
 
 export const FetchAllFilms = createAsyncThunk<
   void,
@@ -60,6 +61,11 @@ export const FetchCurrentFilm = createAsyncThunk<
   try {
     const { data } = await api.get<FilmInfo>(ApiPath.Film(filmId));
     dispatch(SetCurrentFilm(data));
+  } catch (error) {
+    const err = error as AxiosError<ErrorType>;
+    if (err.response?.status === 404) {
+      dispatch(SetCurrentFilmNotFound(true));
+    }
   } finally {
     dispatch(SetCurrentFilmIsLoading(false));
   }
