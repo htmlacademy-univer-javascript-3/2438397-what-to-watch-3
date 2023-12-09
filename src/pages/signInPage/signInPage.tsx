@@ -5,7 +5,7 @@ import { Footer } from '../../components/footer/footer';
 import { Logo } from '../../components/logo/logo';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { AuthData } from '../../types/authData';
-import { LogIn } from '../../store/actions';
+import { LogIn } from '../../store/apiActions';
 import { AppRoute } from '../../app/appTypes';
 import { AuthorizationStatus } from '../../types/authorizationStatus';
 
@@ -41,7 +41,8 @@ export function SignInPage(): ReactElement {
                 id="user-email"
                 value={authData.email}
                 onChange={(event) =>
-                  setAuthData({ ...authData, email: event.target.value })}
+                  setAuthData({ ...authData, email: event.target.value })
+                }
               />
               <label
                 className="sign-in__label visually-hidden"
@@ -59,7 +60,8 @@ export function SignInPage(): ReactElement {
                 id="user-password"
                 value={authData.password}
                 onChange={(event) =>
-                  setAuthData({ ...authData, password: event.target.value })}
+                  setAuthData({ ...authData, password: event.target.value })
+                }
               />
               <label
                 className="sign-in__label visually-hidden"

@@ -1,4 +1,3 @@
-import { FilmPromoProps } from '../components/filmPromo/filmPromo';
 import { FilmInfo, ShortFilmInfo } from '../types/film';
 import { Review } from '../types/review';
 import { FilmOverviewPageProps } from '../pages/filmOverviewPage/filmOverviewPage';
@@ -155,13 +154,13 @@ export const FILM: FilmInfo = {
   id: '100500',
   name: 'The Grand Budapest Hotel',
   genre: 'Drama',
-  releaseDate: 2014,
-  posterImgSrc: 'img/the-grand-budapest-hotel-poster.jpg',
-  bgImgSrc: 'img/bg-the-grand-budapest-hotel.jpg',
-  rating: 8.9,
+  released: 2014,
+  posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
+  backgroundImage: 'img/bg-the-grand-budapest-hotel.jpg',
+  scoreCount: 8.9,
   director: 'Wes Anderson',
   reviewsNumber: 240,
-  actors: [
+  starring: [
     'Bill Murray',
     'Edward Norton',
     'Jude Law',
@@ -176,21 +175,12 @@ export const FILM: FilmInfo = {
     Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of the \
     many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds himself the recipient of a priceless \
     painting and the chief suspect in her murder.',
-  durationMinutes: 94,
+  runTime: 94,
   filmVideo: {
     posterSrc: 'img/bg-the-grand-budapest-hotel.jpg',
     videoSrc:
       'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
   },
-};
-
-export const FILM_PROMO: FilmPromoProps = {
-  id: FILM.id,
-  name: FILM.name,
-  genre: FILM.genre,
-  releaseDate: FILM.releaseDate,
-  imgSrc: FILM.posterImgSrc,
-  bgImgSrc: FILM.bgImgSrc,
 };
 
 export const FILM_OVERVIEW: FilmOverviewPageProps = {

@@ -1,19 +1,31 @@
-import { Video } from './video';
-
 export type FilmInfo = {
   id: string;
   name: string;
   genre: string;
-  releaseDate: number;
-  posterImgSrc: string;
-  bgImgSrc: string;
+  released: number;
+  posterImage: string;
+  backgroundImage: string;
+  videoLink: string;
+  backgroundColor: string;
   description: string;
   rating: number;
+  scoreCount: number;
   reviewsNumber: number;
   director: string;
-  actors: string[];
-  durationMinutes: number;
-  filmVideo: Video;
+  starring: string[];
+  runTime: number;
+  isFavourite: boolean;
+};
+
+export type FilmPromoInfo = {
+  id: string;
+  name: string;
+  posterImage: string;
+  backgroundImage: string;
+  videoLink: string;
+  genre: string;
+  released: number;
+  isFavorite: boolean;
 };
 
 export type ShortFilmInfo = {

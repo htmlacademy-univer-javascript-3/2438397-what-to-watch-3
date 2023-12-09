@@ -6,7 +6,7 @@ import { AppRoute } from './appTypes';
 import { PrivateRoute } from './privateRoute';
 
 import { MyFilmsPageProps, MyListPage } from '../pages/myListPage/myListPage';
-import { MainPage, MainPageProps } from '../pages/mainPage/mainPage';
+import { MainPage } from '../pages/mainPage/mainPage';
 import { AddReviewPage } from '../pages/addReviewPage/addReviewPage';
 import { NotFoundPage } from '../pages/notFoundPage/notFoundPage';
 import { PlayerPage, PlayerProps } from '../pages/playerPage/playerPage';
@@ -18,7 +18,6 @@ import {
 } from '../pages/filmOverviewPage/filmOverviewPage';
 
 export type AppProps = {
-  mainPageProps: MainPageProps;
   myFilmsPageProps: MyFilmsPageProps;
   playerPageProps: PlayerProps;
   addReviewPageProps: AddReviewPageProps;
@@ -26,7 +25,6 @@ export type AppProps = {
 };
 
 export function App({
-  mainPageProps,
   myFilmsPageProps,
   playerPageProps,
   addReviewPageProps,
@@ -47,7 +45,7 @@ export function App({
           <Route path={AppRoute.SingIn} element={<SignInPage />} />
           <Route
             path={AppRoute.Root}
-            element={<MainPage filmPromo={mainPageProps.filmPromo} />}
+            element={<MainPage />}
           />
           <Route
             path={AppRoute.Film()}

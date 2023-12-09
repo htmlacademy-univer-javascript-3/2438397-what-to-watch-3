@@ -19,7 +19,7 @@ export function FilmOverviewDetails({
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Starring</strong>
           <span className="film-card__details-value">
-            <FullActorsList actors={film.actors} />
+            <FullActorsList actors={film.starring} />
           </span>
         </p>
       </div>
@@ -28,8 +28,7 @@ export function FilmOverviewDetails({
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Run Time</strong>
           <span className="film-card__details-value">
-            {Math.floor(film.durationMinutes / 60)}h {film.durationMinutes % 60}
-            m
+            {Math.floor(film.runTime / 60)}h {film.runTime % 60}m
           </span>
         </p>
         <p className="film-card__details-item">
@@ -38,7 +37,7 @@ export function FilmOverviewDetails({
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Released</strong>
-          <span className="film-card__details-value">{film.releaseDate}</span>
+          <span className="film-card__details-value">{film.released}</span>
         </p>
       </div>
     </div>
