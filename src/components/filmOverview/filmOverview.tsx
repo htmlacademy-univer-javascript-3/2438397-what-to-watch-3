@@ -12,10 +12,10 @@ export function FilmOverview({ film }: FilmOverviewProps): ReactElement {
   return (
     <Fragment>
       <div className="film-rating">
-        <div className="film-rating__score">{film?.scoreCount}</div>
+        <div className="film-rating__score">{film?.rating}</div>
         <p className="film-rating__meta">
           <span className="film-rating__level">
-            {GetRatingLevel(film?.scoreCount || 0)}
+            {GetRatingLevel(film?.rating || 0)}
           </span>
           <span className="film-rating__count">
             {film?.reviewsNumber} ratings

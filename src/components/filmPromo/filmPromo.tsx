@@ -42,8 +42,8 @@ export function FilmPromo(): ReactElement {
               </p>
 
               <div className="film-card__buttons">
-                <PlayButton filmId={film?.id} />
-                <MyListButton />
+                <PlayButton filmId={film?.id || ''} />
+                <MyListButton filmId={film?.id || ''} />
               </div>
             </div>
           </div>

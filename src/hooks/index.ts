@@ -1,10 +1,18 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, AppState } from '../types/actionType';
-import { useEffect } from 'react';
-import {FetchAllFilms, FetchComments, FetchCurrentFilm, FetchPromoFilm, FetchSimilarFilms} from '../store/apiActions';
+import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, AppState} from '../types/actionType';
+import {useCallback, useEffect} from 'react';
+import {
+  FetchAllFilms,
+  FetchComments,
+  FetchCurrentFilm,
+  FetchFavouriteFilms,
+  FetchPromoFilm,
+  FetchSimilarFilms
+} from '../store/apiActions';
 import {usePromoFilmSelector} from '../store/filmPromo/selectors';
 import {useAllFilmsSelector} from '../store/allFilms/selectors';
 import {useCommentsSelector, useCurrentFilmSelector, useSimilarFilmsSelector} from '../store/currentFilm/selectors';
+import {useFavouriteFilmsSelector} from '../store/user/selectors';
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 
@@ -31,6 +39,17 @@ export function usePromoFilm() {
 
   const { data, isLoading } = usePromoFilmSelector();
   return { data, isLoading };
+}
+
+export function useFavouriteFilms() {
+  const dispatch = useAppDispatch();
+
+  const fetchFavouriteFilmsCallback = useCallback(() => {
+    dispatch(FetchFavouriteFilms());
+  }, [dispatch]);
+
+  const {data, isLoading} = useFavouriteFilmsSelector();
+  return {data, isLoading, fetchFavouriteFilmsCallback};
 }
 
 export function useCurrentFilm(id: string) {

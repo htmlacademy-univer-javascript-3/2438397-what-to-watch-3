@@ -10,3 +10,7 @@ export function useAuthorizationStatusSelector(): AuthorizationStatus {
 export function useUserSelector(): User | null {
   return useAppSelector((state) => state[Namespace.User].user);
 }
+
+export function useFavouriteFilmsSelector() {
+  return useAppSelector((state) => state[Namespace.User].favouriteFilms);
+}
