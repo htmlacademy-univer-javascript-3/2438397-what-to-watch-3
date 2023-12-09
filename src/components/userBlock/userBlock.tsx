@@ -1,12 +1,17 @@
 import { ReactElement } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch } from '../../hooks';
 import { AuthorizationStatus } from '../../types/authorizationStatus';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../app/appTypes';
 import { LogOut } from '../../store/apiActions';
+import {
+  useAuthorizationStatusSelector,
+  useUserSelector,
+} from '../../store/user/selectors';
 
 export function UserBlock(): ReactElement {
-  const { authorizationStatus, user } = useAppSelector((state) => state);
+  const authorizationStatus = useAuthorizationStatusSelector();
+  const user = useUserSelector();
   const dispatch = useAppDispatch();
 
   return authorizationStatus === AuthorizationStatus.Auth ? (

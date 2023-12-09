@@ -3,14 +3,15 @@ import { useNavigate } from 'react-router-dom';
 
 import { Footer } from '../../components/footer/footer';
 import { Logo } from '../../components/logo/logo';
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch } from '../../hooks';
 import { AuthData } from '../../types/authData';
 import { LogIn } from '../../store/apiActions';
 import { AppRoute } from '../../app/appTypes';
 import { AuthorizationStatus } from '../../types/authorizationStatus';
+import {useAuthorizationStatusSelector} from '../../store/user/selectors';
 
 export function SignInPage(): ReactElement {
-  const { authorizationStatus } = useAppSelector((state) => state);
+  const authorizationStatus = useAuthorizationStatusSelector();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [authData, setAuthData] = useState<AuthData>({

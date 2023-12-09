@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 
 import { AppRoute } from './appTypes';
 import { AuthorizationStatus } from '../types/authorizationStatus';
-import {useAuthorizationStatusSelector} from '../store/selectors';
+import {useAuthorizationStatusSelector} from '../store/user/selectors';
 
 export type AuthorizationProps = {
   child: ReactElement;

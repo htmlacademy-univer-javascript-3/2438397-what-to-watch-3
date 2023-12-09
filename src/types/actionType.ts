@@ -16,7 +16,6 @@ export enum ActionType {
   setError = 'app/setError',
   setUser = 'user/set',
   setAuthStatus = 'auth/setStatus',
-  setDataIsLoading = 'app/setDataIsLoading',
 }
 
 export type AppState = ReturnType<typeof store.getState>;
