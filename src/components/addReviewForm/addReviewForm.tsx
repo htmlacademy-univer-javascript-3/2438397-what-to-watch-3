@@ -1,5 +1,9 @@
 import { ReactElement, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Star } from './star';
+import { useAppDispatch } from '../../hooks';
+import { postCommentAction } from '../../store/apiActions';
+import { AppRoute } from '../../app/appTypes';
 
 export type ReviewForm = {
   id: string;
@@ -14,6 +18,9 @@ export type AddReviewFormProps = {
 };
 
 export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const [reviewForm, setReviewForm] = useState<ReviewForm>({
     id: id,
     rating: 0,
@@ -47,7 +54,24 @@ export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
           >
           </textarea>
           <div className="add-review__submit">
-            <button className="add-review__btn" type="submit">
+            <button
+              className="add-review__btn"
+              type="submit"
+              onClick={(event) => {
+                event.preventDefault();
+                dispatch(
+                  postCommentAction({
+                    filmId: id,
+                    comment: reviewForm.comment,
+                    rating: reviewForm.rating,
+                  }),
+                ).then((result) => {
+                  if (result.payload) {
+                    navigate(AppRoute.Film(id));
+                  }
+                });
+              }}
+            >
               Post
             </button>
           </div>

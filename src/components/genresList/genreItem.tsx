@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { SetGenre } from '../../store/actions';
+import { SetAllFilmsGenre } from '../../store/actions';
 import { useAppDispatch } from '../../hooks';
 
 export type GenreItemProps = {
@@ -21,7 +21,7 @@ export function GenreItem({ name, isActive }: GenreItemProps): ReactElement {
         className="catalog__genres-link"
         onClick={(event) => {
           event.preventDefault();
-          dispatch(SetGenre(name));
+          dispatch(SetAllFilmsGenre(name));
         }}
       >
         {name}

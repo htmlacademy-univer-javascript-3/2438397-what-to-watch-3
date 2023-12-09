@@ -3,57 +3,52 @@ import { Logo } from '../logo/logo';
 import { UserBlock } from '../userBlock/userBlock';
 import { PlayButton } from '../buttons/playButton';
 import { MyListButton } from '../buttons/myListButton';
+import { usePromoFilm } from '../../hooks';
+import { Spinner } from '../spinner/spinner';
 
-export type FilmPromoProps = {
-  id: string;
-  name: string;
-  genre: string;
-  releaseDate: number;
-  imgSrc: string;
-  bgImgSrc: string;
-};
+export function FilmPromo(): ReactElement {
+  const { data: film, isLoading } = usePromoFilm();
 
-export function FilmPromo({
-  id,
-  name,
-  genre,
-  releaseDate,
-  imgSrc,
-  bgImgSrc,
-}: FilmPromoProps): ReactElement {
   return (
-    <section className="film-card">
-      <div className="film-card__bg">
-        <img src={bgImgSrc} alt={name} />
-      </div>
+    <Spinner isLoading={isLoading}>
+      <section className="film-card">
+        <div className="film-card__bg">
+          <img src={film?.backgroundImage} alt={film?.name} />
+        </div>
 
-      <h1 className="visually-hidden">WTW</h1>
+        <h1 className="visually-hidden">WTW</h1>
 
-      <header className="page-header film-card__head">
-        <Logo />
-        <UserBlock />
-      </header>
+        <header className="page-header film-card__head">
+          <Logo />
+          <UserBlock />
+        </header>
 
-      <div className="film-card__wrap">
-        <div className="film-card__info">
-          <div className="film-card__poster">
-            <img src={imgSrc} alt={name} width="218" height="327" />
-          </div>
+        <div className="film-card__wrap">
+          <div className="film-card__info">
+            <div className="film-card__poster">
+              <img
+                src={film?.posterImage}
+                alt={film?.name}
+                width="218"
+                height="327"
+              />
+            </div>
 
-          <div className="film-card__desc">
-            <h2 className="film-card__title">{name}</h2>
-            <p className="film-card__meta">
-              <span className="film-card__genre">{genre}</span>
-              <span className="film-card__year">{releaseDate}</span>
-            </p>
+            <div className="film-card__desc">
+              <h2 className="film-card__title">{film?.name}</h2>
+              <p className="film-card__meta">
+                <span className="film-card__genre">{film?.genre}</span>
+                <span className="film-card__year">{film?.released}</span>
+              </p>
 
-            <div className="film-card__buttons">
-              <PlayButton filmId={id} />
-              <MyListButton />
+              <div className="film-card__buttons">
+                <PlayButton filmId={film?.id} />
+                <MyListButton />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Spinner>
   );
 }

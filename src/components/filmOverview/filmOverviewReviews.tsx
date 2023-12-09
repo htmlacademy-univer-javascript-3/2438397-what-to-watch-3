@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
-import { Review } from '../../types/review';
+import { FilmComment } from '../../types/filmComment';
 import { ReviewCard } from '../reviewCard/reviewCard';
 
 export type FilmOverviewReviewsProps = {
-  reviews: Review[];
+  reviews: FilmComment[];
 };
 
 export function FilmOverviewReviews({

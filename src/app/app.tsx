@@ -6,31 +6,23 @@ import { AppRoute } from './appTypes';
 import { PrivateRoute } from './privateRoute';
 
 import { MyFilmsPageProps, MyListPage } from '../pages/myListPage/myListPage';
-import { MainPage, MainPageProps } from '../pages/mainPage/mainPage';
+import { MainPage } from '../pages/mainPage/mainPage';
 import { AddReviewPage } from '../pages/addReviewPage/addReviewPage';
 import { NotFoundPage } from '../pages/notFoundPage/notFoundPage';
 import { PlayerPage, PlayerProps } from '../pages/playerPage/playerPage';
 import { SignInPage } from '../pages/signInPage/signInPage';
-import { AddReviewPageProps } from '../pages/addReviewPage/addReviewPage';
 import {
   FilmOverviewPage,
-  FilmOverviewPageProps,
 } from '../pages/filmOverviewPage/filmOverviewPage';
 
 export type AppProps = {
-  mainPageProps: MainPageProps;
   myFilmsPageProps: MyFilmsPageProps;
   playerPageProps: PlayerProps;
-  addReviewPageProps: AddReviewPageProps;
-  filmOverviewPageProps: FilmOverviewPageProps;
 };
 
 export function App({
-  mainPageProps,
   myFilmsPageProps,
   playerPageProps,
-  addReviewPageProps,
-  filmOverviewPageProps,
 }: AppProps): ReactElement {
   return (
     <HelmetProvider>
@@ -47,27 +39,18 @@ export function App({
           <Route path={AppRoute.SingIn} element={<SignInPage />} />
           <Route
             path={AppRoute.Root}
-            element={<MainPage filmPromo={mainPageProps.filmPromo} />}
+            element={<MainPage />}
           />
           <Route
             path={AppRoute.Film()}
             element={
-              <FilmOverviewPage
-                film={filmOverviewPageProps.film}
-                similarFilmsCards={filmOverviewPageProps.similarFilmsCards}
-                reviews={filmOverviewPageProps.reviews}
-              />
+              <FilmOverviewPage />
             }
           />
           <Route
             path={AppRoute.AddReview()}
             element={
-              <AddReviewPage
-                id={addReviewPageProps.id}
-                name={addReviewPageProps.name}
-                imgSrc={addReviewPageProps.imgSrc}
-                bgImgSrc={addReviewPageProps.bgImgSrc}
-              />
+              <AddReviewPage />
             }
           />
           <Route

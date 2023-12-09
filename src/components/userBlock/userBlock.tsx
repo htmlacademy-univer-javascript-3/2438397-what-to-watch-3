@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { AuthorizationStatus } from '../../types/authorizationStatus';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../app/appTypes';
-import { LogOut } from '../../store/actions';
+import { LogOut } from '../../store/apiActions';
 
 export function UserBlock(): ReactElement {
   const { authorizationStatus, user } = useAppSelector((state) => state);

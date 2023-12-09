@@ -5,7 +5,7 @@ import { Footer } from '../../components/footer/footer';
 import { Logo } from '../../components/logo/logo';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { AuthData } from '../../types/authData';
-import { LogIn } from '../../store/actions';
+import { LogIn } from '../../store/apiActions';
 import { AppRoute } from '../../app/appTypes';
 import { AuthorizationStatus } from '../../types/authorizationStatus';
 

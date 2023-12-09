@@ -1,12 +1,15 @@
 import { Fragment, ReactElement, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import { Footer } from '../../components/footer/footer';
-import { FilmInfo, ShortFilmInfo } from '../../types/film';
 import { Catalog } from '../../components/catalog/catalog';
 import { FilmOverviewHeader } from '../../components/filmOverview/filmOverviewHeader';
 import { FilmOverview } from '../../components/filmOverview/filmOverview';
 import { FilmOverviewDetails } from '../../components/filmOverview/filmOverviewDetails';
-import { Review } from '../../types/review';
 import { FilmOverviewReviews } from '../../components/filmOverview/filmOverviewReviews';
+import { useComments, useCurrentFilm, useSimilarFilms } from '../../hooks';
+import { Spinner } from '../../components/spinner/spinner';
+import { NotFoundPage } from '../notFoundPage/notFoundPage';
 
 export enum TabsType {
   Overview = 'Overview',
@@ -14,113 +17,123 @@ export enum TabsType {
   Reviews = 'Reviews',
 }
 
-export type FilmOverviewPageProps = {
-  film: FilmInfo;
-  reviews: Review[];
-  similarFilmsCards: ShortFilmInfo[];
-};
+export function FilmOverviewPage(): ReactElement {
+  const id = (useParams() as { id: string }).id;
 
-export function FilmOverviewPage({
-  film,
-  reviews,
-  similarFilmsCards,
-}: FilmOverviewPageProps): ReactElement {
   const [activeTab, setActiveTab] = useState<TabsType>(TabsType.Overview);
+
+  const { data: film, isLoading, isNotFound } = useCurrentFilm(id);
+  const { data: similarFilms, isLoading: isSimilarFilmsLoading } =
+    useSimilarFilms(id);
+  const { data: comments, isLoading: isCommentsLoading } = useComments(id);
+
   return (
-    <Fragment>
-      <section className="film-card film-card--full">
-        <FilmOverviewHeader film={film} />
+    <Spinner isLoading={isLoading}>
+      {isNotFound ? (
+        <NotFoundPage />
+      ) : (
+        <Fragment>
+          <section className="film-card film-card--full">
+            <FilmOverviewHeader film={film} />
 
-        <div className="film-card__wrap film-card__translate-top">
-          <div className="film-card__info">
-            <div className="film-card__poster film-card__poster--big">
-              <img
-                src={film.posterImgSrc}
-                alt={film.name}
-                width="218"
-                height="327"
-              />
+            <div className="film-card__wrap film-card__translate-top">
+              <div className="film-card__info">
+                <div className="film-card__poster film-card__poster--big">
+                  <img
+                    src={film?.posterImage}
+                    alt={film?.name}
+                    width="218"
+                    height="327"
+                  />
+                </div>
+
+                <div className="film-card__desc">
+                  <nav className="film-nav film-card__nav">
+                    <ul className="film-nav__list">
+                      <li
+                        className={`film-nav__item ${
+                          activeTab === TabsType.Overview
+                            ? 'film-nav__item--active'
+                            : ''
+                        }`}
+                      >
+                        <a
+                          href="#overview"
+                          className="film-nav__link"
+                          onClick={(event) => {
+                            event.preventDefault();
+                            setActiveTab(TabsType.Overview);
+                          }}
+                        >
+                          {TabsType.Overview}
+                        </a>
+                      </li>
+                      <li
+                        className={`film-nav__item ${
+                          activeTab === TabsType.Details
+                            ? 'film-nav__item--active'
+                            : ''
+                        }`}
+                      >
+                        <a
+                          href="#details"
+                          className="film-nav__link"
+                          onClick={(event) => {
+                            event.preventDefault();
+                            setActiveTab(TabsType.Details);
+                          }}
+                        >
+                          {TabsType.Details}
+                        </a>
+                      </li>
+                      <li
+                        className={`film-nav__item ${
+                          activeTab === TabsType.Reviews
+                            ? 'film-nav__item--active'
+                            : ''
+                        }`}
+                      >
+                        <a
+                          href="#reviews"
+                          className="film-nav__link"
+                          onClick={(event) => {
+                            event.preventDefault();
+                            setActiveTab(TabsType.Reviews);
+                          }}
+                        >
+                          {TabsType.Reviews}
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+
+                  {activeTab === TabsType.Overview && (
+                    <FilmOverview film={film} />
+                  )}
+                  {activeTab === TabsType.Details && (
+                    <FilmOverviewDetails film={film} />
+                  )}
+                  {activeTab === TabsType.Reviews && (
+                    <Spinner isLoading={isCommentsLoading}>
+                      <FilmOverviewReviews reviews={comments} />
+                    </Spinner>
+                  )}
+                </div>
+              </div>
             </div>
+          </section>
 
-            <div className="film-card__desc">
-              <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li
-                    className={`film-nav__item ${
-                      activeTab === TabsType.Overview
-                        ? 'film-nav__item--active'
-                        : ''
-                    }`}
-                  >
-                    <a
-                      href="#overview"
-                      className="film-nav__link"
-                      onClick={(event) => {
-                        event.preventDefault();
-                        setActiveTab(TabsType.Overview);
-                      }}
-                    >
-                      {TabsType.Overview}
-                    </a>
-                  </li>
-                  <li
-                    className={`film-nav__item ${
-                      activeTab === TabsType.Details
-                        ? 'film-nav__item--active'
-                        : ''
-                    }`}
-                  >
-                    <a
-                      href="#details"
-                      className="film-nav__link"
-                      onClick={(event) => {
-                        event.preventDefault();
-                        setActiveTab(TabsType.Details);
-                      }}
-                    >
-                      {TabsType.Details}
-                    </a>
-                  </li>
-                  <li
-                    className={`film-nav__item ${
-                      activeTab === TabsType.Reviews
-                        ? 'film-nav__item--active'
-                        : ''
-                    }`}
-                  >
-                    <a
-                      href="#reviews"
-                      className="film-nav__link"
-                      onClick={(event) => {
-                        event.preventDefault();
-                        setActiveTab(TabsType.Reviews);
-                      }}
-                    >
-                      {TabsType.Reviews}
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-
-              {activeTab === TabsType.Overview && <FilmOverview film={film} />}
-              {activeTab === TabsType.Details && (
-                <FilmOverviewDetails film={film} />
-              )}
-              {activeTab === TabsType.Reviews && (
-                <FilmOverviewReviews reviews={reviews} />
-              )}
-            </div>
+          <div className="page-content">
+            <section className="catalog catalog--like-this">
+              <h2 className="catalog__title">More like this</h2>
+              <Spinner isLoading={isSimilarFilmsLoading}>
+                <Catalog filmsList={similarFilms} />
+              </Spinner>
+            </section>
+            <Footer />
           </div>
-        </div>
-      </section>
-
-      <div className="page-content">
-        <section className="catalog catalog--like-this">
-          <h2 className="catalog__title">More like this</h2>
-          <Catalog filmsList={similarFilmsCards} />
-        </section>
-        <Footer />
-      </div>
-    </Fragment>
+        </Fragment>
+      )}
+    </Spinner>
   );
 }

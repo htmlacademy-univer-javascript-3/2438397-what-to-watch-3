@@ -1,9 +1,10 @@
 import { ReactElement } from 'react';
 
-export function Spinner(): ReactElement {
-  return (
-    <section className="catalog">
-      <h2>Content is loading...</h2>
-    </section>
-  );
+export type SpinnerProps = {
+  isLoading: boolean;
+  children: ReactElement;
+};
+
+export function Spinner({ isLoading, children }: SpinnerProps): ReactElement {
+  return isLoading ? <h2>Content is loading...</h2> : children;
 }
