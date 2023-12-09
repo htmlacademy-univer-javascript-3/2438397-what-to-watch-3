@@ -5,8 +5,8 @@ import { PlayButton } from '../buttons/playButton';
 import { MyListButton } from '../buttons/myListButton';
 import { AddReviewButton } from '../buttons/addReviewButton';
 import { FilmInfo } from '../../types/film';
-import { useAuthorizationStatusSelector } from '../../store/selectors';
 import { AuthorizationStatus } from '../../types/authorizationStatus';
+import { useAuthorizationStatusSelector } from '../../store/user/selectors';
 
 export type FilmOverviewHeaderProps = {
   film: FilmInfo | null;

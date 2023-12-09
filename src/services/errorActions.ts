@@ -1,5 +1,5 @@
-import { SetError } from '../store/actions';
-import { ClearError } from '../store/actions';
+import { SetError } from '../store/error/actions';
+import { ClearError } from '../store/error/actions';
 import { store } from '../store';
 import { CalculateErrorTimeout } from '../helpers/calculateErrorTimeout';
 
