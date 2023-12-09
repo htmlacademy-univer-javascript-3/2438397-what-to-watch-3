@@ -5,7 +5,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { AppRoute } from './appTypes';
 import { PrivateRoute } from './privateRoute';
 
-import { MyFilmsPageProps, MyListPage } from '../pages/myListPage/myListPage';
+import { MyListPage } from '../pages/myListPage/myListPage';
 import { MainPage } from '../pages/mainPage/mainPage';
 import { AddReviewPage } from '../pages/addReviewPage/addReviewPage';
 import { NotFoundPage } from '../pages/notFoundPage/notFoundPage';
@@ -16,12 +16,10 @@ import {
 } from '../pages/filmOverviewPage/filmOverviewPage';
 
 export type AppProps = {
-  myFilmsPageProps: MyFilmsPageProps;
   playerPageProps: PlayerProps;
 };
 
 export function App({
-  myFilmsPageProps,
   playerPageProps,
 }: AppProps): ReactElement {
   return (
@@ -32,7 +30,7 @@ export function App({
             path={AppRoute.MyList}
             element={
               <PrivateRoute
-                child={<MyListPage filmsList={myFilmsPageProps.filmsList} />}
+                child={<MyListPage />}
               />
             }
           />

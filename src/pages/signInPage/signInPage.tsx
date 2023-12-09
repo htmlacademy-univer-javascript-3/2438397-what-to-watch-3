@@ -8,7 +8,7 @@ import { AuthData } from '../../types/authData';
 import { LogIn } from '../../store/apiActions';
 import { AppRoute } from '../../app/appTypes';
 import { AuthorizationStatus } from '../../types/authorizationStatus';
-import {useAuthorizationStatusSelector} from '../../store/user/selectors';
+import { useAuthorizationStatusSelector } from '../../store/user/selectors';
 
 export function SignInPage(): ReactElement {
   const authorizationStatus = useAuthorizationStatusSelector();

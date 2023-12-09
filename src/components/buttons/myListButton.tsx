@@ -1,17 +1,49 @@
-import { ReactElement } from 'react';
-import { Link } from 'react-router-dom';
-import { AppRoute } from '../../app/appTypes';
+import { ReactElement, useEffect } from 'react';
+import { useAuthorizationStatusSelector } from '../../store/user/selectors';
+import { AuthorizationStatus } from '../../types/authorizationStatus';
+import { useAppDispatch, useFavouriteFilms } from '../../hooks';
+import { PostFavouriteFilm } from '../../store/apiActions';
 
-const MY_LIST_LENGTH = 9;
+export type MyListButtonProps = {
+  filmId: string;
+};
 
-export function MyListButton(): ReactElement {
-  return (
-    <Link className="btn btn--list film-card__button" to={AppRoute.MyList}>
+export function MyListButton({
+  filmId,
+}: MyListButtonProps): ReactElement | null {
+  const { data: films, fetchFavouriteFilmsCallback } = useFavouriteFilms();
+
+  useEffect(() => {
+    fetchFavouriteFilmsCallback();
+  }, [fetchFavouriteFilmsCallback]);
+  const isFavourite = films.some((film) => film.id === filmId);
+
+  const authorizationStatus = useAuthorizationStatusSelector();
+
+  const dispatch = useAppDispatch();
+
+  return authorizationStatus === AuthorizationStatus.NoAuth ? null : (
+    <button
+      className="btn btn--list film-card__button"
+      onClick={(event) => {
+        event.preventDefault();
+        if (filmId) {
+          dispatch(
+            PostFavouriteFilm({
+              filmId: filmId,
+              status: isFavourite ? 0 : 1,
+            }),
+          ).then(() => {
+            fetchFavouriteFilmsCallback();
+          });
+        }
+      }}
+    >
       <svg viewBox="0 0 19 20" width="19" height="20">
-        <use xlinkHref="#add"></use>
+        <use xlinkHref={isFavourite ? '#in-list' : '#add'}></use>
       </svg>
       <span>My list</span>
-      <span className="film-card__count">{MY_LIST_LENGTH}</span>
-    </Link>
+      <span className="film-card__count">{films.length}</span>
+    </button>
   );
 }

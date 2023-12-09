@@ -39,10 +39,10 @@ export function FilmOverviewHeader({
           </p>
 
           <div className="film-card__buttons">
-            <PlayButton filmId={film?.id || ':id'} />
-            <MyListButton />
+            <PlayButton filmId={film?.id || ''} />
+            <MyListButton filmId={film?.id || ''} />
             {authorizationStatus === AuthorizationStatus.Auth && (
-              <AddReviewButton filmId={film?.id || ':id'} />
+              <AddReviewButton filmId={film?.id || ''} />
             )}
           </div>
         </div>

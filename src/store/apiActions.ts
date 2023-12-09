@@ -34,6 +34,36 @@ export const FetchPromoFilm = createAsyncThunk<
   return data;
 });
 
+export const FetchFavouriteFilms = createAsyncThunk<
+  ShortFilmInfo[],
+  undefined,
+  {
+    dispatch: AppDispatch;
+    state: AppState;
+    extra: AxiosInstance;
+  }
+>('FetchFavourite', async (_arg, { extra: api }) => {
+  const { data } = await api.get<ShortFilmInfo[]>(ApiPath.FavouriteItems);
+  return data;
+});
+
+export const PostFavouriteFilm = createAsyncThunk<
+  boolean,
+  { filmId: string; status: number },
+  {
+    dispatch: AppDispatch;
+    state: AppState;
+    extra: AxiosInstance;
+  }
+>('PposFavourite', async ({ filmId, status }, { extra: api }) => {
+  try {
+    await api.post(ApiPath.SetFavourite(filmId, status));
+    return true;
+  } catch {
+    return false;
+  }
+});
+
 export const FetchCurrentFilm = createAsyncThunk<
   FilmInfo,
   string,
