@@ -5,7 +5,7 @@ import { AddReviewForm } from '../../components/addReviewForm/addReviewForm';
 import { useCurrentFilm } from '../../hooks';
 import { useParams } from 'react-router-dom';
 import { Spinner } from '../../components/spinner/spinner';
-import {NotFoundPage} from '../notFoundPage/notFoundPage';
+import { NotFoundPage } from '../notFoundPage/notFoundPage';
 
 export function AddReviewPage(): ReactElement {
   const id = (useParams() as { id: string }).id;
@@ -14,7 +14,9 @@ export function AddReviewPage(): ReactElement {
 
   return (
     <Spinner isLoading={isLoading}>
-      {isNotFound ? <NotFoundPage /> :
+      {isNotFound ? (
+        <NotFoundPage />
+      ) : (
         <section className="film-card film-card--full">
           <div className="film-card__header">
             <div className="film-card__bg">
@@ -53,7 +55,8 @@ export function AddReviewPage(): ReactElement {
           </div>
 
           <AddReviewForm id={id} />
-        </section>}
+        </section>
+      )}
     </Spinner>
   );
 }

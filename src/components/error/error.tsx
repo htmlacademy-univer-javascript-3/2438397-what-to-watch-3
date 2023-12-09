@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import {useErrorSelector} from '../../store/selectors';
+import { useErrorSelector } from '../../store/selectors';
 
 export function Error(): ReactElement | null {
   const error = useErrorSelector();

@@ -107,6 +107,26 @@ export const FetchComments = createAsyncThunk<
   }
 });
 
+export const postCommentAction = createAsyncThunk<
+  boolean,
+  {
+    filmId: string;
+    comment: string;
+    rating: number;
+  },
+  {
+    state: AppState;
+    extra: AxiosInstance;
+  }
+>('PostComment', async ({ filmId, comment, rating }, { extra: api }) => {
+  try {
+    await api.post<FilmComment>(ApiPath.Comments(filmId), {comment: comment, rating: rating});
+    return true;
+  } catch {
+    return false;
+  }
+});
+
 export const CheckAuth = createAsyncThunk<
   void,
   undefined,

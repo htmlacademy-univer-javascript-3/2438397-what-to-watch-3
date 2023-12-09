@@ -28,7 +28,8 @@ export function FilmOverviewDetails({
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Run Time</strong>
           <span className="film-card__details-value">
-            {Math.floor((film?.runTime || 0) / 60)}h {(film?.runTime || 0) % 60}m
+            {Math.floor((film?.runTime || 0) / 60)}h {(film?.runTime || 0) % 60}
+            m
           </span>
         </p>
         <p className="film-card__details-item">

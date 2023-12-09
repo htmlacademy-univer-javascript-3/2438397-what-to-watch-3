@@ -9,7 +9,7 @@ import { FilmOverviewDetails } from '../../components/filmOverview/filmOverviewD
 import { FilmOverviewReviews } from '../../components/filmOverview/filmOverviewReviews';
 import { useComments, useCurrentFilm, useSimilarFilms } from '../../hooks';
 import { Spinner } from '../../components/spinner/spinner';
-import {NotFoundPage} from "../notFoundPage/notFoundPage";
+import { NotFoundPage } from '../notFoundPage/notFoundPage';
 
 export enum TabsType {
   Overview = 'Overview',
@@ -29,7 +29,9 @@ export function FilmOverviewPage(): ReactElement {
 
   return (
     <Spinner isLoading={isLoading}>
-      {isNotFound ? <NotFoundPage /> :
+      {isNotFound ? (
+        <NotFoundPage />
+      ) : (
         <Fragment>
           <section className="film-card film-card--full">
             <FilmOverviewHeader film={film} />
@@ -105,7 +107,9 @@ export function FilmOverviewPage(): ReactElement {
                     </ul>
                   </nav>
 
-                  {activeTab === TabsType.Overview && <FilmOverview film={film} />}
+                  {activeTab === TabsType.Overview && (
+                    <FilmOverview film={film} />
+                  )}
                   {activeTab === TabsType.Details && (
                     <FilmOverviewDetails film={film} />
                   )}
@@ -128,7 +132,8 @@ export function FilmOverviewPage(): ReactElement {
             </section>
             <Footer />
           </div>
-        </Fragment>}
+        </Fragment>
+      )}
     </Spinner>
   );
 }
