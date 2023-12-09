@@ -9,19 +9,13 @@ import { MyListPage } from '../pages/myListPage/myListPage';
 import { MainPage } from '../pages/mainPage/mainPage';
 import { AddReviewPage } from '../pages/addReviewPage/addReviewPage';
 import { NotFoundPage } from '../pages/notFoundPage/notFoundPage';
-import { PlayerPage, PlayerProps } from '../pages/playerPage/playerPage';
+import { PlayerPage } from '../pages/playerPage/playerPage';
 import { SignInPage } from '../pages/signInPage/signInPage';
 import {
   FilmOverviewPage,
 } from '../pages/filmOverviewPage/filmOverviewPage';
 
-export type AppProps = {
-  playerPageProps: PlayerProps;
-};
-
-export function App({
-  playerPageProps,
-}: AppProps): ReactElement {
+export function App(): ReactElement {
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -54,10 +48,7 @@ export function App({
           <Route
             path={AppRoute.Player()}
             element={
-              <PlayerPage
-                videoSrc={playerPageProps.videoSrc}
-                posterSrc={playerPageProps.posterSrc}
-              />
+              <PlayerPage />
             }
           />
           <Route path="*" element={<NotFoundPage />} />
