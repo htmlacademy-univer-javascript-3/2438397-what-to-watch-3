@@ -1,4 +1,4 @@
-import { AuthorizationStatus } from '../../types/authorizationStatus';
+import { AuthorizationStatus } from '../../types/authorization-status';
 import { useAppSelector } from '../../hooks';
 import { User } from '../../types/user';
 import { Namespace } from '../namespace';

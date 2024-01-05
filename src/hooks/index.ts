@@ -1,5 +1,5 @@
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
-import {AppDispatch, AppState} from '../types/actionType';
+import {AppDispatch, AppState} from '../types/action-type';
 import {useCallback, useEffect} from 'react';
 import {
   FetchAllFilms,
@@ -8,10 +8,10 @@ import {
   FetchFavouriteFilms,
   FetchPromoFilm,
   FetchSimilarFilms
-} from '../store/apiActions';
-import {usePromoFilmSelector} from '../store/filmPromo/selectors';
-import {useAllFilmsSelector} from '../store/allFilms/selectors';
-import {useCommentsSelector, useCurrentFilmSelector, useSimilarFilmsSelector} from '../store/currentFilm/selectors';
+} from '../store/api-actions';
+import {usePromoFilmSelector} from '../store/promo-film/selectors';
+import {useAllFilmsSelector} from '../store/all-films/selectors';
+import {useCommentsSelector, useCurrentFilmSelector, useSimilarFilmsSelector} from '../store/current-film/selectors';
 import {useFavouriteFilmsSelector} from '../store/user/selectors';
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();

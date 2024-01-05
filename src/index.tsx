@@ -6,7 +6,7 @@ import { App } from './app/app';
 import { store } from './store';
 import { Error } from './components/error/error';
 
-import { CheckAuth } from './store/apiActions';
+import { CheckAuth } from './store/api-actions';
 
 store.dispatch(CheckAuth());
 

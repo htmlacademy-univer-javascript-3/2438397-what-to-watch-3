@@ -1,8 +1,8 @@
 import { ReactElement, useState } from 'react';
 
-import { ShowMoreButton } from './showMoreButton';
-import { FilmCard } from '../filmCard/filmCard';
-import { GenresList } from '../genresList/genresList';
+import { ShowMoreButton } from './show-more-button';
+import { FilmCard } from '../film-card/film-card';
+import { GenresList } from '../genres-list/genres-list';
 import { ShortFilmInfo } from '../../types/film';
 
 export type CatalogProps = {

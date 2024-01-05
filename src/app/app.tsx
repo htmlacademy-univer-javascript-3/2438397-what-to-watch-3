@@ -2,18 +2,18 @@ import { ReactElement } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
-import { AppRoute } from './appTypes';
-import { PrivateRoute } from './privateRoute';
+import { AppRoute } from './app-types';
+import { PrivateRoute } from './private-route';
 
-import { MyListPage } from '../pages/myListPage/myListPage';
-import { MainPage } from '../pages/mainPage/mainPage';
-import { AddReviewPage } from '../pages/addReviewPage/addReviewPage';
-import { NotFoundPage } from '../pages/notFoundPage/notFoundPage';
-import { PlayerPage } from '../pages/playerPage/playerPage';
-import { SignInPage } from '../pages/signInPage/signInPage';
+import { MyListPage } from '../pages/my-list-page/my-list-page';
+import { MainPage } from '../pages/main-page/main-page';
+import { AddReviewPage } from '../pages/add-review-page/add-review-page';
+import { NotFoundPage } from '../pages/not-found-page/not-found-page';
+import { PlayerPage } from '../pages/player-page/player-page';
+import { SignInPage } from '../pages/sign-in-page/sign-in-page';
 import {
   FilmOverviewPage,
-} from '../pages/filmOverviewPage/filmOverviewPage';
+} from '../pages/film-overview-page/film-overview-page';
 
 export function App(): ReactElement {
   return (
