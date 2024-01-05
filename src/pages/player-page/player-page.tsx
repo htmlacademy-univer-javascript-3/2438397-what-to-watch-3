@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useRef, useState, MouseEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useCurrentFilm } from '../../hooks';
 import { AppRoute } from '../../app/app-types';
-import { ConvertTimeToPlayerFormat } from '../../helpers/time-converter';
+import { convertTimeToPlayerFormat } from '../../helpers/time-converter';
 
 export function PlayerPage(): ReactElement {
   const id = (useParams() as { id: string }).id;
@@ -84,7 +84,7 @@ export function PlayerPage(): ReactElement {
             </div>
           </div>
           <div className="player__time-value">
-            {ConvertTimeToPlayerFormat(remainTime)}
+            {convertTimeToPlayerFormat(remainTime)}
           </div>
         </div>
 

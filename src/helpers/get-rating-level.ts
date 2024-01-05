@@ -1,4 +1,4 @@
-export function GetRatingLevel(rating: number): string {
+export function getRatingLevel(rating: number): string {
   if (rating <= 2) {
     return 'Bad';
   } else if (rating <= 4) {

@@ -47,13 +47,13 @@ export function FilmCard({
         setNeedToPlay(false);
       }}
     >
-      <div className="small-film-card__image">
+      <Link className="small-film-card__image" to={AppRoute.Film(film.id)}>
         <PreviewPlayer
           videoSrc={film.previewVideoLink}
           posterSrc={film.previewImage}
           isPlaying={isPlayingNow}
         />
-      </div>
+      </Link>
       <h3 className="small-film-card__title">
         <Link className="small-film-card__link" to={AppRoute.Film(film.id)}>
           {film.name}

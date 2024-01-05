@@ -1,18 +1,22 @@
-import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
-import {AppDispatch, AppState} from '../types/action-type';
-import {useCallback, useEffect} from 'react';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, AppState } from '../types/action-type';
+import { useCallback, useEffect } from 'react';
 import {
   FetchAllFilms,
   FetchComments,
   FetchCurrentFilm,
   FetchFavouriteFilms,
   FetchPromoFilm,
-  FetchSimilarFilms
+  FetchSimilarFilms,
 } from '../store/api-actions';
-import {usePromoFilmSelector} from '../store/promo-film/selectors';
-import {useAllFilmsSelector} from '../store/all-films/selectors';
-import {useCommentsSelector, useCurrentFilmSelector, useSimilarFilmsSelector} from '../store/current-film/selectors';
-import {useFavouriteFilmsSelector} from '../store/user/selectors';
+import { usePromoFilmSelector } from '../store/promo-film/selectors';
+import { useAllFilmsSelector } from '../store/all-films/selectors';
+import {
+  useCommentsSelector,
+  useCurrentFilmSelector,
+  useSimilarFilmsSelector,
+} from '../store/current-film/selectors';
+import { useFavouriteFilmsSelector } from '../store/user/selectors';
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 
@@ -28,7 +32,6 @@ export function useFilms() {
   const { data, isLoading, currentGenre } = useAllFilmsSelector();
   return { data, isLoading, currentGenre };
 }
-
 
 export function usePromoFilm() {
   const dispatch = useAppDispatch();
@@ -48,8 +51,8 @@ export function useFavouriteFilms() {
     dispatch(FetchFavouriteFilms());
   }, [dispatch]);
 
-  const {data, isLoading} = useFavouriteFilmsSelector();
-  return {data, isLoading, fetchFavouriteFilmsCallback};
+  const { films, isLoading } = useFavouriteFilmsSelector();
+  return { films, isLoading, fetchFavouriteFilmsCallback };
 }
 
 export function useCurrentFilm(id: string) {
@@ -70,8 +73,8 @@ export function useSimilarFilms(id: string) {
     dispatch(FetchSimilarFilms(id));
   }, [dispatch, id]);
 
-  const { data, isLoading } = useSimilarFilmsSelector();
-  return { data, isLoading };
+  const { films, isLoading } = useSimilarFilmsSelector();
+  return { films: films, isLoading };
 }
 
 export function useComments(id: string) {
@@ -81,6 +84,6 @@ export function useComments(id: string) {
     dispatch(FetchComments(id));
   }, [dispatch, id]);
 
-  const {data, isLoading} = useCommentsSelector();
-  return { data, isLoading };
+  const { comments, isLoading } = useCommentsSelector();
+  return { comments, isLoading };
 }

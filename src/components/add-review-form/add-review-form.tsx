@@ -71,6 +71,11 @@ export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
                   }
                 });
               }}
+              disabled={
+                reviewForm.rating === 0 ||
+                reviewForm.comment.length < 50 ||
+                reviewForm.comment.length > 400
+              }
             >
               Post
             </button>

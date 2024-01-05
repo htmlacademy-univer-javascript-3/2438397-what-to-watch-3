@@ -9,7 +9,7 @@ import { StatusCodes } from 'http-status-codes';
 import { GetToken } from './token-services';
 import { HandleError } from './error-services';
 import { ErrorType } from '../types/error';
-import { GetErrorMessage } from '../helpers/get-error-message';
+import { getErrorMessage } from '../helpers/get-error-message';
 
 const BACKEND_URL = 'https://13.design.pages.academy/wtw';
 const REQUEST_TIMEOUT = 5000;
@@ -44,7 +44,7 @@ export function CreateApiClient(): AxiosInstance {
     (response) => response,
     (error: AxiosError<ErrorType>) => {
       if (error.response && NeedRenderError(error.response)) {
-        HandleError(GetErrorMessage(error.response.data));
+        HandleError(getErrorMessage(error.response.data));
       }
       throw error;
     },

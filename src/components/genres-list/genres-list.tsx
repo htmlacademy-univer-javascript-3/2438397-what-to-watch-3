@@ -12,7 +12,7 @@ export function GenresList({
 }: GenresListProps): ReactElement {
   return (
     <ul className="catalog__genres-list">
-      {genres.map((genre) => (
+      {genres.slice(0, 10).map((genre) => (
         <GenreItem key={genre} name={genre} isActive={genre === activeGenre} />
       ))}
     </ul>

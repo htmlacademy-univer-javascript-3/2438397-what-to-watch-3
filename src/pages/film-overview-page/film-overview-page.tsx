@@ -23,9 +23,8 @@ export function FilmOverviewPage(): ReactElement {
   const [activeTab, setActiveTab] = useState<TabsType>(TabsType.Overview);
 
   const { data: film, isLoading, isNotFound } = useCurrentFilm(id);
-  const { data: similarFilms, isLoading: isSimilarFilmsLoading } =
-    useSimilarFilms(id);
-  const { data: comments, isLoading: isCommentsLoading } = useComments(id);
+  const { films, isLoading: isSimilarFilmsLoading } = useSimilarFilms(id);
+  const { comments, isLoading: isCommentsLoading } = useComments(id);
 
   return (
     <Spinner isLoading={isLoading}>
@@ -127,7 +126,7 @@ export function FilmOverviewPage(): ReactElement {
             <section className="catalog catalog--like-this">
               <h2 className="catalog__title">More like this</h2>
               <Spinner isLoading={isSimilarFilmsLoading}>
-                <Catalog filmsList={similarFilms} />
+                <Catalog filmsList={films} maxFilmsCount={4} />
               </Spinner>
             </section>
             <Footer />

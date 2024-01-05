@@ -1,4 +1,4 @@
-export function GetShortActorsList(actors: string[]) {
+export function getShortActorsList(actors: string[]) {
   if (actors.length <= 4) {
     return actors.join(', ');
   } else {

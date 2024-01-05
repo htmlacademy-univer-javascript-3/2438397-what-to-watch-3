@@ -10,7 +10,7 @@ export type FilmInfo = {
   description: string;
   rating: number;
   scoreCount: number;
-  reviewsNumber: number;
+  scoresCount: number;
   director: string;
   starring: string[];
   runTime: number;

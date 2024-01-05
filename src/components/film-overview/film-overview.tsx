@@ -1,8 +1,8 @@
 import { Fragment, ReactElement } from 'react';
 import { FilmInfo } from '../../types/film';
 import { FilmDescription } from './film-description';
-import { GetShortActorsList } from '../../helpers/get-short-actors-list';
-import { GetRatingLevel } from '../../helpers/get-rating-level';
+import { getShortActorsList } from '../../helpers/get-short-actors-list';
+import { getRatingLevel } from '../../helpers/get-rating-level';
 
 export type FilmOverviewProps = {
   film: FilmInfo | null;
@@ -15,10 +15,10 @@ export function FilmOverview({ film }: FilmOverviewProps): ReactElement {
         <div className="film-rating__score">{film?.rating}</div>
         <p className="film-rating__meta">
           <span className="film-rating__level">
-            {GetRatingLevel(film?.rating || 0)}
+            {getRatingLevel(film?.rating || 0)}
           </span>
           <span className="film-rating__count">
-            {film?.reviewsNumber} ratings
+            {film?.scoresCount} ratings
           </span>
         </p>
       </div>
@@ -30,7 +30,7 @@ export function FilmOverview({ film }: FilmOverviewProps): ReactElement {
           <strong>Director: {film?.director}</strong>
         </p>
         <p className="film-card__starring">
-          <strong>Starring: {GetShortActorsList(film?.starring || [])}</strong>
+          <strong>Starring: {getShortActorsList(film?.starring || [])}</strong>
         </p>
       </div>
     </Fragment>

@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AppDispatch, AppState } from '../types/action-type';
-import {AxiosInstance} from 'axios';
-import {FilmInfo, FilmPromoInfo, ShortFilmInfo} from '../types/film';
+import { AxiosInstance } from 'axios';
+import { FilmInfo, FilmPromoInfo, ShortFilmInfo } from '../types/film';
 import { ApiPath } from '../types/api-path';
 import { User } from '../types/user';
 import { AuthData } from '../types/auth-data';
 import { RemoveToken, SaveToken } from '../services/token-services';
-import {FilmComment} from '../types/film-comment';
+import { FilmComment } from '../types/film-comment';
 
 export const FetchAllFilms = createAsyncThunk<
   ShortFilmInfo[],
@@ -116,7 +116,10 @@ export const postCommentAction = createAsyncThunk<
   }
 >('PostComment', async ({ filmId, comment, rating }, { extra: api }) => {
   try {
-    await api.post<FilmComment>(ApiPath.Comments(filmId), {comment: comment, rating: rating});
+    await api.post<FilmComment>(ApiPath.Comments(filmId), {
+      comment: comment,
+      rating: rating,
+    });
     return true;
   } catch {
     return false;

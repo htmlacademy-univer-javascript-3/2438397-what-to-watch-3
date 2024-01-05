@@ -14,11 +14,11 @@ type CurrentFilmState = {
   data: FilmInfo | null;
   similarFilms: {
     isLoading: boolean;
-    data: ShortFilmInfo[];
+    films: ShortFilmInfo[];
   };
   comments: {
     isLoading: boolean;
-    data: FilmComment[];
+    comments: FilmComment[];
   };
 };
 
@@ -28,11 +28,11 @@ const initialState: CurrentFilmState = {
   data: null,
   similarFilms: {
     isLoading: false,
-    data: [],
+    films: [],
   },
   comments: {
     isLoading: false,
-    data: [],
+    comments: [],
   },
 };
 
@@ -59,7 +59,7 @@ export const currentFilm = createSlice({
       })
       .addCase(FetchSimilarFilms.fulfilled, (state, value) => {
         state.similarFilms.isLoading = false;
-        state.similarFilms.data = value.payload;
+        state.similarFilms.films = value.payload;
       })
       .addCase(FetchSimilarFilms.rejected, (state) => {
         state.similarFilms.isLoading = false;
@@ -69,7 +69,7 @@ export const currentFilm = createSlice({
       })
       .addCase(FetchComments.fulfilled, (state, value) => {
         state.comments.isLoading = false;
-        state.comments.data = value.payload;
+        state.comments.comments = value.payload;
       })
       .addCase(FetchComments.rejected, (state) => {
         state.comments.isLoading = false;

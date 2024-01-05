@@ -22,6 +22,7 @@ export function MainPage(): ReactElement {
             filmsList={filmsWithRelevantGenre}
             genres={genres}
             activeGenre={currentGenre}
+            maxFilmsCount={8}
           />
         </Spinner>
         <Footer />

@@ -7,5 +7,6 @@ export const ApiPath = {
   Film: (id?: string) => `/films/${id || ''}`,
   SimilarFilms: (id?: string) => `/films/${id || ''}/similar`,
   Comments: (id?: string) => `/comments/${id || ''}`,
-  SetFavourite: (id?: string, status?: number) => `favorite/${id || ''}/${status || 0}`,
+  SetFavourite: (id?: string, status?: number) =>
+    `favorite/${id || ''}/${status || 0}`,
 };

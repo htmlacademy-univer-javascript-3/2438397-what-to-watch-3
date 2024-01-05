@@ -11,9 +11,7 @@ import { AddReviewPage } from '../pages/add-review-page/add-review-page';
 import { NotFoundPage } from '../pages/not-found-page/not-found-page';
 import { PlayerPage } from '../pages/player-page/player-page';
 import { SignInPage } from '../pages/sign-in-page/sign-in-page';
-import {
-  FilmOverviewPage,
-} from '../pages/film-overview-page/film-overview-page';
+import { FilmOverviewPage } from '../pages/film-overview-page/film-overview-page';
 
 export function App(): ReactElement {
   return (
@@ -22,35 +20,16 @@ export function App(): ReactElement {
         <Routes>
           <Route
             path={AppRoute.MyList}
-            element={
-              <PrivateRoute
-                child={<MyListPage />}
-              />
-            }
+            element={<PrivateRoute child={<MyListPage />} />}
           />
           <Route path={AppRoute.SingIn} element={<SignInPage />} />
-          <Route
-            path={AppRoute.Root}
-            element={<MainPage />}
-          />
-          <Route
-            path={AppRoute.Film()}
-            element={
-              <FilmOverviewPage />
-            }
-          />
+          <Route path={AppRoute.Root} element={<MainPage />} />
+          <Route path={AppRoute.Film()} element={<FilmOverviewPage />} />
           <Route
             path={AppRoute.AddReview()}
-            element={
-              <AddReviewPage />
-            }
+            element={<PrivateRoute child={<AddReviewPage />} />}
           />
-          <Route
-            path={AppRoute.Player()}
-            element={
-              <PlayerPage />
-            }
-          />
+          <Route path={AppRoute.Player()} element={<PlayerPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

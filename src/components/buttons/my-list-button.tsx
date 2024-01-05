@@ -11,7 +11,7 @@ export type MyListButtonProps = {
 export function MyListButton({
   filmId,
 }: MyListButtonProps): ReactElement | null {
-  const { data: films, fetchFavouriteFilmsCallback } = useFavouriteFilms();
+  const { films, fetchFavouriteFilmsCallback } = useFavouriteFilms();
 
   useEffect(() => {
     fetchFavouriteFilmsCallback();

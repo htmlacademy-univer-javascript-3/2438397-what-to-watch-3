@@ -3,7 +3,8 @@ import { Navigate } from 'react-router-dom';
 
 import { AppRoute } from './app-types';
 import { AuthorizationStatus } from '../types/authorization-status';
-import {useAuthorizationStatusSelector} from '../store/user/selectors';
+import { useAuthorizationStatusSelector } from '../store/user/selectors';
+import { GetToken } from '../services/token-services';
 
 export type AuthorizationProps = {
   child: ReactElement;
@@ -11,8 +12,9 @@ export type AuthorizationProps = {
 
 export function PrivateRoute({ child }: AuthorizationProps): ReactElement {
   const authorizationStatus = useAuthorizationStatusSelector();
-
-  return authorizationStatus === AuthorizationStatus.Auth ? (
+  // sometimes we have valid token, but api request about user is not completed yet, so authorization status is UNKNOWN
+  const hasToken = GetToken() !== '';
+  return authorizationStatus === AuthorizationStatus.Auth || hasToken ? (
     child
   ) : (
     <Navigate to={AppRoute.SingIn} />

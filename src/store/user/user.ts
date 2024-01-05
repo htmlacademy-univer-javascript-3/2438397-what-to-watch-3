@@ -10,21 +10,21 @@ import { User } from '../../types/user';
 import { AuthorizationStatus } from '../../types/authorization-status';
 import { ShortFilmInfo } from '../../types/film';
 
-type User = {
+type UserState = {
   user: User | null;
   authorizationStatus: AuthorizationStatus;
   favouriteFilms: {
     isLoading: boolean;
-    data: ShortFilmInfo[];
+    films: ShortFilmInfo[];
   };
 };
 
-const initialState: User = {
+const initialState: UserState = {
   user: null,
-  authorizationStatus: AuthorizationStatus.NoAuth,
+  authorizationStatus: AuthorizationStatus.Unknown,
   favouriteFilms: {
     isLoading: false,
-    data: [],
+    films: [],
   },
 };
 
@@ -59,7 +59,7 @@ export const user = createSlice({
       })
       .addCase(FetchFavouriteFilms.fulfilled, (state, value) => {
         state.favouriteFilms.isLoading = false;
-        state.favouriteFilms.data = value.payload;
+        state.favouriteFilms.films = value.payload;
       })
       .addCase(FetchFavouriteFilms.rejected, (state) => {
         state.favouriteFilms.isLoading = false;

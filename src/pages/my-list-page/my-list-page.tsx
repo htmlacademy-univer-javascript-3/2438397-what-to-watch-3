@@ -7,7 +7,7 @@ import { useFavouriteFilms } from '../../hooks';
 import { Spinner } from '../../components/spinner/spinner';
 
 export function MyListPage(): ReactElement {
-  const { data: films, isLoading } = useFavouriteFilms();
+  const { films, isLoading } = useFavouriteFilms();
 
   return (
     <Spinner isLoading={isLoading}>
@@ -21,7 +21,7 @@ export function MyListPage(): ReactElement {
           <UserBlock />
         </header>
 
-        <Catalog filmsList={films} />
+        <Catalog filmsList={films} maxFilmsCount={8} />
         <Footer />
       </div>
     </Spinner>
