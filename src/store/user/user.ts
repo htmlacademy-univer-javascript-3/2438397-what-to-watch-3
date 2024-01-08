@@ -4,8 +4,8 @@ import {
   logOut,
   checkAuth,
   fetchFavouriteFilms,
-} from '../api-actions.ts';
-import { Namespace } from '../namespace.ts';
+} from '../api-actions';
+import { Namespace } from '../namespace';
 import { User } from '../../types/user';
 import { AuthorizationStatus } from '../../types/authorization-status';
 import { ShortFilmInfo } from '../../types/film';

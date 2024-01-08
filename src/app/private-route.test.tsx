@@ -8,8 +8,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { createApiClient } from '../services/services';
 import { AppState } from '../types/action-type';
-import { AppThunkDispatch, createUser } from '../mocks/mocks.ts';
-import { Namespace } from '../store/namespace.ts';
+import { AppThunkDispatch, createUser } from '../mocks/mocks';
+import { Namespace } from '../store/namespace';
 import { AuthorizationStatus } from '../types/authorization-status';
 import { ALL_GENRES } from '../store/all-films/all-films';
 import { PrivateRoute } from './private-route';
