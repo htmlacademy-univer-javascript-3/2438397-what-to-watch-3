@@ -11,6 +11,7 @@ export function Star({ value, onClick }: StarProps): ReactElement {
       <input
         className="rating__input"
         id={`star-${value}`}
+        data-testid={`star-${value}`}
         type="radio"
         name="rating"
         value={value}

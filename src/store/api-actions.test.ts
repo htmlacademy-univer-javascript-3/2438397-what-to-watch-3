@@ -75,7 +75,10 @@ describe('Test async actions', () => {
       await store.dispatch(checkAuth());
       const actions = extractActionsTypes(store.getActions());
 
-      expect(actions).toEqual([checkAuth.pending.type, checkAuth.fulfilled.type]);
+      expect(actions).toEqual([
+        checkAuth.pending.type,
+        checkAuth.fulfilled.type,
+      ]);
     });
 
     it('should dispatch "checkAuth.pending" and "checkAuth.rejected" when server response is 400', async () => {
@@ -84,7 +87,10 @@ describe('Test async actions', () => {
       await store.dispatch(checkAuth());
       const actions = extractActionsTypes(store.getActions());
 
-      expect(actions).toEqual([checkAuth.pending.type, checkAuth.rejected.type]);
+      expect(actions).toEqual([
+        checkAuth.pending.type,
+        checkAuth.rejected.type,
+      ]);
     });
   });
 
@@ -102,7 +108,10 @@ describe('Test async actions', () => {
       >;
 
       expect(fetchFilmPromoFulfilled.payload).toEqual(mockFilm);
-      expect(extractedActionsTypes).toEqual([fetchPromoFilm.pending.type, fetchPromoFilm.fulfilled.type]);
+      expect(extractedActionsTypes).toEqual([
+        fetchPromoFilm.pending.type,
+        fetchPromoFilm.fulfilled.type,
+      ]);
     });
 
     it('should dispatch "fetchPromoFilm.pending", "fetchPromoFilm.rejected" when server response is 400', async () => {
@@ -111,13 +120,20 @@ describe('Test async actions', () => {
       await store.dispatch(fetchPromoFilm());
       const actions = extractActionsTypes(store.getActions());
 
-      expect(actions).toEqual([fetchPromoFilm.pending.type, fetchPromoFilm.rejected.type]);
+      expect(actions).toEqual([
+        fetchPromoFilm.pending.type,
+        fetchPromoFilm.rejected.type,
+      ]);
     });
   });
 
   describe('fetchFilms', () => {
     it('should dispatch correct "fetchAllFilmsAction.pending", "fetchAllFilmsAction.fulfilled"', async () => {
-      const mockFilms = [createShortFilmInfo(), createShortFilmInfo(), createShortFilmInfo()];
+      const mockFilms = [
+        createShortFilmInfo(),
+        createShortFilmInfo(),
+        createShortFilmInfo(),
+      ];
       mockAdapter.onGet('/films').reply(200, mockFilms);
 
       await store.dispatch(fetchAllFilms());
@@ -129,7 +145,10 @@ describe('Test async actions', () => {
       >;
 
       expect(fetchAllFilmsFulfilled.payload).toEqual(mockFilms);
-      expect(extractedActionsTypes).toEqual([fetchAllFilms.pending.type, fetchAllFilms.fulfilled.type]);
+      expect(extractedActionsTypes).toEqual([
+        fetchAllFilms.pending.type,
+        fetchAllFilms.fulfilled.type,
+      ]);
     });
 
     it('should dispatch "fetchAllFilms.pending", "fetchAllFilms.rejected" when server response is 400', async () => {
@@ -138,7 +157,10 @@ describe('Test async actions', () => {
       await store.dispatch(fetchAllFilms());
       const actions = extractActionsTypes(store.getActions());
 
-      expect(actions).toEqual([fetchAllFilms.pending.type, fetchAllFilms.rejected.type]);
+      expect(actions).toEqual([
+        fetchAllFilms.pending.type,
+        fetchAllFilms.rejected.type,
+      ]);
     });
   });
 
@@ -160,7 +182,10 @@ describe('Test async actions', () => {
       >;
 
       expect(fetchFavoriteFulfilled.payload).toEqual(mockFilms);
-      expect(extractedActionsTypes).toEqual([fetchFavouriteFilms.pending.type, fetchFavouriteFilms.fulfilled.type]);
+      expect(extractedActionsTypes).toEqual([
+        fetchFavouriteFilms.pending.type,
+        fetchFavouriteFilms.fulfilled.type,
+      ]);
     });
 
     it('should dispatch "fetchFavouriteFilms.pending", "fetchFavouriteFilms.rejected" when response 400', async () => {
@@ -169,7 +194,10 @@ describe('Test async actions', () => {
       await store.dispatch(fetchFavouriteFilms());
       const actions = extractActionsTypes(store.getActions());
 
-      expect(actions).toEqual([fetchFavouriteFilms.pending.type, fetchFavouriteFilms.rejected.type]);
+      expect(actions).toEqual([
+        fetchFavouriteFilms.pending.type,
+        fetchFavouriteFilms.rejected.type,
+      ]);
     });
   });
 
@@ -187,7 +215,10 @@ describe('Test async actions', () => {
       >;
 
       expect(fetchFilmFulfilled.payload).toEqual(mockFilm);
-      expect(extractedActionsTypes).toEqual([fetchCurrentFilm.pending.type, fetchCurrentFilm.fulfilled.type]);
+      expect(extractedActionsTypes).toEqual([
+        fetchCurrentFilm.pending.type,
+        fetchCurrentFilm.fulfilled.type,
+      ]);
     });
 
     it('should dispatch "fetchFilm.pending", "fetchFilm.rejected" when server response 400', async () => {
@@ -196,13 +227,20 @@ describe('Test async actions', () => {
       await store.dispatch(fetchCurrentFilm('id'));
       const actions = extractActionsTypes(store.getActions());
 
-      expect(actions).toEqual([fetchCurrentFilm.pending.type, fetchCurrentFilm.rejected.type]);
+      expect(actions).toEqual([
+        fetchCurrentFilm.pending.type,
+        fetchCurrentFilm.rejected.type,
+      ]);
     });
   });
 
   describe('fetchSimilarFilms', () => {
     it('should dispatch correct "fetchSimilarFilms.pending", "fetchSimilarFilms.fulfilled"', async () => {
-      const mockFilms = [createShortFilmInfo(), createShortFilmInfo(), createShortFilmInfo()];
+      const mockFilms = [
+        createShortFilmInfo(),
+        createShortFilmInfo(),
+        createShortFilmInfo(),
+      ];
       mockAdapter.onGet('/films/abc/similar').reply(200, mockFilms);
 
       await store.dispatch(fetchSimilarFilms('abc'));
@@ -214,7 +252,10 @@ describe('Test async actions', () => {
       >;
 
       expect(fetchSimilarFilmsFulfilled.payload).toEqual(mockFilms);
-      expect(extractedActionsTypes).toEqual([fetchSimilarFilms.pending.type, fetchSimilarFilms.fulfilled.type]);
+      expect(extractedActionsTypes).toEqual([
+        fetchSimilarFilms.pending.type,
+        fetchSimilarFilms.fulfilled.type,
+      ]);
     });
 
     it('should dispatch "fetchSimilarFilms.pending", "fetchSimilarFilms.rejected" when response is 400', async () => {
@@ -223,7 +264,10 @@ describe('Test async actions', () => {
       await store.dispatch(fetchSimilarFilms('abc'));
       const actions = extractActionsTypes(store.getActions());
 
-      expect(actions).toEqual([fetchSimilarFilms.pending.type, fetchSimilarFilms.rejected.type]);
+      expect(actions).toEqual([
+        fetchSimilarFilms.pending.type,
+        fetchSimilarFilms.rejected.type,
+      ]);
     });
   });
 
@@ -232,13 +276,20 @@ describe('Test async actions', () => {
       mockAdapter.onPost('/comments/abc').reply(200);
 
       const result = await store.dispatch(
-        postCommentAction({ filmId: 'abc', comment: 'comment text', rating: 5 }),
+        postCommentAction({
+          filmId: 'abc',
+          comment: 'comment text',
+          rating: 5,
+        }),
       );
 
       const actions = extractActionsTypes(store.getActions());
 
       expect(result.payload).toEqual(true);
-      expect(actions).toEqual([postCommentAction.pending.type, postCommentAction.fulfilled.type]);
+      expect(actions).toEqual([
+        postCommentAction.pending.type,
+        postCommentAction.fulfilled.type,
+      ]);
     });
 
     it('should dispatch "postCommentAction.pending", "postCommentAction.rejected" when server response 400', async () => {
@@ -271,7 +322,10 @@ describe('Test async actions', () => {
       >;
 
       expect(fetchFilmCommentsFulfilled.payload).toEqual(mockReviews);
-      expect(extractedActionsTypes).toEqual([fetchComments.pending.type, fetchComments.fulfilled.type]);
+      expect(extractedActionsTypes).toEqual([
+        fetchComments.pending.type,
+        fetchComments.fulfilled.type,
+      ]);
     });
 
     it('should dispatch "fetchComments.pending", "fetchComments.rejected" when response 400', async () => {
@@ -280,7 +334,10 @@ describe('Test async actions', () => {
       await store.dispatch(fetchComments('id'));
       const actions = extractActionsTypes(store.getActions());
 
-      expect(actions).toEqual([fetchComments.pending.type, fetchComments.rejected.type]);
+      expect(actions).toEqual([
+        fetchComments.pending.type,
+        fetchComments.rejected.type,
+      ]);
     });
   });
 });
