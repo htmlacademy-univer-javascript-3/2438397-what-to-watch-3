@@ -13,8 +13,8 @@ import {
   AppThunkDispatch,
   createShortFilmInfo,
   createUser,
-} from '../../mocks/mocks.ts';
-import { Namespace } from '../../store/namespace.ts';
+} from '../../mocks/mocks';
+import { Namespace } from '../../store/namespace';
 import { AuthorizationStatus } from '../../types/authorization-status';
 import { MyListButton } from './my-list-button';
 

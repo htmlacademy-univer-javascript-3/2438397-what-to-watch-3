@@ -1,5 +1,5 @@
 import { describe, expect } from 'vitest';
-import { render, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { configureMockStore } from '@jedmao/redux-mock-store';
 import { Provider } from 'react-redux';
 import { Action } from '@reduxjs/toolkit';
@@ -10,8 +10,7 @@ import { createApiClient } from '../../services/services';
 import { AppState } from '../../types/action-type';
 import { AppThunkDispatch } from '../../mocks/mocks';
 import { Namespace } from '../../store/namespace';
-import { ALL_GENRES } from '../../store/all-films/all-films';
-import { GenresList } from './genres-list';
+import {Error} from './error.js';
 
 describe('genres-list', () => {
   const apiClient = createApiClient();
@@ -22,36 +21,37 @@ describe('genres-list', () => {
     AppThunkDispatch
   >(middleware);
 
-  const store = mockStoreCreator({
-    [Namespace.AllFilms]: {
-      isLoading: false,
-      data: [],
-      currentGenre: ALL_GENRES,
-    },
-  });
-
-  it('should call action to save correct genre', () => {
+  it('should render error from store', () => {
+    const store = mockStoreCreator({
+      [Namespace.Error]: {
+        error: 'Very long error text'
+      },
+    });
     const { getByText } = render(
       <Provider store={store}>
         <BrowserRouter>
-          <GenresList
-            genres={[ALL_GENRES, 'drama', 'not drama', 'comedy']}
-            activeGenre={ALL_GENRES}
-          />
+          <Error />
         </BrowserRouter>
       </Provider>,
     );
 
-    const genre = getByText('drama');
-    act(() => {
-      genre.click();
-    });
+    expect(getByText('Very long error text')).not.toBeUndefined();
+  });
 
-    expect(store.getActions()).toEqual([
-      {
-        type: 'allFilms/SetGenre',
-        payload: 'drama',
+  it('Should not render error when null', () => {
+    const store = mockStoreCreator({
+      [Namespace.Error]: {
+        error: null
       },
-    ]);
+    });
+    const { queryByText } = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Error />
+        </BrowserRouter>
+      </Provider>,
+    );
+
+    expect(queryByText('Very long error text')).toBeNull();
   });
 });

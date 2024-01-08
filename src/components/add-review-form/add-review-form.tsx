@@ -20,6 +20,7 @@ export type AddReviewFormProps = {
 export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [disabled, setDisabled] = useState(false);
 
   const [reviewForm, setReviewForm] = useState<ReviewForm>({
     id: id,
@@ -58,6 +59,7 @@ export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
               type="submit"
               onClick={(event) => {
                 event.preventDefault();
+                setDisabled(true);
                 dispatch(
                   postCommentAction({
                     filmId: id,
@@ -65,6 +67,7 @@ export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
                     rating: reviewForm.rating,
                   }),
                 ).then((result) => {
+                  setDisabled(false);
                   if (result.payload) {
                     navigate(AppRoute.Film(id));
                   }
@@ -73,7 +76,8 @@ export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
               disabled={
                 reviewForm.rating === 0 ||
                 reviewForm.comment.length < 50 ||
-                reviewForm.comment.length > 400
+                reviewForm.comment.length > 400 ||
+                disabled
               }
             >
               Post

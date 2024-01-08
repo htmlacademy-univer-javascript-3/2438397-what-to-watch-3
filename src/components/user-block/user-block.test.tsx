@@ -8,11 +8,11 @@ import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import { createApiClient } from '../../services/services';
 import { AppState } from '../../types/action-type';
-import { AppThunkDispatch, createUser } from '../../mocks/mocks.ts';
-import { Namespace } from '../../store/namespace.ts';
+import { AppThunkDispatch, createUser } from '../../mocks/mocks';
+import { Namespace } from '../../store/namespace';
 import { UserBlock } from './user-block';
 import { AuthorizationStatus } from '../../types/authorization-status';
-import { logOut } from '../../store/api-actions.ts';
+import { logOut } from '../../store/api-actions';
 
 describe('header', () => {
   const apiClient = createApiClient();
