@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { ShortFilmInfo } from '../../types/film';
 import { Namespace } from '../namespace';
-import { FetchAllFilms } from '../api-actions';
+import { fetchAllFilms } from '../api-actions';
 
 export const ALL_GENRES = 'All genres';
 
@@ -28,14 +28,14 @@ export const allFilms = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(FetchAllFilms.pending, (state) => {
+      .addCase(fetchAllFilms.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(FetchAllFilms.fulfilled, (state, value) => {
+      .addCase(fetchAllFilms.fulfilled, (state, value) => {
         state.isLoading = false;
         state.data = value.payload;
       })
-      .addCase(FetchAllFilms.rejected, (state) => {
+      .addCase(fetchAllFilms.rejected, (state) => {
         state.isLoading = false;
       });
   },

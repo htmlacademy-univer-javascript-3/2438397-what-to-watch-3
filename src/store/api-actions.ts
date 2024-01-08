@@ -5,10 +5,10 @@ import { FilmInfo, FilmPromoInfo, ShortFilmInfo } from '../types/film';
 import { ApiPath } from '../types/api-path';
 import { User } from '../types/user';
 import { AuthData } from '../types/auth-data';
-import { RemoveToken, SaveToken } from '../services/token-services';
+import { removeToken, saveToken } from '../services/token-services';
 import { FilmComment } from '../types/film-comment';
 
-export const FetchAllFilms = createAsyncThunk<
+export const fetchAllFilms = createAsyncThunk<
   ShortFilmInfo[],
   undefined,
   {
@@ -21,7 +21,7 @@ export const FetchAllFilms = createAsyncThunk<
   return data;
 });
 
-export const FetchPromoFilm = createAsyncThunk<
+export const fetchPromoFilm = createAsyncThunk<
   FilmPromoInfo,
   undefined,
   {
@@ -34,7 +34,7 @@ export const FetchPromoFilm = createAsyncThunk<
   return data;
 });
 
-export const FetchFavouriteFilms = createAsyncThunk<
+export const fetchFavouriteFilms = createAsyncThunk<
   ShortFilmInfo[],
   undefined,
   {
@@ -47,7 +47,7 @@ export const FetchFavouriteFilms = createAsyncThunk<
   return data;
 });
 
-export const PostFavouriteFilm = createAsyncThunk<
+export const postFavouriteFilm = createAsyncThunk<
   boolean,
   { filmId: string; status: number },
   {
@@ -64,7 +64,7 @@ export const PostFavouriteFilm = createAsyncThunk<
   }
 });
 
-export const FetchCurrentFilm = createAsyncThunk<
+export const fetchCurrentFilm = createAsyncThunk<
   FilmInfo,
   string,
   {
@@ -77,7 +77,7 @@ export const FetchCurrentFilm = createAsyncThunk<
   return data;
 });
 
-export const FetchSimilarFilms = createAsyncThunk<
+export const fetchSimilarFilms = createAsyncThunk<
   ShortFilmInfo[],
   string,
   {
@@ -90,7 +90,7 @@ export const FetchSimilarFilms = createAsyncThunk<
   return data;
 });
 
-export const FetchComments = createAsyncThunk<
+export const fetchComments = createAsyncThunk<
   FilmComment[],
   string,
   {
@@ -126,7 +126,7 @@ export const postCommentAction = createAsyncThunk<
   }
 });
 
-export const CheckAuth = createAsyncThunk<
+export const checkAuth = createAsyncThunk<
   User,
   undefined,
   {
@@ -139,7 +139,7 @@ export const CheckAuth = createAsyncThunk<
   return data;
 });
 
-export const LogIn = createAsyncThunk<
+export const logIn = createAsyncThunk<
   User,
   AuthData,
   {
@@ -152,11 +152,11 @@ export const LogIn = createAsyncThunk<
     email,
     password,
   });
-  SaveToken(data.token);
+  saveToken(data.token);
   return data;
 });
 
-export const LogOut = createAsyncThunk<
+export const logOut = createAsyncThunk<
   void,
   undefined,
   {
@@ -166,5 +166,5 @@ export const LogOut = createAsyncThunk<
   }
 >('LogOut', async (_arg, { extra: api }) => {
   await api.delete(ApiPath.Logout);
-  RemoveToken();
+  removeToken();
 });

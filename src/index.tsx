@@ -6,9 +6,9 @@ import { App } from './app/app';
 import { store } from './store';
 import { Error } from './components/error/error';
 
-import { CheckAuth } from './store/api-actions';
+import { checkAuth } from './store/api-actions';
 
-store.dispatch(CheckAuth());
+store.dispatch(checkAuth());
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,

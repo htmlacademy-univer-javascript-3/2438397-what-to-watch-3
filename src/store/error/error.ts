@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Namespace } from '../namespace.ts';
+import { Namespace } from '../namespace';
 import { SetError } from './actions';
 
 type ErrorState = {

@@ -8,7 +8,9 @@ export function getErrorMessage(error: ErrorType): string | null {
   }
   const errors: string[] = [];
   for (const detail of error.details) {
-    errors.push(detail.messages.join(', '));
+    if (detail.messages.length !== 0) {
+      errors.push(detail.messages.join(', '));
+    }
   }
   if (errors.length === 0) {
     errors.push(error.message);

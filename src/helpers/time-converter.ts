@@ -7,11 +7,13 @@ function getNumberWithLeadZeroes(number: number): string {
 
 export function convertTimeToPlayerFormat(time: number): string {
   if (time < 60 * 60) {
-    return `-${getNumberWithLeadZeroes(time / 60)}:${getNumberWithLeadZeroes(
-      time % 60,
-    )}`;
+    return `-${getNumberWithLeadZeroes(
+      Math.floor(time / 60),
+    )}:${getNumberWithLeadZeroes(time % 60)}`;
   }
-  return `-${getNumberWithLeadZeroes(time / 3600)}:${getNumberWithLeadZeroes(
-    (time % 3600) / 60,
+  return `-${getNumberWithLeadZeroes(
+    Math.floor(time / 3600),
+  )}:${getNumberWithLeadZeroes(
+    Math.floor((time % 3600) / 60),
   )}:${getNumberWithLeadZeroes(time % 60)}`;
 }

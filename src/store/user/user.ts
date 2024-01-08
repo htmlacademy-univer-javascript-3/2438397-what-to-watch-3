@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  LogIn,
-  LogOut,
-  CheckAuth,
-  FetchFavouriteFilms,
+  logIn,
+  logOut,
+  checkAuth,
+  fetchFavouriteFilms,
 } from '../api-actions.ts';
 import { Namespace } from '../namespace.ts';
 import { User } from '../../types/user';
@@ -34,34 +34,34 @@ export const user = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(CheckAuth.fulfilled, (state, value) => {
+      .addCase(checkAuth.fulfilled, (state, value) => {
         state.authorizationStatus = AuthorizationStatus.Auth;
         state.user = value.payload;
       })
-      .addCase(CheckAuth.rejected, (state) => {
+      .addCase(checkAuth.rejected, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
       })
-      .addCase(LogIn.fulfilled, (state, value) => {
+      .addCase(logIn.fulfilled, (state, value) => {
         state.authorizationStatus = AuthorizationStatus.Auth;
         state.user = value.payload;
       })
-      .addCase(LogIn.rejected, (state) => {
+      .addCase(logIn.rejected, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
       })
-      .addCase(LogOut.fulfilled, (state) => {
+      .addCase(logOut.fulfilled, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
       })
-      .addCase(LogOut.rejected, (state) => {
+      .addCase(logOut.rejected, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
       })
-      .addCase(FetchFavouriteFilms.pending, (state) => {
+      .addCase(fetchFavouriteFilms.pending, (state) => {
         state.favouriteFilms.isLoading = true;
       })
-      .addCase(FetchFavouriteFilms.fulfilled, (state, value) => {
+      .addCase(fetchFavouriteFilms.fulfilled, (state, value) => {
         state.favouriteFilms.isLoading = false;
         state.favouriteFilms.films = value.payload;
       })
-      .addCase(FetchFavouriteFilms.rejected, (state) => {
+      .addCase(fetchFavouriteFilms.rejected, (state) => {
         state.favouriteFilms.isLoading = false;
       });
   },

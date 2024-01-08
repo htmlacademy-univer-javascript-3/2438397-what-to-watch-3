@@ -1,11 +1,11 @@
-import { FilmInfo, ShortFilmInfo } from '../../types/film.ts';
+import { FilmInfo, ShortFilmInfo } from '../../types/film';
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  FetchCurrentFilm,
-  FetchSimilarFilms,
-  FetchComments,
-} from '../api-actions.ts';
-import { Namespace } from '../namespace.ts';
+  fetchCurrentFilm,
+  fetchSimilarFilms,
+  fetchComments,
+} from '../api-actions';
+import { Namespace } from '../namespace';
 import { FilmComment } from '../../types/film-comment';
 
 type CurrentFilmState = {
@@ -42,36 +42,36 @@ export const currentFilm = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(FetchCurrentFilm.pending, (state) => {
+      .addCase(fetchCurrentFilm.pending, (state) => {
         state.isLoading = true;
         state.isNotFound = false;
       })
-      .addCase(FetchCurrentFilm.fulfilled, (state, value) => {
+      .addCase(fetchCurrentFilm.fulfilled, (state, value) => {
         state.isLoading = false;
         state.data = value.payload;
       })
-      .addCase(FetchCurrentFilm.rejected, (state) => {
+      .addCase(fetchCurrentFilm.rejected, (state) => {
         state.isLoading = false;
         state.isNotFound = true;
       })
-      .addCase(FetchSimilarFilms.pending, (state) => {
+      .addCase(fetchSimilarFilms.pending, (state) => {
         state.similarFilms.isLoading = true;
       })
-      .addCase(FetchSimilarFilms.fulfilled, (state, value) => {
+      .addCase(fetchSimilarFilms.fulfilled, (state, value) => {
         state.similarFilms.isLoading = false;
         state.similarFilms.films = value.payload;
       })
-      .addCase(FetchSimilarFilms.rejected, (state) => {
+      .addCase(fetchSimilarFilms.rejected, (state) => {
         state.similarFilms.isLoading = false;
       })
-      .addCase(FetchComments.pending, (state) => {
+      .addCase(fetchComments.pending, (state) => {
         state.comments.isLoading = true;
       })
-      .addCase(FetchComments.fulfilled, (state, value) => {
+      .addCase(fetchComments.fulfilled, (state, value) => {
         state.comments.isLoading = false;
         state.comments.comments = value.payload;
       })
-      .addCase(FetchComments.rejected, (state) => {
+      .addCase(fetchComments.rejected, (state) => {
         state.comments.isLoading = false;
       });
   },

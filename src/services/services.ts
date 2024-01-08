@@ -6,7 +6,7 @@ import axios, {
 } from 'axios';
 import { StatusCodes } from 'http-status-codes';
 
-import { GetToken } from './token-services';
+import { getToken } from './token-services';
 import { HandleError } from './error-services';
 import { ErrorType } from '../types/error';
 import { getErrorMessage } from '../helpers/get-error-message';
@@ -20,18 +20,18 @@ const RENDERABLE_ERRORS = [
   StatusCodes.NOT_FOUND,
 ];
 
-function NeedRenderError(response: AxiosResponse): boolean {
+function needRenderError(response: AxiosResponse): boolean {
   return RENDERABLE_ERRORS.includes(response.status);
 }
 
-export function CreateApiClient(): AxiosInstance {
+export function createApiClient(): AxiosInstance {
   const api = axios.create({
     baseURL: BACKEND_URL,
     timeout: REQUEST_TIMEOUT,
   });
 
   api.interceptors.request.use((config: AxiosRequestConfig) => {
-    const token = GetToken();
+    const token = getToken();
 
     if (token && config.headers) {
       config.headers['x-token'] = token;
@@ -43,7 +43,7 @@ export function CreateApiClient(): AxiosInstance {
   api.interceptors.response.use(
     (response) => response,
     (error: AxiosError<ErrorType>) => {
-      if (error.response && NeedRenderError(error.response)) {
+      if (error.response && needRenderError(error.response)) {
         HandleError(getErrorMessage(error.response.data));
       }
       throw error;
@@ -52,3 +52,5 @@ export function CreateApiClient(): AxiosInstance {
 
   return api;
 }
+
+export const CLIENT = createApiClient();

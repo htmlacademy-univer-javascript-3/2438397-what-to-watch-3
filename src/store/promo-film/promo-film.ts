@@ -1,7 +1,7 @@
-import { FilmPromoInfo } from '../../types/film.ts';
+import { FilmPromoInfo } from '../../types/film';
 import { createSlice } from '@reduxjs/toolkit';
-import { FetchPromoFilm } from '../api-actions.ts';
-import { Namespace } from '../namespace.ts';
+import { fetchPromoFilm } from '../api-actions';
+import { Namespace } from '../namespace';
 
 type PromoFilmState = {
   isLoading: boolean;
@@ -19,14 +19,14 @@ export const promoFilm = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(FetchPromoFilm.pending, (state) => {
+      .addCase(fetchPromoFilm.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(FetchPromoFilm.fulfilled, (state, value) => {
+      .addCase(fetchPromoFilm.fulfilled, (state, value) => {
         state.isLoading = false;
         state.data = value.payload;
       })
-      .addCase(FetchPromoFilm.rejected, (state) => {
+      .addCase(fetchPromoFilm.rejected, (state) => {
         state.isLoading = false;
       });
   },

@@ -2,7 +2,7 @@ import { ReactElement, useEffect } from 'react';
 import { useAuthorizationStatusSelector } from '../../store/user/selectors';
 import { AuthorizationStatus } from '../../types/authorization-status';
 import { useAppDispatch, useFavouriteFilms } from '../../hooks';
-import { PostFavouriteFilm } from '../../store/api-actions';
+import { postFavouriteFilm } from '../../store/api-actions';
 
 export type MyListButtonProps = {
   filmId: string;
@@ -29,7 +29,7 @@ export function MyListButton({
         event.preventDefault();
         if (filmId) {
           dispatch(
-            PostFavouriteFilm({
+            postFavouriteFilm({
               filmId: filmId,
               status: isFavourite ? 0 : 1,
             }),

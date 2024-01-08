@@ -5,7 +5,7 @@ import { Footer } from '../../components/footer/footer';
 import { Logo } from '../../components/logo/logo';
 import { useAppDispatch } from '../../hooks';
 import { AuthData } from '../../types/auth-data';
-import { LogIn } from '../../store/api-actions';
+import { logIn } from '../../store/api-actions';
 import { AppRoute } from '../../app/app-types';
 import { AuthorizationStatus } from '../../types/authorization-status';
 import { useAuthorizationStatusSelector } from '../../store/user/selectors';
@@ -76,7 +76,7 @@ export function SignInPage(): ReactElement {
               type="submit"
               onClick={(event) => {
                 event.preventDefault();
-                dispatch(LogIn(authData));
+                dispatch(logIn(authData));
               }}
             >
               Sign in

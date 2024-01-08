@@ -3,7 +3,7 @@ import { useAppDispatch } from '../../hooks';
 import { AuthorizationStatus } from '../../types/authorization-status';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../app/app-types';
-import { LogOut } from '../../store/api-actions';
+import { logOut } from '../../store/api-actions';
 import {
   useAuthorizationStatusSelector,
   useUserSelector,
@@ -33,7 +33,7 @@ export function UserBlock(): ReactElement {
           className="user-block__link"
           onClick={(event) => {
             event.preventDefault();
-            dispatch(LogOut());
+            dispatch(logOut());
           }}
         >
           Sign out

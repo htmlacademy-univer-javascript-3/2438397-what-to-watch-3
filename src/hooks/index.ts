@@ -2,12 +2,12 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, AppState } from '../types/action-type';
 import { useCallback, useEffect } from 'react';
 import {
-  FetchAllFilms,
-  FetchComments,
-  FetchCurrentFilm,
-  FetchFavouriteFilms,
-  FetchPromoFilm,
-  FetchSimilarFilms,
+  fetchAllFilms,
+  fetchComments,
+  fetchCurrentFilm,
+  fetchFavouriteFilms,
+  fetchPromoFilm,
+  fetchSimilarFilms,
 } from '../store/api-actions';
 import { usePromoFilmSelector } from '../store/promo-film/selectors';
 import { useAllFilmsSelector } from '../store/all-films/selectors';
@@ -26,7 +26,7 @@ export function useFilms() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(FetchAllFilms());
+    dispatch(fetchAllFilms());
   }, [dispatch]);
 
   const { data, isLoading, currentGenre } = useAllFilmsSelector();
@@ -37,7 +37,7 @@ export function usePromoFilm() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(FetchPromoFilm());
+    dispatch(fetchPromoFilm());
   }, [dispatch]);
 
   const { data, isLoading } = usePromoFilmSelector();
@@ -48,7 +48,7 @@ export function useFavouriteFilms() {
   const dispatch = useAppDispatch();
 
   const fetchFavouriteFilmsCallback = useCallback(() => {
-    dispatch(FetchFavouriteFilms());
+    dispatch(fetchFavouriteFilms());
   }, [dispatch]);
 
   const { films, isLoading } = useFavouriteFilmsSelector();
@@ -59,7 +59,7 @@ export function useCurrentFilm(id: string) {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(FetchCurrentFilm(id));
+    dispatch(fetchCurrentFilm(id));
   }, [dispatch, id]);
 
   const { data, isLoading, isNotFound } = useCurrentFilmSelector();
@@ -70,7 +70,7 @@ export function useSimilarFilms(id: string) {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(FetchSimilarFilms(id));
+    dispatch(fetchSimilarFilms(id));
   }, [dispatch, id]);
 
   const { films, isLoading } = useSimilarFilmsSelector();
@@ -81,7 +81,7 @@ export function useComments(id: string) {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(FetchComments(id));
+    dispatch(fetchComments(id));
   }, [dispatch, id]);
 
   const { comments, isLoading } = useCommentsSelector();
