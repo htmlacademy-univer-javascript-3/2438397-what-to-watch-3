@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 
 import { createApiClient } from '../services/services';
-import { AppState } from '../../types/action-type';
+import { AppState } from '../types/action-type';
 import { AppThunkDispatch, createUser } from '../mocks/mocks.ts';
 import { Namespace } from '../store/namespace.ts';
 import { AuthorizationStatus } from '../types/authorization-status';
