@@ -40,7 +40,10 @@ export function MyListButton({
       }}
     >
       <svg viewBox="0 0 19 20" width="19" height="20">
-        <use xlinkHref={isFavourite ? '#in-list' : '#add'}></use>
+        <use
+          data-testid={'svg-is-added'}
+          xlinkHref={isFavourite ? '#in-list' : '#add'}
+        />
       </svg>
       <span>My list</span>
       <span className="film-card__count">{films.length}</span>

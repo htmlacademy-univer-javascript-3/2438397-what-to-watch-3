@@ -51,8 +51,7 @@ export function AddReviewForm({ id }: AddReviewFormProps): ReactElement {
             placeholder="Review text"
             onChange={(e) =>
               setReviewForm({ ...reviewForm, comment: e.target.value })}
-          >
-          </textarea>
+          />
           <div className="add-review__submit">
             <button
               className="add-review__btn"
