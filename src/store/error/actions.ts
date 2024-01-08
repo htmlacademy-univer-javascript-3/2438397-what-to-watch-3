@@ -1,6 +1,6 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ActionType, AppDispatch, AppState } from '../../types/actionType';
+import { ActionType, AppDispatch, AppState } from '../../types/action-type';
 import { AxiosInstance } from 'axios';
 
 //Error setter

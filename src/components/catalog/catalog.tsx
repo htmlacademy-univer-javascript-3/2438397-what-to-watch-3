@@ -1,26 +1,26 @@
 import { ReactElement, useState } from 'react';
 
-import { ShowMoreButton } from './showMoreButton';
-import { FilmCard } from '../filmCard/filmCard';
-import { GenresList } from '../genresList/genresList';
+import { ShowMoreButton } from './show-more-button';
+import { FilmCard } from '../film-card/film-card';
+import { GenresList } from '../genres-list/genres-list';
 import { ShortFilmInfo } from '../../types/film';
 
 export type CatalogProps = {
   filmsList: ShortFilmInfo[];
   genres?: string[];
   activeGenre?: string;
+  maxFilmsCount: number;
 };
-
-const FILMS_PER_PAGE = 8;
 
 export function Catalog({
   filmsList,
   genres,
   activeGenre,
+  maxFilmsCount,
 }: CatalogProps): ReactElement {
   const [, setActiveFilm] = useState<string | null>();
   const [visibleFilmsCount, setVisibleFilmsCount] =
-    useState<number>(FILMS_PER_PAGE);
+    useState<number>(maxFilmsCount);
 
   return (
     <section className="catalog">
@@ -44,7 +44,7 @@ export function Catalog({
       {visibleFilmsCount < filmsList.length && (
         <ShowMoreButton
           onClick={() =>
-            setVisibleFilmsCount(visibleFilmsCount + FILMS_PER_PAGE)}
+            setVisibleFilmsCount(visibleFilmsCount + maxFilmsCount)}
         />
       )}
     </section>
