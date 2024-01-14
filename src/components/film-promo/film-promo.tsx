@@ -7,8 +7,11 @@ import { MyListButton } from '../my-list-button/my-list-button';
 import { usePromoFilm } from '../../hooks';
 import { Spinner } from '../spinner/spinner';
 import { AppRoute } from '../../app/app-types';
+import { AuthorizationStatus } from '../../types/authorization-status';
+import { useAuthorizationStatusSelector } from '../../store/user/selectors';
 
 export function FilmPromo(): ReactElement {
+  const authStatus = useAuthorizationStatusSelector();
   const { data: film, isLoading } = usePromoFilm();
 
   return (
@@ -45,7 +48,9 @@ export function FilmPromo(): ReactElement {
 
               <div className="film-card__buttons">
                 <PlayButton filmId={film?.id || ''} />
-                <MyListButton filmId={film?.id || ''} />
+                {
+                  authStatus === AuthorizationStatus.Auth && <MyListButton filmId={film?.id || ''} />
+                }
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import {Fragment, ReactElement} from 'react';
 import { Logo } from '../logo/logo';
 import { UserBlock } from '../user-block/user-block';
 import { PlayButton } from '../play-button/play-button';
@@ -40,9 +40,11 @@ export function FilmOverviewHeader({
 
           <div className="film-card__buttons">
             <PlayButton filmId={film?.id || ''} />
-            <MyListButton filmId={film?.id || ''} />
             {authorizationStatus === AuthorizationStatus.Auth && (
-              <AddReviewButton filmId={film?.id || ''} />
+              <Fragment>
+                <MyListButton filmId={film?.id || ''} />
+                <AddReviewButton filmId={film?.id || ''} />
+              </Fragment>
             )}
           </div>
         </div>
