@@ -10,7 +10,7 @@ import { createApiClient } from '../../services/services';
 import { AppState } from '../../types/action-type';
 import { AppThunkDispatch } from '../../mocks/mocks';
 import { Namespace } from '../../store/namespace';
-import {Error} from './error.js';
+import { Error } from './error.js';
 
 describe('genres-list', () => {
   const apiClient = createApiClient();
@@ -24,7 +24,7 @@ describe('genres-list', () => {
   it('should render error from store', () => {
     const store = mockStoreCreator({
       [Namespace.Error]: {
-        error: 'Very long error text'
+        error: 'Very long error text',
       },
     });
     const { getByText } = render(
@@ -41,7 +41,7 @@ describe('genres-list', () => {
   it('Should not render error when null', () => {
     const store = mockStoreCreator({
       [Namespace.Error]: {
-        error: null
+        error: null,
       },
     });
     const { queryByText } = render(

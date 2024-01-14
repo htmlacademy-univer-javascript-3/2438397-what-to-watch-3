@@ -48,9 +48,9 @@ export function FilmPromo(): ReactElement {
 
               <div className="film-card__buttons">
                 <PlayButton filmId={film?.id || ''} />
-                {
-                  authStatus === AuthorizationStatus.Auth && <MyListButton filmId={film?.id || ''} />
-                }
+                {authStatus === AuthorizationStatus.Auth && (
+                  <MyListButton filmId={film?.id || ''} />
+                )}
               </div>
             </div>
           </div>

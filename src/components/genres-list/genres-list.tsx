@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import { GenreItem } from './genre-item';
 
-const MAX_GENRES_COUNT = 9;
+const MAX_GENRES_COUNT = 10;
 
 export type GenresListProps = {
   genres: string[];

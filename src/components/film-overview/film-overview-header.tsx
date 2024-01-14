@@ -1,4 +1,4 @@
-import {Fragment, ReactElement} from 'react';
+import { Fragment, ReactElement } from 'react';
 import { Logo } from '../logo/logo';
 import { UserBlock } from '../user-block/user-block';
 import { PlayButton } from '../play-button/play-button';
