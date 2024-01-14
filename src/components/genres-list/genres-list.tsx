@@ -1,6 +1,8 @@
 import { ReactElement } from 'react';
 import { GenreItem } from './genre-item';
 
+const MAX_GENRES_COUNT = 10;
+
 export type GenresListProps = {
   genres: string[];
   activeGenre?: string;
@@ -12,7 +14,7 @@ export function GenresList({
 }: GenresListProps): ReactElement {
   return (
     <ul className="catalog__genres-list">
-      {genres.slice(0, 10).map((genre) => (
+      {genres.slice(0, MAX_GENRES_COUNT).map((genre) => (
         <GenreItem key={genre} name={genre} isActive={genre === activeGenre} />
       ))}
     </ul>

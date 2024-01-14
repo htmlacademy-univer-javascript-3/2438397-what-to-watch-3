@@ -7,7 +7,7 @@ import axios, {
 import { StatusCodes } from 'http-status-codes';
 
 import { getToken } from './token-services';
-import { HandleError } from './error-services';
+import { handleError } from './error-services';
 import { ErrorType } from '../types/error';
 import { getErrorMessage } from '../helpers/get-error-message';
 
@@ -44,7 +44,7 @@ export function createApiClient(): AxiosInstance {
     (response) => response,
     (error: AxiosError<ErrorType>) => {
       if (error.response && needRenderError(error.response)) {
-        HandleError(getErrorMessage(error.response.data));
+        handleError(getErrorMessage(error.response.data));
       }
       throw error;
     },

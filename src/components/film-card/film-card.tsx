@@ -54,11 +54,11 @@ export function FilmCard({
           isPlaying={isPlayingNow}
         />
       </Link>
-      <h3 className="small-film-card__title">
-        <Link className="small-film-card__link" to={AppRoute.Film(film.id)}>
+      <Link className="small-film-card__link" to={AppRoute.Film(film.id)}>
+        <h3 className="small-film-card__title">
           {film.name}
-        </Link>
-      </h3>
+        </h3>
+      </Link>
     </article>
   );
 }

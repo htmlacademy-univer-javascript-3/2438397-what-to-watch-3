@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  logIn,
-  logOut,
-  checkAuth,
-  fetchFavouriteFilms,
-} from '../api-actions';
+import { logIn, logOut, checkAuth, fetchFavouriteFilms } from '../api-actions';
 import { Namespace } from '../namespace';
 import { User } from '../../types/user';
 import { AuthorizationStatus } from '../../types/authorization-status';

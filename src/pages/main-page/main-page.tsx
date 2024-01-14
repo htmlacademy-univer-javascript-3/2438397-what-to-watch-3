@@ -7,8 +7,10 @@ import { filterFilms } from '../../helpers/filter-films';
 import { extractAllGenres } from '../../helpers/extract-distinct-genres';
 import { Spinner } from '../../components/spinner/spinner';
 
+const MAX_FILMS_CARDS_CONT = 8;
+
 export function MainPage(): ReactElement {
-  const { data: films, currentGenre, isLoading } = useFilms();
+  const { films, currentGenre, isLoading } = useFilms();
 
   const filmsWithRelevantGenre = filterFilms(films, currentGenre);
   const genres = extractAllGenres(films);
@@ -22,7 +24,7 @@ export function MainPage(): ReactElement {
             filmsList={filmsWithRelevantGenre}
             genres={genres}
             activeGenre={currentGenre}
-            maxFilmsCount={8}
+            maxFilmsCount={MAX_FILMS_CARDS_CONT}
           />
         </Spinner>
         <Footer />

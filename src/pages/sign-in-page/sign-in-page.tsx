@@ -9,6 +9,7 @@ import { logIn } from '../../store/api-actions';
 import { AppRoute } from '../../app/app-types';
 import { AuthorizationStatus } from '../../types/authorization-status';
 import { useAuthorizationStatusSelector } from '../../store/user/selectors';
+import { handleError } from '../../services/error-services';
 
 export function SignInPage(): ReactElement {
   const authorizationStatus = useAuthorizationStatusSelector();
@@ -76,7 +77,15 @@ export function SignInPage(): ReactElement {
               type="submit"
               onClick={(event) => {
                 event.preventDefault();
-                dispatch(logIn(authData));
+                if (!authData.email && !authData.password) {
+                  handleError('Email and password should not be empty');
+                } else if (!authData.email) {
+                  handleError('Email should not be empty');
+                } else if (!authData.password) {
+                  handleError('Password should not be empty');
+                } else {
+                  dispatch(logIn(authData));
+                }
               }}
             >
               Sign in

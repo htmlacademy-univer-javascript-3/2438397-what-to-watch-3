@@ -1,12 +1,17 @@
 import { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 import { Logo } from '../logo/logo';
 import { UserBlock } from '../user-block/user-block';
-import { PlayButton } from '../buttons/play-button';
-import { MyListButton } from '../buttons/my-list-button';
+import { PlayButton } from '../play-button/play-button';
+import { MyListButton } from '../my-list-button/my-list-button';
 import { usePromoFilm } from '../../hooks';
 import { Spinner } from '../spinner/spinner';
+import { AppRoute } from '../../app/app-types';
+import { AuthorizationStatus } from '../../types/authorization-status';
+import { useAuthorizationStatusSelector } from '../../store/user/selectors';
 
 export function FilmPromo(): ReactElement {
+  const authStatus = useAuthorizationStatusSelector();
   const { data: film, isLoading } = usePromoFilm();
 
   return (
@@ -25,14 +30,14 @@ export function FilmPromo(): ReactElement {
 
         <div className="film-card__wrap">
           <div className="film-card__info">
-            <div className="film-card__poster">
+            <Link className="film-card__poster" to={AppRoute.Film(film?.id)}>
               <img
                 src={film?.posterImage}
                 alt={film?.name}
                 width="218"
                 height="327"
               />
-            </div>
+            </Link>
 
             <div className="film-card__desc">
               <h2 className="film-card__title">{film?.name}</h2>
@@ -43,7 +48,9 @@ export function FilmPromo(): ReactElement {
 
               <div className="film-card__buttons">
                 <PlayButton filmId={film?.id || ''} />
-                <MyListButton filmId={film?.id || ''} />
+                {authStatus === AuthorizationStatus.Auth && (
+                  <MyListButton filmId={film?.id || ''} />
+                )}
               </div>
             </div>
           </div>

@@ -29,8 +29,8 @@ export function useFilms() {
     dispatch(fetchAllFilms());
   }, [dispatch]);
 
-  const { data, isLoading, currentGenre } = useAllFilmsSelector();
-  return { data, isLoading, currentGenre };
+  const { films, isLoading, currentGenre } = useAllFilmsSelector();
+  return { films, isLoading, currentGenre };
 }
 
 export function usePromoFilm() {

@@ -1,6 +1,4 @@
 import { ReactElement, useEffect } from 'react';
-import { useAuthorizationStatusSelector } from '../../store/user/selectors';
-import { AuthorizationStatus } from '../../types/authorization-status';
 import { useAppDispatch, useFavouriteFilms } from '../../hooks';
 import { postFavouriteFilm } from '../../store/api-actions';
 
@@ -18,11 +16,9 @@ export function MyListButton({
   }, [fetchFavouriteFilmsCallback]);
   const isFavourite = films.some((film) => film.id === filmId);
 
-  const authorizationStatus = useAuthorizationStatusSelector();
-
   const dispatch = useAppDispatch();
 
-  return authorizationStatus === AuthorizationStatus.NoAuth ? null : (
+  return (
     <button
       className="btn btn--list film-card__button"
       onClick={(event) => {

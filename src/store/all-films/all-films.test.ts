@@ -11,7 +11,7 @@ describe('all-films', () => {
   const initialState = {
     isLoading: false,
     currentGenre: ALL_GENRES,
-    data: [],
+    films: [],
   };
 
   it('should set loading state', () => {
@@ -22,7 +22,7 @@ describe('all-films', () => {
     ).toEqual({
       isLoading: true,
       currentGenre: ALL_GENRES,
-      data: [],
+      films: [],
     });
   });
 
@@ -35,7 +35,7 @@ describe('all-films', () => {
     ).toEqual({
       isLoading: false,
       currentGenre: ALL_GENRES,
-      data: filmsList,
+      films: filmsList,
     });
   });
 
@@ -48,7 +48,7 @@ describe('all-films', () => {
     ).toEqual({
       isLoading: false,
       currentGenre: 'genre',
-      data: [],
+      films: [],
     });
   });
 });
