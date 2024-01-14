@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { Footer } from '../../components/footer/footer';
 import { Catalog } from '../../components/catalog/catalog';
 import { Logo } from '../../components/logo/logo';
@@ -6,8 +6,13 @@ import { UserBlock } from '../../components/user-block/user-block';
 import { useFavouriteFilms } from '../../hooks';
 import { Spinner } from '../../components/spinner/spinner';
 
+const MAX_MY_FILMS_CARDS_COUNT = 8;
+
 export function MyListPage(): ReactElement {
-  const { films, isLoading } = useFavouriteFilms();
+  const { films, isLoading, fetchFavouriteFilmsCallback } = useFavouriteFilms();
+  useEffect(() => {
+    fetchFavouriteFilmsCallback();
+  }, [fetchFavouriteFilmsCallback]);
 
   return (
     <Spinner isLoading={isLoading}>
@@ -21,7 +26,7 @@ export function MyListPage(): ReactElement {
           <UserBlock />
         </header>
 
-        <Catalog filmsList={films} maxFilmsCount={8} />
+        <Catalog filmsList={films} maxFilmsCount={MAX_MY_FILMS_CARDS_COUNT} />
         <Footer />
       </div>
     </Spinner>

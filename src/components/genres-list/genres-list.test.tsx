@@ -25,7 +25,7 @@ describe('genres-list', () => {
   const store = mockStoreCreator({
     [Namespace.AllFilms]: {
       isLoading: false,
-      data: [],
+      films: [],
       currentGenre: ALL_GENRES,
     },
   });

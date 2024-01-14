@@ -8,13 +8,13 @@ export const ALL_GENRES = 'All genres';
 
 type FilmsState = {
   isLoading: boolean;
-  data: ShortFilmInfo[];
+  films: ShortFilmInfo[];
   currentGenre: string;
 };
 
 const initialState: FilmsState = {
   isLoading: false,
-  data: [],
+  films: [],
   currentGenre: ALL_GENRES,
 };
 
@@ -33,7 +33,7 @@ export const allFilms = createSlice({
       })
       .addCase(fetchAllFilms.fulfilled, (state, value) => {
         state.isLoading = false;
-        state.data = value.payload;
+        state.films = value.payload;
       })
       .addCase(fetchAllFilms.rejected, (state) => {
         state.isLoading = false;

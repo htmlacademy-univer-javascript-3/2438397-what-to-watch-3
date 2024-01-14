@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
 import { Logo } from '../logo/logo';
 import { UserBlock } from '../user-block/user-block';
-import { PlayButton } from '../buttons/play-button';
-import { MyListButton } from '../buttons/my-list-button';
-import { AddReviewButton } from '../buttons/add-review-button';
+import { PlayButton } from '../play-button/play-button';
+import { MyListButton } from '../my-list-button/my-list-button';
+import { AddReviewButton } from '../add-review-button/add-review-button';
 import { FilmInfo } from '../../types/film';
 import { AuthorizationStatus } from '../../types/authorization-status';
 import { useAuthorizationStatusSelector } from '../../store/user/selectors';

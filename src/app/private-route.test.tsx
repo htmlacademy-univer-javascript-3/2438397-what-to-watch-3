@@ -29,7 +29,7 @@ describe('private-route', () => {
     store = mockStoreCreator({
       [Namespace.AllFilms]: {
         isLoading: false,
-        data: [],
+        films: [],
         currentGenre: ALL_GENRES,
       },
     });
