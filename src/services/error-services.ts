@@ -3,7 +3,7 @@ import { ClearError } from '../store/error/actions';
 import { store } from '../store';
 import { calculateErrorTimeout } from '../helpers/calculate-error-timeout';
 
-export function HandleError(message: string | null): void {
+export function handleError(message: string | null): void {
   if (message === null) {
     return;
   }
